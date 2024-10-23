@@ -1,0 +1,75 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AttackBehaviour : MonoBehaviour
+{
+    [SerializeField] private GameObject _hitbox = null;
+    [SerializeField] private GameObject _weaponTemplate = null;
+    [SerializeField] private GameObject _socket = null;
+    [SerializeField] private List<Transform> _AttackSockets = new List<Transform>();
+    [SerializeField] private float _fireRate = 1.0f;
+
+
+    private GameObject _weapon = null;
+    private bool _isAttacking = false;
+    private float _attackTimer = 0.0f;
+
+    void Awake()
+    {
+        //spawn guns
+        if (_weaponTemplate != null && _socket != null)
+        {
+            _weapon = Instantiate(_weaponTemplate,
+                _socket.transform, true);
+            _weapon.transform.localPosition = Vector3.zero;
+            _weapon.transform.localRotation = Quaternion.identity;
+        }
+
+    }
+    private void Update()
+    {
+        //handle the countdown of the fire timer
+        if (_attackTimer > 0.0f)
+            _attackTimer -= Time.deltaTime;
+
+        if (_attackTimer <= 0.0f && _isAttacking)
+            SpawnAttackHitBox();
+
+        _isAttacking = false;
+    }
+
+    private void SpawnAttackHitBox()
+    {
+        //no bullet to fire
+        if (_hitbox == null)
+            return;
+
+        for (int i = 0; i < _AttackSockets.Count; i++)
+        {
+            Instantiate(_hitbox, _AttackSockets[i].position, _AttackSockets[i].rotation);
+        }
+
+        //set the time so we respect the firerate
+        _attackTimer += 1.0f / _fireRate;
+
+        //_onFireEvent?.Invoke();
+        StartCoroutine(SwordSwing());
+
+    }
+
+    public void Attack()
+    {
+        _isAttacking = true;
+    }
+
+    IEnumerator SwordSwing()
+    {
+        _weapon.GetComponent<Animator>().Play("sword slash");
+        yield return new WaitForSeconds(1.0f);
+        _weapon.GetComponent<Animator>().Play("New State");
+    }
+}
+
+
+
