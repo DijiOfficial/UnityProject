@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     public float CurrentHealth { get { return _currentHealth; } }
 
     public delegate void HealthChange(float startHealth, float currentHealth);
-    public event HealthChange OnHealthChanged;
+    //public event HealthChange OnHealthChanged;
 
     void Awake()
     {
@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     {
         _currentHealth -= amount;
 
-        OnHealthChanged?.Invoke(_startHealth, _currentHealth);
+        //OnHealthChanged?.Invoke(_startHealth, _currentHealth);
         if (_currentHealth <= 0)
             Kill();
     }

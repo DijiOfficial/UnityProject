@@ -6,7 +6,7 @@ public class AttackBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject _hitbox = null;
     [SerializeField] private GameObject _weaponTemplate = null;
-    [SerializeField] private GameObject _socket = null;
+    [SerializeField] private GameObject _weaponSocket = null;
     [SerializeField] private List<Transform> _AttackSockets = new List<Transform>();
     [SerializeField] private float _fireRate = 1.0f;
 
@@ -18,10 +18,10 @@ public class AttackBehaviour : MonoBehaviour
     void Awake()
     {
         //spawn guns
-        if (_weaponTemplate != null && _socket != null)
+        if (_weaponTemplate != null && _weaponSocket != null)
         {
             _weapon = Instantiate(_weaponTemplate,
-                _socket.transform, true);
+                _weaponSocket.transform, true);
             _weapon.transform.localPosition = Vector3.zero;
             _weapon.transform.localRotation = Quaternion.identity;
         }
@@ -41,12 +41,14 @@ public class AttackBehaviour : MonoBehaviour
 
     private void SpawnAttackHitBox()
     {
+        Debug.Log("SpawnAttackHitBox");
         //no bullet to fire
         if (_hitbox == null)
             return;
 
         for (int i = 0; i < _AttackSockets.Count; i++)
         {
+            Debug.Log("Spawned attack");
             Instantiate(_hitbox, _AttackSockets[i].position, _AttackSockets[i].rotation);
         }
 
@@ -54,7 +56,8 @@ public class AttackBehaviour : MonoBehaviour
         _attackTimer += 1.0f / _fireRate;
 
         //_onFireEvent?.Invoke();
-        StartCoroutine(SwordSwing());
+        if (_weapon != null)
+            StartCoroutine(SwordSwing());
 
     }
 
@@ -66,7 +69,7 @@ public class AttackBehaviour : MonoBehaviour
     IEnumerator SwordSwing()
     {
         _weapon.GetComponent<Animator>().Play("sword slash");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.367f);
         _weapon.GetComponent<Animator>().Play("New State");
     }
 }

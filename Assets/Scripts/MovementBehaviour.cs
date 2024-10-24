@@ -1,61 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
+
 public class MovementBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private float _movementSpeed = 1.0f;
+    protected float _movementSpeed = 1.0f;
 
     [SerializeField]
-    private float _jumpStrength = 10.0f;
+    protected float _jumpStrength = 10.0f;
 
-    private Rigidbody _rigidBody;
+    protected Rigidbody _rigidbody;
 
-    private Vector3 _desiredMovementDirection = Vector3.zero;
+    protected Vector3 _desiredMovementDirection = Vector3.zero;
+    protected GameObject _target;
 
-    private bool _grounded = false;
-
-    private const float GROUND_CHECK_DISTANCE = 0.2f;
-    private const string GROUND_LAYER = "Ground";
-
+    protected bool _isGrounded = false;
+    protected const float GROUND_CHECK_DISTANCE = 0.2f;
+    protected const string GROUND_STRING = "Ground";
     public Vector3 DesiredMovementDirection
     {
         get { return _desiredMovementDirection; }
         set { _desiredMovementDirection = value; }
     }
-
-    private void Awake()
+    public GameObject Target
     {
-        _rigidBody = GetComponent<Rigidbody>();
+        get { return _target; }
+        set { _target = value; }
     }
-
-    private void FixedUpdate()
+    protected virtual void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+    protected virtual void FixedUpdate()
     {
         HandleMovement();
 
-        //check if there is ground beneath our feet
-        _grounded = Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, GROUND_CHECK_DISTANCE, LayerMask.GetMask(GROUND_LAYER));
+        _isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, GROUND_CHECK_DISTANCE, LayerMask.GetMask(GROUND_STRING));
     }
-
-    private void HandleMovement()
+    protected virtual void HandleMovement()
     {
-        if (_rigidBody == null) return;
+        if (_rigidbody == null) return;
 
-        Vector3 movement = _desiredMovementDirection.normalized;
-        movement *= _movementSpeed;
+        Vector3 movement = _movementSpeed * _desiredMovementDirection.normalized;
 
-        //maintain vertical velocity as it was otherwise gravity would be stripped out
-        movement.y = _rigidBody.velocity.y;
-        _rigidBody.velocity = movement;
+        movement.y = _rigidbody.velocity.y;
+        _rigidbody.velocity = movement;
     }
+
     public void Jump()
     {
-        if (_grounded)
-            _rigidBody.AddForce(Vector3.up * _jumpStrength, ForceMode.Impulse);
+        if (_isGrounded)
+            _rigidbody.AddForce(Vector3.up * _jumpStrength, ForceMode.Impulse);
     }
 }
-
-
-
-
