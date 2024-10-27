@@ -41,14 +41,12 @@ public class AttackBehaviour : MonoBehaviour
 
     private void SpawnAttackHitBox()
     {
-        Debug.Log("SpawnAttackHitBox");
         //no bullet to fire
         if (_hitbox == null)
             return;
 
         for (int i = 0; i < _AttackSockets.Count; i++)
         {
-            Debug.Log("Spawned attack");
             Instantiate(_hitbox, _AttackSockets[i].position, _AttackSockets[i].rotation);
         }
 

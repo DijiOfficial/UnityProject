@@ -20,6 +20,8 @@ public class RotatePlayer : MonoBehaviour
 
     private void Update()
     {
+        if (!_orientation) return;
+
         float mouseX = Input.GetAxis("Mouse X") * SensX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * SensY * Time.deltaTime;
 

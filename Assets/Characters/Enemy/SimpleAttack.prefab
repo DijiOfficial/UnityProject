@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 0.2
-  _damage: 5
+  _damage: 55
 --- !u!54 &6009248178603601143
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -31,7 +31,10 @@ public class PlayerCharacter : BasicCharacter
         //we bind a callback to it instead of continiously monitoring input
         _jumpAction.performed += HandleJumpInput;
     }
-
+    protected void OnDestroy()
+    {
+        _jumpAction.performed -= HandleJumpInput;
+    }
     private void OnEnable()
     {
         if (_inputAsset == null) return;
