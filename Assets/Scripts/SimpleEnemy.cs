@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class SimpleEnemy : BasicCharacter
@@ -8,8 +9,15 @@ public class SimpleEnemy : BasicCharacter
     [SerializeField] private float _attackRange = 2.0f;
     //[SerializeField] GameObject _attackVFXTemplate = null;
     //private bool _hasAttacked = false;
-
-
+    protected override void Awake()
+    {
+        base.Awake();
+        StaticVariablesManager._enemyCount++;
+    }
+    void OnDestroy()
+    {
+        StaticVariablesManager._enemyCount--;
+    }
     private void Start()
     {
         //expensive method, use with caution
@@ -57,11 +65,6 @@ public class SimpleEnemy : BasicCharacter
             //we do this with a delay so other logic (like player feedback and the                   attack, will have the time to execute)
             //Invoke("Kill", 0.2f);
         }
-    }
-
-    void Kill()
-    {
-        Destroy(gameObject);
     }
 }
 
