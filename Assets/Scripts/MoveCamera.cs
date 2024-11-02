@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    public Transform _cameraPosition;
+    //rename to player eyes
+    public Transform _cameraTransform;
     private void Update()
     {
-        if (!_cameraPosition) return;
+        if (!_cameraTransform) return;
 
-        transform.position = _cameraPosition.position;
+        transform.position = _cameraTransform.position;
     }
 }

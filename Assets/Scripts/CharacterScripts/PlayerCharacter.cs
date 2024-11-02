@@ -13,7 +13,7 @@ public class PlayerCharacter : BasicCharacter
     private InputActionReference _movementReferenceZ;
 
     [SerializeField]
-    private Transform _orientation;
+    private Transform _playerTransform;
 
     private InputAction _jumpAction;
     private InputAction _attackAction;
@@ -61,12 +61,9 @@ public class PlayerCharacter : BasicCharacter
         float movementInputX = _movementReferenceX.action.ReadValue<float>();
         float movementInputZ = _movementReferenceZ.action.ReadValue<float>();
 
-        Vector3 movement = movementInputX * _orientation.right + movementInputZ * _orientation.forward;
+        Vector3 movement = movementInputX * _playerTransform.right + movementInputZ * _playerTransform.forward;
         
         _movementBehaviour.DesiredMovementDirection = movement;
-
-        //if (movement != Vector3.zero)
-        //    transform.forward = movement;
     }
     private void HandleJumpInput(InputAction.CallbackContext context)
     {

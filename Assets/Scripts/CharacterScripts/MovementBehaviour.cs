@@ -31,6 +31,7 @@ public class MovementBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.freezeRotation = true;
     }
     protected virtual void FixedUpdate()
     {

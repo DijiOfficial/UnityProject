@@ -228,7 +228,7 @@ MonoBehaviour:
     type: 3}
   _movementReferenceZ: {fileID: 1750992828205935584, guid: 9e0212d800064c943bdf2d0781a94d24,
     type: 3}
-  _orientation: {fileID: 7569278944301559609}
+  _playerTransform: {fileID: 7569278944301559609}
 --- !u!114 &5435519264482052261
 MonoBehaviour:
   m_ObjectHideFlags: 0

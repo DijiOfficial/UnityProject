@@ -280,12 +280,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2616368601255430995}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &712600699 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-    type: 3}
-  m_PrefabInstance: {fileID: 4503336738964105642}
-  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &855980645
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1130,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678020733516788040, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
-      propertyPath: _cameraPosition
+      propertyPath: _cameraTransform
       value: 
       objectReference: {fileID: 1041007026}
     - target: {fileID: 4515311279028933481, guid: ca3529bc11e60704bbdc71c507f13795,
@@ -1185,19 +1179,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
-      propertyPath: _orientation
-      value: 
-      objectReference: {fileID: 1395554185}
-    - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: _armOrientation
+      propertyPath: _armTranform
       value: 
       objectReference: {fileID: 1217402237}
     - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
-      propertyPath: _minimapCameraTransform
+      propertyPath: _playerTransform
       value: 
-      objectReference: {fileID: 712600699}
+      objectReference: {fileID: 1395554185}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

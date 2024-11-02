@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687c0f4aeff4ad748ad0146c557d3bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraPosition: {fileID: 0}
+  _cameraTransform: {fileID: 0}
 --- !u!1001 &630390562346074648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,6 +60,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7223491558484771064, guid: 24f2d9d09a7ab0946a6d0984d99aa4be,
+        type: 3}
+      propertyPath: _minimapCameraTransform
+      value: 
+      objectReference: {fileID: 4626071980123345010}
     - target: {fileID: 8511888802972572774, guid: 24f2d9d09a7ab0946a6d0984d99aa4be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -162,12 +167,12 @@ PrefabInstance:
     - target: {fileID: 2710318787844163351, guid: 467489ffd2e7f0b49aa0f30268b4d1b3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2710318787844163351, guid: 467489ffd2e7f0b49aa0f30268b4d1b3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2710318787844163351, guid: 467489ffd2e7f0b49aa0f30268b4d1b3,
         type: 3}

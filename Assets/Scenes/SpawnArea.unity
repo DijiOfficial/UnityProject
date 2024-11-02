@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678020733516788040, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
-      propertyPath: _cameraPosition
+      propertyPath: _cameraTransform
       value: 
       objectReference: {fileID: 1946382795}
     - target: {fileID: 4515311279028933481, guid: ca3529bc11e60704bbdc71c507f13795,
@@ -375,62 +375,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
-      propertyPath: _orientation
-      value: 
-      objectReference: {fileID: 10256752}
-    - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: _armOrientation
+      propertyPath: _armTranform
       value: 
       objectReference: {fileID: 10256753}
     - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
-      propertyPath: _minimapCameraTranform
+      propertyPath: _playerTransform
       value: 
-      objectReference: {fileID: 300195831}
-    - target: {fileID: 7818644419206251232, guid: ca3529bc11e60704bbdc71c507f13795,
-        type: 3}
-      propertyPath: _minimapCameraTransform
-      value: 
-      objectReference: {fileID: 300195831}
+      objectReference: {fileID: 10256752}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca3529bc11e60704bbdc71c507f13795, type: 3}
---- !u!4 &300195831 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4626071980123345010, guid: ca3529bc11e60704bbdc71c507f13795,
-    type: 3}
-  m_PrefabInstance: {fileID: 300195830}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &443014866
 GameObject:
   m_ObjectHideFlags: 0

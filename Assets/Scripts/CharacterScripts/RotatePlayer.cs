@@ -5,8 +5,8 @@ public class RotatePlayer : MonoBehaviour
 {
     public float SensX;
     public float SensY;
-    public Transform _orientation;
-    public Transform _armOrientation;
+    public Transform _playerTransform;
+    public Transform _armTranform;
     public Transform _minimapCameraTransform;
 
     private float _rotationX = 0;
@@ -21,7 +21,7 @@ public class RotatePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (!_orientation) return;
+        if (!_playerTransform || !_armTranform || !_minimapCameraTransform) return;
 
         float mouseX = Input.GetAxis("Mouse X") * SensX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * SensY * Time.deltaTime;
@@ -32,8 +32,8 @@ public class RotatePlayer : MonoBehaviour
         _rotationY += mouseX;
 
         transform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
-        _orientation.rotation = Quaternion.Euler(0, _rotationY, 0);
-        _armOrientation.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
+        _playerTransform.rotation = Quaternion.Euler(0, _rotationY, 0);
+        _armTranform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
         _minimapCameraTransform.rotation = Quaternion.Euler(90, 0, -_rotationY);
     }
 
