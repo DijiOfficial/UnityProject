@@ -7,6 +7,7 @@ public class RotatePlayer : MonoBehaviour
     public float SensY;
     public Transform _orientation;
     public Transform _armOrientation;
+    public Transform _minimapCameraTransform;
 
     private float _rotationX = 0;
     private float _rotationY = 0;
@@ -33,6 +34,7 @@ public class RotatePlayer : MonoBehaviour
         transform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
         _orientation.rotation = Quaternion.Euler(0, _rotationY, 0);
         _armOrientation.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
+        _minimapCameraTransform.rotation = Quaternion.Euler(90, 0, -_rotationY);
     }
 
     

@@ -9,10 +9,10 @@ public class RandomSpawn : MonoBehaviour
     private Transform _playerTransform;
     private void Start()
     {
-        GameObject player = GameObject.Find("Player");
+        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
         if (player != null)
         {
-            _playerTransform = player.transform;
+            _playerTransform = player.GetComponent<Transform>();
         }
         else
         {
