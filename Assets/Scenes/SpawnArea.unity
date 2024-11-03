@@ -836,7 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 10256752}
   _maxSlideTime: 0.4
-  _SlideCooldownTotal: 0.2
+  _SlideCooldownTotal: 0.4
   _slideForce: 1000
 --- !u!1 &822431386
 GameObject:
@@ -1614,8 +1614,8 @@ Transform:
   m_GameObject: {fileID: 1892571580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.13052624, w: 0.9914449}
-  m_LocalPosition: {x: -5.79, y: 1.78, z: 30.25}
-  m_LocalScale: {x: 60, y: 1, z: 2.5}
+  m_LocalPosition: {x: -5.79, y: 1.78, z: 22.03}
+  m_LocalScale: {x: 60, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 464563619}
