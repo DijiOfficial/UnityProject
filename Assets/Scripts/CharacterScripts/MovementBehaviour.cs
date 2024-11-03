@@ -182,14 +182,12 @@ public class MovementBehaviour : MonoBehaviour
 
         if (IsOnSlope() && !_isJumpingOffSlope)
         {
-            Debug.Log("OnSlope");
             _rigidbody.AddForce(_movementSpeed * speedMultiplier * GetSlopeMoveDirection(), ForceMode.Force);
             if (_rigidbody.velocity.y > 0)
                 _rigidbody.AddForce(Vector3.down * 80.0f, ForceMode.Force);
         }
         else
         {
-            Debug.Log("Not OnSlope");
             Vector3 movement = _movementSpeed * speedMultiplier * _desiredMovementDirection.normalized;
 
             if(_isGrounded)
