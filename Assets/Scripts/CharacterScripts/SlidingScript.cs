@@ -67,9 +67,7 @@ public class SlidingScript : MonoBehaviour
 
             _slideTimer -= Time.deltaTime;
         }
-
-        // _movementBehaviourScript.IsSliding down a slope
-        else
+        else // _movementBehaviourScript.IsSliding down a slope
         {
             _rigidbody.AddForce(_movementBehaviourScript.GetSlopeMoveDirection() * _slideForce, ForceMode.Force);
         }

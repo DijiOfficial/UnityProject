@@ -57,7 +57,7 @@ public class PlayerCharacter : BasicCharacter
     }
     void HandleMovementInput()
     {
-        if (_movementBehaviour.IsSliding) return;
+        //if (_movementBehaviour.IsSliding && !_movementBehaviour.IsOnSlope()) return;
 
         if (_movementBehaviour == null || _movementReferenceX == null || _movementReferenceZ == null)
             return;

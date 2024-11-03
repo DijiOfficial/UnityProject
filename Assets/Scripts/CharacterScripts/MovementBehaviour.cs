@@ -19,6 +19,8 @@ public class MovementBehaviour : MonoBehaviour
     [Header("Jumping")]
     [SerializeField] protected float _jumpStrength;
     [SerializeField] protected float _airMultiplier;
+    private bool _isJumping = false;
+    private float _jumpTimer;
 
     [Header("Crouching")]
     [SerializeField] protected float _crouchHeight;
@@ -114,6 +116,14 @@ public class MovementBehaviour : MonoBehaviour
         //just landed
         if (isInAir && _isGrounded)
             _rigidbody.velocity = new Vector3(0, 0, 0);
+
+        if (_isJumping)
+        {
+            _jumpTimer += Time.deltaTime;
+            if (_jumpTimer > 0.1f)
+                _isJumping = false;
+        }
+
     }
     protected virtual void Update()
     {
@@ -123,7 +133,7 @@ public class MovementBehaviour : MonoBehaviour
         if (_isGrounded)
         {
             _rigidbody.drag = _groundDrag;
-            if (_rigidbody.velocity.y < 0 && _isJumpingOffSlope)
+            if (_isJumpingOffSlope && !_isJumping)
             {
                 _isJumpingOffSlope = false;
                 _rigidbody.velocity = new Vector3(0, 0, 0);
@@ -172,12 +182,14 @@ public class MovementBehaviour : MonoBehaviour
 
         if (IsOnSlope() && !_isJumpingOffSlope)
         {
+            Debug.Log("OnSlope");
             _rigidbody.AddForce(_movementSpeed * speedMultiplier * GetSlopeMoveDirection(), ForceMode.Force);
             if (_rigidbody.velocity.y > 0)
                 _rigidbody.AddForce(Vector3.down * 80.0f, ForceMode.Force);
         }
         else
         {
+            Debug.Log("Not OnSlope");
             Vector3 movement = _movementSpeed * speedMultiplier * _desiredMovementDirection.normalized;
 
             if(_isGrounded)
@@ -213,10 +225,11 @@ public class MovementBehaviour : MonoBehaviour
         if (_isGrounded)
         {
             _isSliding = false;
-
+            _isJumping = true;
+            _jumpTimer = 0.0f;
             _isJumpingOffSlope = true;
-            
-            //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
             if (_isCrouching)
                 _rigidbody.AddForce(_jumpStrength * 0.5f * Vector3.up, ForceMode.Impulse);
             else
