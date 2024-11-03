@@ -179,9 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc85daa20a157a46abb25a87b8c3120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upwardStrength: 18
-  _slowFallForce: 30
-  _hoverHeight: 1
+  _upwardStrength: 21
+  _hoverHeight: 0.5
   _attractionRange: 5
   _moveTowardsPlayerSpeed: 14
   _playerCenterOffset: 1

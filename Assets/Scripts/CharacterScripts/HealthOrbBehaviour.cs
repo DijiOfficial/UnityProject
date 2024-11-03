@@ -6,7 +6,6 @@ public class HealthOrbBehaviour : MonoBehaviour
 {
     [Header("Spawn Force")]
     [SerializeField] protected float _upwardStrength;
-    [SerializeField] private float _slowFallForce = 2f;
     [SerializeField] private float _hoverHeight = 100f;
 
     [Header("Player Interaction")]

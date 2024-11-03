@@ -7,6 +7,9 @@ public class SimpleEnemy : BasicCharacter
 {
     private GameObject _playerTarget = null;
     [SerializeField] private float _attackRange = 2.0f;
+    [SerializeField] private GameObject _healthOrbTemplate = null;
+    [SerializeField] private int _numberOfOrbs = 1; 
+
     //[SerializeField] GameObject _attackVFXTemplate = null;
     //private bool _hasAttacked = false;
     protected override void Awake()
@@ -17,6 +20,15 @@ public class SimpleEnemy : BasicCharacter
     void OnDestroy()
     {
         StaticVariablesManager._enemyCount--;
+
+        if (_healthOrbTemplate)
+        {
+            Vector3 spawnPosition = GetComponent<Collider>().bounds.center;
+            for (int i = 0; i < _numberOfOrbs; i++)
+            {
+                Instantiate(_healthOrbTemplate, spawnPosition, Quaternion.identity);
+            }
+        }
     }
     private void Start()
     {

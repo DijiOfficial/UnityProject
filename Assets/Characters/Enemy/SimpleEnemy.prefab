@@ -157,6 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackRange: 2
+  _healthOrbTemplate: {fileID: 7210507935850342673, guid: 2fd83207b133d174b81bef13c58fe830,
+    type: 3}
+  _numberOfOrbs: 4
 --- !u!195 &3837737806019327568
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -212,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startHealth: 10
+  _currentHealth: 0
 --- !u!114 &4059373313006740757
 MonoBehaviour:
   m_ObjectHideFlags: 0
