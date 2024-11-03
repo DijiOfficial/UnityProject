@@ -19,7 +19,6 @@ public class BasicAttack : MonoBehaviour
     const string ENEMY_TAG = "Enemy";
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit: " + other.name);
         //make sure we only hit friendly or enemies
         if (other.tag != FRIENDLY_TAG && other.tag != ENEMY_TAG)
             return;
@@ -29,7 +28,6 @@ public class BasicAttack : MonoBehaviour
             return;
 
         Health otherHealth = other.GetComponent<Health>();
-        Debug.Log("Health: " + otherHealth);
         if (otherHealth != null)
         {
             otherHealth.Damage(_damage);

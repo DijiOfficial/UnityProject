@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int _startHealth = 10;
 
-    private int _currentHealth = 0;
+    public int _currentHealth = 0;
 
     public float StartHealth { get { return _startHealth; } }
     public float CurrentHealth { get { return _currentHealth; } }
@@ -29,6 +29,15 @@ public class Health : MonoBehaviour
             Kill();
     }
 
+    public void Heal(int amount)
+    {
+        _currentHealth += amount;
+
+        if (_currentHealth > _startHealth)
+            _currentHealth = _startHealth;
+
+        OnHealthChanged?.Invoke(_startHealth, _currentHealth);
+    }
     void Kill()
     {
         Destroy(gameObject);
