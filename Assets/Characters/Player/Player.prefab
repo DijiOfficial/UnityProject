@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70e52d8a4f010043b9d5d73f5fa64a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitbox: {fileID: 2746231378865356950, guid: 04e9af0f51d0d924e8b4cb19d6257d99, type: 3}
+  _hitbox: {fileID: 5324466582067413139, guid: 0d1b749a2cd85bc4c8774f9db38e1fbd, type: 3}
   _weaponTemplate: {fileID: 2785722533571298631, guid: dcf41dac131d3124483039d878a7c4ad,
     type: 3}
   _weaponSocket: {fileID: 4852740459006951744}
@@ -412,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 7193127207096973190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.283, z: 1.626}
+  m_LocalPosition: {x: 0, y: -0.5, z: 3.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
