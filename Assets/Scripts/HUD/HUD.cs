@@ -9,6 +9,7 @@ public class HUD : MonoBehaviour
 
     private ProgressBar _healthbar = null;
     private Label _soulCoinsText = null;
+    private Label _speedText = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class HUD : MonoBehaviour
         {
             _healthbar = _root.Q<ProgressBar>("PlayerHealthBar"); //this will find the first progressbar in the hud, for now as there is only one, that is fine, if we need to be more specific we could pass along a string parameter to define the name of the element.
             _soulCoinsText = _root.Q<Label>("CoinTrackerText");
+            _speedText = _root.Q<Label>("Speed");
 
             PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
             if (player != null)
@@ -44,8 +46,23 @@ public class HUD : MonoBehaviour
 
                     soulCoinTracker.OnSoulCoinChanged += UpdateSoulCoins;
                 }
+
+                MovementBehaviour movementBehaviour = player.GetComponent<MovementBehaviour>();
+                if (movementBehaviour)
+                {
+                    UpdateSpeed(movementBehaviour.Speed);
+
+                    movementBehaviour.OnSpeedChange += UpdateSpeed;
+                }
             }
         }
+    }
+
+    public void UpdateSpeed(float speed)
+    {
+        if (_speedText == null) return;
+
+        _speedText.text = "Speed: " + speed.ToString();
     }
 
     public void UpdateHealth(float startHealth, float currentHealth)

@@ -39,4 +39,5 @@ public class NavMeshMovementBehaviour : MovementBehaviour
         }
 
     }
+    protected override void Update() { }
 }

@@ -1,23 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.UIElements;
 
 public class MovementBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    protected float _movementSpeed = 1.0f;
-
-    [SerializeField]
-    protected float _jumpStrength = 10.0f;
-
-    protected Rigidbody _rigidbody;
-
+    [Header("Movement")]
+    [SerializeField] protected float _walkSpeed;
+    [SerializeField] protected float _sprintSpeed;
+    [SerializeField] protected float _groundDrag;
+    protected float _movementSpeed;
+    private bool _isSprinting = false;
+    
     protected Vector3 _desiredMovementDirection = Vector3.zero;
     protected GameObject _target;
 
-    protected bool _isGrounded = false;
-    protected const float GROUND_CHECK_DISTANCE = 0.2f;
+    [Header("Jumping")]
+    [SerializeField] protected float _jumpStrength;
+    [SerializeField] protected float _airMultiplier;
+
+    [Header("Crouching")]
+    [SerializeField] protected float _crouchHeight;
+    private float _startYScale;
+    private bool _isCrouching = false;
+    private Vector3 _crouchScale = new(0, 0.05f, 0);
+    private bool _isSliding;
+    private SlidingScript _slidingScript;
+
+    [Header("Collision Detection")]
+    private bool _isGrounded = false;
+    protected const float GROUND_CHECK_DISTANCE = 0.4f;
     protected const string GROUND_STRING = "Ground";
+    protected Rigidbody _rigidbody;
+
+    [Header("Slope Handling")]
+    [SerializeField] protected float _maxSlopeAngle;
+    private RaycastHit _slopeHit;
+    private bool _isJumpingOffSlope;
+
+    [Header("Movement State")]
+    private MovementState _movementState;
+    private enum MovementState { Walking, Running, Air, Crouching, Sliding }
+
+    #region Setters and Getters
+    public bool IsGrounded { get { return _isGrounded; } }
+    public float CrouchHeight { get { return _crouchHeight; } }
+    public Vector3 CrouchScale { get { return _crouchScale; } }
+    public bool IsSliding
+    {
+        get { return _isSliding; }
+        set { _isSliding = value; }
+    }
     public Vector3 DesiredMovementDirection
     {
         get { return _desiredMovementDirection; }
@@ -28,30 +62,206 @@ public class MovementBehaviour : MonoBehaviour
         get { return _target; }
         set { _target = value; }
     }
+    #endregion
+
+    #region Debug
+    public float Speed
+    {
+        get { return speed; }
+        //set { speed = value; }
+    }
+    public float speed;
+    private void Start()
+    {
+        StartCoroutine(CalcSpeed());
+    }
+    public delegate void SpeedChange(float speed);
+    public event SpeedChange OnSpeedChange;
+    IEnumerator CalcSpeed()
+    {
+        while (true)
+        {
+            Vector3 lastPosition = transform.position;
+            yield return new WaitForFixedUpdate();
+            Vector3 flatVelocity = new(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+            speed = flatVelocity.magnitude;
+            OnSpeedChange?.Invoke(speed);
+        }
+    }
+    #endregion
+
+
+
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.freezeRotation = true;
+        _slidingScript = GetComponent<SlidingScript>();
+
+        if (_rigidbody != null) 
+            _rigidbody.freezeRotation = true;
+
+        _startYScale = transform.localScale.y;
     }
+
     protected virtual void FixedUpdate()
     {
         HandleMovement();
+        HandleCrouch();
+        bool isInAir = !_isGrounded;
+        _isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, GROUND_CHECK_DISTANCE, LayerMask.GetMask(GROUND_STRING));
+        //_isGrounded = Physics.Raycast(transform.position+ Vector3.up * 0.2f, Vector3.down, 2 * 0.5f + 0.3f, LayerMask.GetMask(GROUND_STRING));
 
-        _isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, GROUND_CHECK_DISTANCE, LayerMask.GetMask(GROUND_STRING));
+        //just landed
+        if (isInAir && _isGrounded)
+            _rigidbody.velocity = new Vector3(0, 0, 0);
+    }
+    protected virtual void Update()
+    {
+        SpeedControl();
+        StateHandle();
+
+        if (_isGrounded)
+        {
+            _rigidbody.drag = _groundDrag;
+            if (_rigidbody.velocity.y < 0 && _isJumpingOffSlope)
+            {
+                _isJumpingOffSlope = false;
+                _rigidbody.velocity = new Vector3(0, 0, 0);
+            }
+        }
+        else
+            _rigidbody.drag = 0.0f;
+    }
+    protected virtual void StateHandle()
+    {
+        //this needs a StateMachine
+        if (_isSliding)
+        {
+            _movementSpeed = _walkSpeed;
+            _movementState = MovementState.Sliding;
+        }
+        else if (_isCrouching && _isGrounded)
+        {
+            _movementState = MovementState.Crouching;
+            _movementSpeed = _walkSpeed;
+        }
+        else if (_isGrounded && _isSprinting && _slidingScript.CooldownOver)
+        {
+            _movementState = MovementState.Running;
+            _movementSpeed = _sprintSpeed;
+        }
+        else if (_isGrounded)
+        {
+            _movementState = MovementState.Walking;
+            _movementSpeed = _walkSpeed;
+        }
+        else
+        {
+            _movementState = MovementState.Air;
+            if (_isSprinting || !_slidingScript.CooldownOver)
+                _movementSpeed = _sprintSpeed;
+            else
+                _movementSpeed = _walkSpeed;
+        }
     }
     protected virtual void HandleMovement()
     {
         if (_rigidbody == null) return;
 
-        Vector3 movement = _movementSpeed * _desiredMovementDirection.normalized;
+        int speedMultiplier = 80;
 
-        movement.y = _rigidbody.velocity.y;
-        _rigidbody.velocity = movement;
+        if (IsOnSlope() && !_isJumpingOffSlope)
+        {
+            _rigidbody.AddForce(_movementSpeed * speedMultiplier * GetSlopeMoveDirection(), ForceMode.Force);
+            if (_rigidbody.velocity.y > 0)
+                _rigidbody.AddForce(Vector3.down * 80.0f, ForceMode.Force);
+        }
+        else
+        {
+            Vector3 movement = _movementSpeed * speedMultiplier * _desiredMovementDirection.normalized;
+
+            if(_isGrounded)
+                _rigidbody.AddForce(movement, ForceMode.Force);
+            else if (!_isGrounded)
+                _rigidbody.AddForce(_airMultiplier * movement, ForceMode.Force);
+        }
+
+        _rigidbody.useGravity = !IsOnSlope();
+    }
+    
+    private void SpeedControl()
+    {
+        if (IsOnSlope() && !_isJumpingOffSlope)
+        {
+            if (_rigidbody.velocity.magnitude > _movementSpeed)
+                _rigidbody.velocity = _rigidbody.velocity.normalized * _movementSpeed;
+        }
+        else
+        {
+            Vector3 flatVelocity = new(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+
+            if (flatVelocity.magnitude > _movementSpeed)
+            {
+                Vector3 maxVelocity = flatVelocity.normalized * _movementSpeed;
+                _rigidbody.velocity = new(maxVelocity.x, _rigidbody.velocity.y, maxVelocity.z);
+            }
+        }
     }
 
     public void Jump()
     {
         if (_isGrounded)
-            _rigidbody.AddForce(Vector3.up * _jumpStrength, ForceMode.Impulse);
+        {
+            _isSliding = false;
+
+            _isJumpingOffSlope = true;
+            
+            //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+            if (_isCrouching)
+                _rigidbody.AddForce(_jumpStrength * 0.5f * Vector3.up, ForceMode.Impulse);
+            else
+                _rigidbody.AddForce(Vector3.up * _jumpStrength, ForceMode.Impulse);
+        }
+    }
+    public void Sprint(bool sprint)
+    {
+        _isSprinting = sprint;
+    }
+
+    private void HandleCrouch()
+    {
+        if (_isCrouching && !_isSliding)
+        {
+            if (transform.localScale.y > _crouchHeight)
+                transform.localScale -= _crouchScale;
+            else
+                transform.localScale = new Vector3(transform.localScale.x, _crouchHeight, transform.localScale.z);
+        }
+        else if (!_isCrouching)
+        {
+            if (transform.localScale.y < _startYScale)
+                transform.localScale += _crouchScale;
+            else
+                transform.localScale = new Vector3(transform.localScale.x, _startYScale, transform.localScale.z);
+        }
+    }
+    public void Crouch(bool crouch, Vector3 playerForward)
+    {
+        _isCrouching = crouch;
+    }
+
+    public bool IsOnSlope()
+    {
+        if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out _slopeHit, GROUND_CHECK_DISTANCE))
+        {
+            float slopeAngle = Vector3.Angle(Vector3.up, _slopeHit.normal);
+            return slopeAngle < _maxSlopeAngle && slopeAngle != 0;
+        }
+        return false;
+    }
+
+    public Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(_desiredMovementDirection, _slopeHit.normal).normalized;
     }
 }
