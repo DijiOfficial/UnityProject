@@ -92,7 +92,7 @@ public class PlayerCharacter : BasicCharacter
         }
         else if(!_movementBehaviour.IsSliding || !_movementBehaviour.IsGrounded)
         {
-            _movementBehaviour.Crouch(_crouchAction.IsPressed(), _playerTransform.forward);
+            _movementBehaviour.Crouch(_crouchAction.IsPressed());
         }
 
         if (!_canSlide && !_crouchAction.IsPressed() && _slidingBehaviour.CooldownOver) _canSlide = true;

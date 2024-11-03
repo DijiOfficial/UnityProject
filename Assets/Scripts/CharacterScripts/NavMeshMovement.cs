@@ -15,7 +15,7 @@ public class NavMeshMovementBehaviour : MovementBehaviour
         base.Awake();
 
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshAgent.speed = _movementSpeed;
+        _navMeshAgent.speed = _walkSpeed;
 
         _previousTargetPosition = transform.position;
     }
@@ -28,7 +28,6 @@ public class NavMeshMovementBehaviour : MovementBehaviour
             _navMeshAgent.isStopped = true;
             return;
         }
-
         //should the target move we should recalculate our path
         if ((_target.transform.position - _previousTargetPosition).sqrMagnitude
             > MOVEMENT_EPSILON)
@@ -37,7 +36,11 @@ public class NavMeshMovementBehaviour : MovementBehaviour
             _navMeshAgent.isStopped = false;
             _previousTargetPosition = _target.transform.position;
         }
-
     }
     protected override void Update() { }
+    protected override void Start() {    }
+    protected override void FixedUpdate()
+    {
+        HandleMovement();
+    }
 }

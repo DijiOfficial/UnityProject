@@ -191,8 +191,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab88323c8a2d0054ca93e70d79ffd89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 8
+  _walkSpeed: 7
+  _sprintSpeed: 7
+  _groundDrag: 0
   _jumpStrength: 10
+  _airMultiplier: 0
+  _crouchHeight: 0
+  _maxSlopeAngle: 0
+  speed: 0
 --- !u!114 &3056954605133882351
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ public class MovementBehaviour : MonoBehaviour
         //set { speed = value; }
     }
     public float speed;
-    private void Start()
+    protected virtual void Start()
     {
         StartCoroutine(CalcSpeed());
     }
@@ -256,7 +256,7 @@ public class MovementBehaviour : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x, _startYScale, transform.localScale.z);
         }
     }
-    public void Crouch(bool crouch, Vector3 playerForward)
+    public void Crouch(bool crouch)
     {
         _isCrouching = crouch;
     }

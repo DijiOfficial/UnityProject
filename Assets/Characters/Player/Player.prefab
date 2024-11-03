@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 8362764030011191284}
   - component: {fileID: 7327659746759604608}
   - component: {fileID: 5435519264482052261}
+  - component: {fileID: 9209202371047046259}
   - component: {fileID: 444660348335098195}
   - component: {fileID: 7043447716243168270}
   - component: {fileID: 8893283811179168360}
@@ -249,6 +250,22 @@ MonoBehaviour:
   _crouchHeight: 0.5
   _maxSlopeAngle: 40
   speed: 0
+--- !u!114 &9209202371047046259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587610129162216658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24834424255fcbe4089fb921bb8b5807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 7569278944301559609}
+  _maxSlideTime: 0.4
+  _SlideCooldownTotal: 0.4
+  _slideForce: 1000
 --- !u!114 &444660348335098195
 MonoBehaviour:
   m_ObjectHideFlags: 0

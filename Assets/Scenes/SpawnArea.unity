@@ -188,11 +188,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4587610129162216658, guid: 6db00e575ad7c3d42b563239ef52adf2,
-        type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 766322860}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6db00e575ad7c3d42b563239ef52adf2, type: 3}
 --- !u!4 &10256752 stripped
 Transform:
@@ -816,28 +812,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740121056}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &766322851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4587610129162216658, guid: 6db00e575ad7c3d42b563239ef52adf2,
-    type: 3}
-  m_PrefabInstance: {fileID: 10256751}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &766322860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766322851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24834424255fcbe4089fb921bb8b5807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 10256752}
-  _maxSlideTime: 0.4
-  _SlideCooldownTotal: 0.4
-  _slideForce: 1000
 --- !u!1 &822431386
 GameObject:
   m_ObjectHideFlags: 0
