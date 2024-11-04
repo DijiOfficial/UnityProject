@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int _startHealth = 10;
 
+    [SerializeField] private GameObject _healthOrbTemplate = null;
+    [SerializeField] private int _numberOfOrbs;
+
     public int _currentHealth = 0;
 
     public float StartHealth { get { return _startHealth; } }
@@ -41,6 +44,15 @@ public class Health : MonoBehaviour
     void Kill()
     {
         Destroy(gameObject);
+
+        if (_healthOrbTemplate)
+        {
+            Vector3 spawnPosition = GetComponent<Collider>().bounds.center;
+            for (int i = 0; i < _numberOfOrbs; i++)
+            {
+                Instantiate(_healthOrbTemplate, spawnPosition, Quaternion.identity);
+            }
+        }
     }
 }
 

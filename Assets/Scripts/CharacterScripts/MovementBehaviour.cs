@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 public class MovementBehaviour : MonoBehaviour
@@ -19,6 +20,8 @@ public class MovementBehaviour : MonoBehaviour
     [Header("Jumping")]
     [SerializeField] protected float _jumpStrength;
     [SerializeField] protected float _airMultiplier;
+    [SerializeField] private float _jumpButtonMaxBuffer;
+    private float _jumpButtonBuffer;
     private bool _isJumping = false;
     private float _jumpTimer;
 
@@ -111,7 +114,6 @@ public class MovementBehaviour : MonoBehaviour
         HandleCrouch();
         bool isInAir = !_isGrounded;
         _isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, GROUND_CHECK_DISTANCE, LayerMask.GetMask(GROUND_STRING));
-        //_isGrounded = Physics.Raycast(transform.position+ Vector3.up * 0.2f, Vector3.down, 2 * 0.5f + 0.3f, LayerMask.GetMask(GROUND_STRING));
 
         //just landed
         if (isInAir && _isGrounded)
@@ -122,6 +124,17 @@ public class MovementBehaviour : MonoBehaviour
             _jumpTimer += Time.deltaTime;
             if (_jumpTimer > 0.1f)
                 _isJumping = false;
+        }
+
+        if (_jumpButtonBuffer > 0)
+        {
+            _jumpButtonBuffer -= Time.deltaTime;
+            if (_isGrounded)
+            {
+                _jumpButtonBuffer = 0;
+                _rigidbody.drag = _groundDrag;
+                Jump();
+            }
         }
 
     }
@@ -227,12 +240,16 @@ public class MovementBehaviour : MonoBehaviour
             _jumpTimer = 0.0f;
             _isJumpingOffSlope = true;
 
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+            _rigidbody.velocity = new(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
             if (_isCrouching)
                 _rigidbody.AddForce(_jumpStrength * 0.5f * Vector3.up, ForceMode.Impulse);
             else
                 _rigidbody.AddForce(Vector3.up * _jumpStrength, ForceMode.Impulse);
+
+            _jumpButtonBuffer = 0;
         }
+        else
+            _jumpButtonBuffer = _jumpButtonMaxBuffer;
     }
     public void Sprint(bool sprint)
     {
