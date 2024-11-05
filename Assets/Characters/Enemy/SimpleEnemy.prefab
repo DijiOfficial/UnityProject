@@ -196,6 +196,7 @@ MonoBehaviour:
   _groundDrag: 0
   _jumpStrength: 10
   _airMultiplier: 0
+  _jumpButtonMaxBuffer: 0
   _crouchHeight: 0
   _maxSlopeAngle: 0
   speed: 0
@@ -214,6 +215,9 @@ MonoBehaviour:
   _startHealth: 10
   _healthOrbTemplate: {fileID: 7210507935850342673, guid: 2fd83207b133d174b81bef13c58fe830,
     type: 3}
+  _soulOrbTemplate: {fileID: 2340746678188905670, guid: 4b261a4f1acc47949812acb22f51b63f,
+    type: 3}
+  _defaultDropChancePercent: 15
   _numberOfOrbs: 4
   _currentHealth: 0
 --- !u!114 &4059373313006740757

@@ -63,8 +63,9 @@ public class StaticVariablesManager : MonoBehaviour
     private static int _currentLevel = 1;
     private static int _enemyCount = 0;
     private static int _soulCoins = 25;
-
+    private static int _soulDropChanceIncreasePercent = 5;
     public int GetCoinAmount { get { return _soulCoins; } }
+    public int GetSoulDropChanceIncreasePercent { get { return _soulDropChanceIncreasePercent; } }
     public int CurrentLevel
     {
         get { return _currentLevel; }

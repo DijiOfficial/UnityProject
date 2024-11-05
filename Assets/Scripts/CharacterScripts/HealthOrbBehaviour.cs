@@ -19,13 +19,14 @@ public class HealthOrbBehaviour : MonoBehaviour
     private Rigidbody _rigidbody;
 
     protected const string GROUND_STRING = "Ground";
+    protected const string FRIENDLY_TAG = "Friendly";
 
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
         Vector3 randomDirection = new Vector3(Random.Range(-0.5f, 0.5f), 1f, Random.Range(-0.5f, 0.5f)).normalized;
         _rigidbody.AddForce(randomDirection * _upwardStrength, ForceMode.Impulse);
@@ -38,7 +39,7 @@ public class HealthOrbBehaviour : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         // Check if player is within attraction range
         //todo: use square distance instead
@@ -74,8 +75,7 @@ public class HealthOrbBehaviour : MonoBehaviour
         }
     }
 
-    const string FRIENDLY_TAG = "Friendly";
-    void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         //make sure we only hit friendly
         if (other.tag != FRIENDLY_TAG)
