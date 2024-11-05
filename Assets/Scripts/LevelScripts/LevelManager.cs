@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
     {
         //_currentFrequency = _waveStartFrequency;
 
-        _levelDifficulty = StaticVariablesManager._currentLevel;
+        _levelDifficulty = StaticVariablesManager.Instance.CurrentLevel;
         _totalDifficulty = _levelDifficulty * _difficultyModifier;
         //divide by somthing to get lower waves
         _wavesToSpawn = Mathf.CeilToInt(_totalDifficulty);
@@ -37,15 +37,15 @@ public class LevelManager : MonoBehaviour
         //if StaticVariablesManager._enemyCount <= 0 and _isWaveActive start new waver and overwrite the Invoke (can't have no enemies)
         if (!_isWaveActive && _isWaveStarted)
         {
-            if (StaticVariablesManager._enemyCount <= 0)
+            if (StaticVariablesManager.Instance.EnemyCount <= 0)
             {
                 //reset bools necessary?
                 _isWaveStarted = false;
                 _isWaveActive = false;
 
                 Instantiate(_teleporterTemplate, Vector3.zero, Quaternion.identity);
-                StaticVariablesManager._currentLevel++;
-                StaticVariablesManager._enemyCount = 0;
+                StaticVariablesManager.Instance.CurrentLevel++;
+                StaticVariablesManager.Instance.EnemyCount = 0;
             }
         }
     }

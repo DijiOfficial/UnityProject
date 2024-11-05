@@ -41,6 +41,7 @@ public class HealthOrbBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         // Check if player is within attraction range
+        //todo: use square distance instead
         if (_isTargetingPlayer || (_playerTransform != null && Vector3.Distance(transform.position, _playerTransform.position) <= _attractionRange))
         {
             _isTargetingPlayer = true;

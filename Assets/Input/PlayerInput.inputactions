@@ -302,6 +302,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "KeyBinds",
+            "id": "9fd3e984-b5aa-4362-b4bc-ee39f96170f4",
+            "actions": [
+                {
+                    "name": "F",
+                    "type": "Button",
+                    "id": "bfdd10f7-c9bc-4a93-968b-bdfa3c5764db",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "02f5135d-f2e3-4e07-abd2-1fbc577d8d4f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8f9c10e2-1a28-42f9-8188-fc1328d544c6",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78f6c81c-fb9e-44fa-8192-e9eba97c5251",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

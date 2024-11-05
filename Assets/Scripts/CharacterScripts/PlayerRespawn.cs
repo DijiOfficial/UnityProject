@@ -15,7 +15,7 @@ public class PlayerRespawn : MonoBehaviour
 
     void TriggerRespawn()
     {
-        StaticVariablesManager._currentLevel = 1;
+        StaticVariablesManager.Instance.CurrentLevel = 1;
         SceneManager.LoadScene(0);
     }
 }

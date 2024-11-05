@@ -13,11 +13,11 @@ public class SimpleEnemy : BasicCharacter
     protected override void Awake()
     {
         base.Awake();
-        StaticVariablesManager._enemyCount++;
+        StaticVariablesManager.Instance.EnemyCount++;
     }
     void OnDestroy()
     {
-        StaticVariablesManager._enemyCount--;
+        StaticVariablesManager.Instance.EnemyCount--;
 
         
     }

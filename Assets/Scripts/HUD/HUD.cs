@@ -8,8 +8,16 @@ public class HUD : MonoBehaviour
     private VisualElement _root = null;
 
     private ProgressBar _healthbar = null;
+    private VisualElement __healthbarContainer = null;
+
     private Label _soulCoinsText = null;
     private Label _speedText = null;
+
+    private VisualElement _FIcon = null;
+    private Label _ShopText = null;
+
+    private Shop _shop = null;
+    private bool _isDisplayOpen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,41 +28,63 @@ public class HUD : MonoBehaviour
             _root = _attachedDocument.rootVisualElement;
         }
 
-        if (_root != null)
+        if (_root == null) return;
+        _healthbar = _root.Q<ProgressBar>("PlayerHealthBar"); //this will find the first progressbar in the hud, for now as there is only one, that is fine, if we need to be more specific we could pass along a string parameter to define the name of the element.
+        var healthbarContainer = _healthbar.Q(className: "unity-progress-bar__background");
+        healthbarContainer.style.backgroundColor = Color.black;
+        __healthbarContainer = _healthbar.Q(className: "unity-progress-bar__progress");
+        __healthbarContainer.style.backgroundColor = Color.green;
+
+        _soulCoinsText = _root.Q<Label>("CoinTrackerText");
+        _speedText = _root.Q<Label>("Speed");
+
+        _FIcon = _root.Q<VisualElement>("FKey");
+        _ShopText = _root.Q<Label>("OpenShop");
+        _FIcon.style.display = DisplayStyle.None;
+        _ShopText.style.display = DisplayStyle.None;
+        _shop = FindObjectOfType<Shop>();
+
+        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+        if (player != null)
         {
-            _healthbar = _root.Q<ProgressBar>("PlayerHealthBar"); //this will find the first progressbar in the hud, for now as there is only one, that is fine, if we need to be more specific we could pass along a string parameter to define the name of the element.
-            _soulCoinsText = _root.Q<Label>("CoinTrackerText");
-            _speedText = _root.Q<Label>("Speed");
 
-            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-            if (player != null)
+            Health playerHealth = player.GetComponent<Health>();
+            if (playerHealth)
             {
-
-                Health playerHealth = player.GetComponent<Health>();
-                if (playerHealth)
-                {
-                    // initialize
-                    UpdateHealth(playerHealth.StartHealth, playerHealth.CurrentHealth);
-                    // hook to monitor changes
-                    playerHealth.OnHealthChanged += UpdateHealth;
-                }
-
-                SoulCoinTracker soulCoinTracker = player.GetComponent<SoulCoinTracker>();
-                if (soulCoinTracker)
-                {
-                    UpdateSoulCoins(StaticVariablesManager._soulCoins);
-
-                    soulCoinTracker.OnSoulCoinChanged += UpdateSoulCoins;
-                }
-
-                MovementBehaviour movementBehaviour = player.GetComponent<MovementBehaviour>();
-                if (movementBehaviour)
-                {
-                    UpdateSpeed(movementBehaviour.Speed);
-
-                    movementBehaviour.OnSpeedChange += UpdateSpeed;
-                }
+                // initialize
+                UpdateHealth(playerHealth.StartHealth, playerHealth.CurrentHealth);
+                // hook to monitor changes
+                playerHealth.OnHealthChanged += UpdateHealth;
             }
+
+            UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
+            StaticVariablesManager.Instance.OnSoulCoinChanged += UpdateSoulCoins;
+
+            MovementBehaviour movementBehaviour = player.GetComponent<MovementBehaviour>();
+            if (movementBehaviour)
+            {
+                UpdateSpeed(movementBehaviour.Speed);
+
+                movementBehaviour.OnSpeedChange += UpdateSpeed;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!_shop) return;
+
+        if (_shop.IsInShopeRange && !_isDisplayOpen)
+        {
+            _isDisplayOpen = true;
+            _FIcon.style.display = DisplayStyle.Flex;
+            _ShopText.style.display = DisplayStyle.Flex;
+        }
+        else if (!_shop.IsInShopeRange && _isDisplayOpen)
+        {
+            _isDisplayOpen = false;
+            _FIcon.style.display = DisplayStyle.None;
+            _ShopText.style.display = DisplayStyle.None;
         }
     }
 
