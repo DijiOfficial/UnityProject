@@ -159,74 +159,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 99b7352863d6d3a49a8f2dcb1ddc0c31, type: 2}
   m_BuildHeightMesh: 0
---- !u!1001 &522450631
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 13261615901619535, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_Name
-      value: Vampyre Skin1 Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821007471526473717, guid: 8ea1296d9af2da741b59a5648267ae65,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ea1296d9af2da741b59a5648267ae65, type: 3}
 --- !u!1001 &880524279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,74 +233,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2059222533}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1139853104
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1503546603488068247, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_Name
-      value: Vampyre Skin2 Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.599
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276141935680198701, guid: 12921cb5d94a237408009d05b3282483,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 12921cb5d94a237408009d05b3282483, type: 3}
 --- !u!1001 &1387946469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,7 +264,7 @@ PrefabInstance:
     - target: {fileID: 4515311279028933481, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.67
+      value: -18.28
       objectReference: {fileID: 0}
     - target: {fileID: 4515311279028933481, guid: ca3529bc11e60704bbdc71c507f13795,
         type: 3}
@@ -502,74 +366,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca3529bc11e60704bbdc71c507f13795, type: 3}
---- !u!1001 &1798164307
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.246
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389601289422445242, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162020665327304704, guid: 8333f80dfa754d848ab0066ec1c3d074,
-        type: 3}
-      propertyPath: m_Name
-      value: Vampyre Skin3 Prefab
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8333f80dfa754d848ab0066ec1c3d074, type: 3}
 --- !u!1001 &2059222533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -948,7 +744,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b261a4f1acc47949812acb22f51b63f, type: 3}
---- !u!1001 &5744964299304407608
+--- !u!1001 &6655653385218694798
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -956,66 +752,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4
+      value: -0.91
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.068
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.53
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 2042714158041152213, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 4351181896310201229, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+    - target: {fileID: 8927851860183064165, guid: 48e40b5f0d75d8e45a078141ec3ee022,
         type: 3}
       propertyPath: m_Name
-      value: SKELETON
+      value: Vampyre Skin3 Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 48e40b5f0d75d8e45a078141ec3ee022, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1026,7 +822,4 @@ SceneRoots:
   - {fileID: 2059222533}
   - {fileID: 942380453024659119}
   - {fileID: 880524279}
-  - {fileID: 5744964299304407608}
-  - {fileID: 522450631}
-  - {fileID: 1139853104}
-  - {fileID: 1798164307}
+  - {fileID: 6655653385218694798}

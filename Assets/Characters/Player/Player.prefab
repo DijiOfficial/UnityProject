@@ -164,7 +164,6 @@ GameObject:
   - component: {fileID: 7043447716243168270}
   - component: {fileID: 8893283811179168360}
   - component: {fileID: 2495190305741733258}
-  - component: {fileID: 998648554123997670}
   m_Layer: 6
   m_Name: Player
   m_TagString: Friendly
@@ -247,6 +246,7 @@ MonoBehaviour:
   _groundDrag: 15
   _jumpStrength: 35
   _airMultiplier: 0.55
+  _jumpButtonMaxBuffer: 0.1
   _crouchHeight: 0.5
   _maxSlopeAngle: 40
   speed: 0
@@ -344,18 +344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startHealth: 100
---- !u!114 &998648554123997670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587610129162216658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 508d6f8cec73f434e89eda4a9ff03850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _healthOrbTemplate: {fileID: 0}
+  _soulOrbTemplate: {fileID: 0}
+  _defaultDropChancePercent: 5
+  _numberOfOrbs: 0
 --- !u!1 &4852740459006951744
 GameObject:
   m_ObjectHideFlags: 0
