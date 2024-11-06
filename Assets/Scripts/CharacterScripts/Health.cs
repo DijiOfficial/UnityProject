@@ -32,6 +32,8 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
         if (_currentHealth <= 0)
             Kill();
+        else
+            GetComponent<BasicCharacter>().IsHit = true;
     }
 
     public void Heal(int amount)

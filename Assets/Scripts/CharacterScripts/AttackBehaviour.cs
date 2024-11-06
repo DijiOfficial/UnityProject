@@ -14,6 +14,7 @@ public class AttackBehaviour : MonoBehaviour
     private GameObject _weapon = null;
     private bool _isAttacking = false;
     private float _attackTimer = 0.0f;
+    public bool IsAttacking { get { return (_isAttacking || _attackTimer > 0.0f); } }
 
     void Awake()
     {

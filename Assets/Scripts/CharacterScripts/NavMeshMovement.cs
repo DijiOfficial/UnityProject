@@ -9,6 +9,7 @@ public class NavMeshMovementBehaviour : MovementBehaviour
     private NavMeshAgent _navMeshAgent;
 
     private Vector3 _previousTargetPosition = Vector3.zero;
+    private float _attackRange;
 
     protected override void Awake()
     {
@@ -19,6 +20,10 @@ public class NavMeshMovementBehaviour : MovementBehaviour
 
         _previousTargetPosition = transform.position;
     }
+    protected override void Start()
+    {
+        _attackRange = GetComponent<SimpleEnemy>().GetAttackRange;
+    }
 
     const float MOVEMENT_EPSILON = .25f;
     protected override void HandleMovement()
@@ -26,11 +31,20 @@ public class NavMeshMovementBehaviour : MovementBehaviour
         if (_target == null)
         {
             _navMeshAgent.isStopped = true;
+            _navMeshAgent.velocity = Vector3.zero; // Stop the agent's velocity
             return;
         }
-        //should the target move we should recalculate our path
-        if ((_target.transform.position - _previousTargetPosition).sqrMagnitude
-            > MOVEMENT_EPSILON)
+
+        float sqrDistanceToTarget = (transform.position - _target.transform.position).sqrMagnitude;
+        if (sqrDistanceToTarget <= _attackRange) 
+        {
+            _navMeshAgent.isStopped = true;
+            _navMeshAgent.velocity = Vector3.zero; // Stop the agent's velocity
+            return;
+        }
+
+        // Should the target move, we should recalculate our path
+        if ((_target.transform.position - _previousTargetPosition).sqrMagnitude > MOVEMENT_EPSILON)
         {
             _navMeshAgent.SetDestination(_target.transform.position);
             _navMeshAgent.isStopped = false;
@@ -38,7 +52,7 @@ public class NavMeshMovementBehaviour : MovementBehaviour
         }
     }
     protected override void Update() { }
-    protected override void Start() {    }
+    
     protected override void FixedUpdate()
     {
         HandleMovement();
