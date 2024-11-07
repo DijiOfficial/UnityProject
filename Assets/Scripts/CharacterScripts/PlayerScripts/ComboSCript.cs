@@ -6,6 +6,7 @@ public class ComboScript : MonoBehaviour
 {
     [SerializeField] private float _maxComboTimer = 1.5f;
     [SerializeField] private int _maxTotalCombo = 10;
+    [SerializeField] private GameObject _comboVFX;
     private float _ComboTimer = 0;
     private float _comboMultiplier = 1;
     private int _totalCombo;
@@ -48,7 +49,10 @@ public class ComboScript : MonoBehaviour
             _totalCombo = 0;
             _healthScript.Heal(999);
 
-            _healthScript.SpawnSoulOrb();
+            Vector3 spawnPosition = transform.position + transform.forward * 5.0f + transform.up * 1.5f;
+            _healthScript.SpawnSoulOrb(spawnPosition);
+
+            if (_comboVFX) Instantiate(_comboVFX, spawnPosition, Quaternion.identity);
         }
     }
 }

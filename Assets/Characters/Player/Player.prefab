@@ -380,6 +380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxComboTimer: 1.5
   _maxTotalCombo: 10
+  _comboVFX: {fileID: 2143099738324784569, guid: cdd36ead0525c6446927612a1d126ffe,
+    type: 3}
 --- !u!1 &4852740459006951744
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,17 +14,23 @@ public class Health : MonoBehaviour
     [SerializeField] private int _numberOfOrbs;
     private int _currentHealth = 0;
     ComboScript _comboScript;
-
+    private GameObject _healthBar;
     public float StartHealth { get { return _startHealth; } }
     public float CurrentHealth { get { return _currentHealth; } }
 
     public delegate void HealthChange(float startHealth, float currentHealth);
     public event HealthChange OnHealthChanged;
 
-    void Awake()
+    private void Awake()
     {
         _currentHealth = _startHealth;
         _comboScript = GetComponent<ComboScript>();
+    }
+    private void Start()
+    {
+        _healthBar = transform.Find("HealthBarDisplay").gameObject;
+        if (_healthBar != null)
+            _healthBar.SetActive(false);
     }
 
     public void Damage(int amount)
@@ -36,6 +42,9 @@ public class Health : MonoBehaviour
             Kill();
         else
             GetComponent<BasicCharacter>().IsHit = true;
+
+        if (_healthBar != null)
+            _healthBar.SetActive(true);
     }
 
     public void Heal(int amount)
@@ -63,15 +72,19 @@ public class Health : MonoBehaviour
             }
         }
 
-        SpawnSoulOrb();
-    }
-    public void SpawnSoulOrb()
-    {
         int totalDropChance = _defaultDropChancePercent + StaticVariablesManager.Instance.GetSoulDropChanceIncreasePercent;
 
         if (Random.Range(0, 100) < totalDropChance && _soulOrbTemplate)
         {
             Vector3 spawnPosition = GetComponent<Collider>().bounds.center;
+            Instantiate(_soulOrbTemplate, spawnPosition, Quaternion.identity);
+        }
+    }
+    public void SpawnSoulOrb(Vector3 spawnPosition)
+    {
+        int totalDropChance = _defaultDropChancePercent + StaticVariablesManager.Instance.GetSoulDropChanceIncreasePercent;
+        if (Random.Range(0, 100) < totalDropChance && _soulOrbTemplate)
+        {
             Instantiate(_soulOrbTemplate, spawnPosition, Quaternion.identity);
         }
     }
