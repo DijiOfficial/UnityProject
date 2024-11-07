@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO; // Add this line for file operations
 
 public class StaticVariablesManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class StaticVariablesManager : MonoBehaviour
     protected virtual void OnApplicationQuit()
     {
         ApplicationQuitting = true;
+        SaveSoulCoinsToFile(); // Save the _soulCoins value to a file when the application quits
     }
 
     private void Awake()
@@ -50,6 +52,8 @@ public class StaticVariablesManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        LoadSoulCoinsFromFile(); // Load the _soulCoins value from a file when the application starts
     }
     protected virtual void OnDestroy()
     {
@@ -62,8 +66,10 @@ public class StaticVariablesManager : MonoBehaviour
 
     private static int _currentLevel = 1;
     private static int _enemyCount = 0;
-    private static int _soulCoins = 25;
+    private static int _soulCoins;
     private static int _soulDropChanceIncreasePercent = 5;
+    private const string STATIC_INFO_FILE = "data.txt"; // File name to save/load _soulCoins
+
     public int GetCoinAmount { get { return _soulCoins; } }
     public int GetSoulDropChanceIncreasePercent { get { return _soulDropChanceIncreasePercent; } }
     public int CurrentLevel
@@ -74,8 +80,25 @@ public class StaticVariablesManager : MonoBehaviour
     public int EnemyCount
     {
         get { return _enemyCount; }
-        set { _enemyCount = value; }
+        //set { _enemyCount = value; }
     }
+
+    public delegate void EnemyKilled();
+    public event EnemyKilled OnEnemyKilled;
+    public void DecreaseEnemyCount()
+    {
+        _enemyCount--;
+        OnEnemyKilled?.Invoke();
+    }
+    public void IncreaseEnemyCount()
+    {
+        _enemyCount++;
+    }
+    public void ResetEnemyCount()
+    {
+        _enemyCount = 0;
+    }
+
     public delegate void SoulCoinChange(int coins);
     public event SoulCoinChange OnSoulCoinChanged;
     public void AddCoin(int amount = 1)
@@ -89,5 +112,22 @@ public class StaticVariablesManager : MonoBehaviour
         _soulCoins -= amount;
 
         OnSoulCoinChanged?.Invoke(_soulCoins);
+    }
+
+    private void LoadSoulCoinsFromFile()
+    {
+        if (File.Exists(STATIC_INFO_FILE))
+        {
+            string fileContents = File.ReadAllText(STATIC_INFO_FILE);
+            if (int.TryParse(fileContents, out int loadedCoins))
+            {
+                _soulCoins = loadedCoins;
+            }
+        }
+    }
+
+    private void SaveSoulCoinsToFile()
+    {
+        File.WriteAllText(STATIC_INFO_FILE, _soulCoins.ToString());
     }
 }

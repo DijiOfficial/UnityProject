@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -11,8 +12,8 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject _soulOrbTemplate = null;
     [SerializeField] private int _defaultDropChancePercent = 5;
     [SerializeField] private int _numberOfOrbs;
-
     private int _currentHealth = 0;
+    ComboScript _comboScript;
 
     public float StartHealth { get { return _startHealth; } }
     public float CurrentHealth { get { return _currentHealth; } }
@@ -23,6 +24,7 @@ public class Health : MonoBehaviour
     void Awake()
     {
         _currentHealth = _startHealth;
+        _comboScript = GetComponent<ComboScript>();
     }
 
     public void Damage(int amount)
@@ -38,6 +40,9 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
+        if (_comboScript != null)
+             amount = (int)(amount * _comboScript.ComboMultiplier);
+
         _currentHealth += amount;
 
         if (_currentHealth > _startHealth)
@@ -58,9 +63,12 @@ public class Health : MonoBehaviour
             }
         }
 
+        SpawnSoulOrb();
+    }
+    public void SpawnSoulOrb()
+    {
         int totalDropChance = _defaultDropChancePercent + StaticVariablesManager.Instance.GetSoulDropChanceIncreasePercent;
 
-        // Randomly determine if the soul orb should be dropped
         if (Random.Range(0, 100) < totalDropChance && _soulOrbTemplate)
         {
             Vector3 spawnPosition = GetComponent<Collider>().bounds.center;

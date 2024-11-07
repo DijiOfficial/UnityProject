@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
 
                 Instantiate(_teleporterTemplate, Vector3.zero, Quaternion.identity);
                 StaticVariablesManager.Instance.CurrentLevel++;
-                StaticVariablesManager.Instance.EnemyCount = 0;
+                StaticVariablesManager.Instance.ResetEnemyCount();
             }
         }
     }

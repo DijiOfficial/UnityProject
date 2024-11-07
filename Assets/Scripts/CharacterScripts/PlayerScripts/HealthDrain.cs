@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthDrain : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class HealthDrain : MonoBehaviour
     private float _drainRateTracker;
     private Health _health;
     private bool _isDraining = true;
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            _isDraining = false;
+    }
 
     private void Start()
     {

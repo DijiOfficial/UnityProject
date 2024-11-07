@@ -16,11 +16,12 @@ public class SimpleEnemy : BasicCharacter
     protected override void Awake()
     {
         base.Awake();
-        StaticVariablesManager.Instance.EnemyCount++;
+        StaticVariablesManager.Instance.IncreaseEnemyCount();
     }
     protected virtual void OnDestroy()
     {
-        StaticVariablesManager.Instance.EnemyCount--;
+        if (!StaticVariablesManager.Exists) return;
+        StaticVariablesManager.Instance.DecreaseEnemyCount();
     }
     protected virtual void Start()
     {

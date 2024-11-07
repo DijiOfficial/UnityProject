@@ -13,6 +13,9 @@ public class HUD : MonoBehaviour
     private Label _soulCoinsText = null;
     private Label _speedText = null;
 
+    private Label _comboText = null;
+    private ProgressBar _comboBar = null;
+
     private VisualElement _FIcon = null;
     private Label _ShopText = null;
 
@@ -37,6 +40,8 @@ public class HUD : MonoBehaviour
 
         _soulCoinsText = _root.Q<Label>("CoinTrackerText");
         _speedText = _root.Q<Label>("Speed");
+        _comboText = _root.Q<Label>("Combo");
+        _comboBar = _root.Q<ProgressBar>("ComboBar");
 
         _FIcon = _root.Q<VisualElement>("FKey");
         _ShopText = _root.Q<Label>("OpenShop");
@@ -67,6 +72,14 @@ public class HUD : MonoBehaviour
 
                 movementBehaviour.OnSpeedChange += UpdateSpeed;
             }
+
+            ComboScript comboScript = player.GetComponent<ComboScript>();
+            if (comboScript)
+            {
+                UpdateCombo(0,0,0);
+
+                comboScript.OnComboChange += UpdateCombo;
+            }
         }
     }
 
@@ -86,6 +99,20 @@ public class HUD : MonoBehaviour
             _FIcon.style.display = DisplayStyle.None;
             _ShopText.style.display = DisplayStyle.None;
         }
+    }
+
+    public void UpdateCombo(int combo, float start, float current)
+    {
+        if (_comboText == null || _comboBar == null) return;
+
+        _comboText.text = combo == 0 ? " " : "Combo " + combo + "x";
+
+        // Clamp current to a minimum of 0
+        current = Mathf.Max(current, 0);
+        _comboBar.value = (current / start) * 100.0f;
+
+        // Check if current is less than or equal to 0 and update the display style of _comboBar
+        _comboBar.style.display = current <= 0 ? DisplayStyle.None : DisplayStyle.Flex;
     }
 
     public void UpdateSpeed(float speed)
