@@ -10,10 +10,12 @@ public class Health : MonoBehaviour
 
     [SerializeField] private GameObject _healthOrbTemplate = null;
     [SerializeField] private GameObject _soulOrbTemplate = null;
+    [SerializeField] protected GameObject _damageTextTemplate = null;
     [SerializeField] private int _defaultDropChancePercent = 5;
     [SerializeField] private int _numberOfOrbs;
     private int _currentHealth = 0;
-    ComboScript _comboScript;
+    private ComboScript _comboScript;
+    private Collider _collider;
     private GameObject _healthBar;
     public float StartHealth { get { return _startHealth; } }
     public float CurrentHealth { get { return _currentHealth; } }
@@ -25,10 +27,14 @@ public class Health : MonoBehaviour
     {
         _currentHealth = _startHealth;
         _comboScript = GetComponent<ComboScript>();
+        _collider = GetComponent<Collider>();
     }
     private void Start()
     {
-        _healthBar = transform.Find("HealthBarDisplay").gameObject;
+        var gameObject = transform.Find("HealthBarDisplay");
+        if (gameObject)
+            _healthBar = gameObject.gameObject;
+
         if (_healthBar != null)
             _healthBar.SetActive(false);
     }
@@ -45,6 +51,9 @@ public class Health : MonoBehaviour
 
         if (_healthBar != null)
             _healthBar.SetActive(true);
+
+        if (_damageTextTemplate)
+            ShowDamageText(amount);
     }
 
     public void Heal(int amount)
@@ -87,6 +96,18 @@ public class Health : MonoBehaviour
         {
             Instantiate(_soulOrbTemplate, spawnPosition, Quaternion.identity);
         }
+    }
+    private void ShowDamageText(int amount)
+    {
+        // Calculate a random x position within the collider's width
+        float randomX = Random.Range(-_collider.bounds.extents.x * 2.0f, _collider.bounds.extents.x * 2.0f);
+        float randomY = Random.Range(0.2f, 0.5f);
+        // Calculate the position above the enemy based on its size and the random x position
+        Vector3 spawnPosition = _collider.bounds.center + new Vector3(randomX, _collider.bounds.size.y * randomY, 0);
+
+        // Instantiate the damage text at the calculated position
+        var text = Instantiate(_damageTextTemplate, spawnPosition, Quaternion.identity);
+        text.GetComponent<TextMesh>().text = amount.ToString();
     }
 }
 

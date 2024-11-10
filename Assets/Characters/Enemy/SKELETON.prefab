@@ -1512,6 +1512,8 @@ MonoBehaviour:
     type: 3}
   _soulOrbTemplate: {fileID: 2340746678188905670, guid: 4b261a4f1acc47949812acb22f51b63f,
     type: 3}
+  _damageTextTemplate: {fileID: 314298053317958107, guid: 2a19f6da5c9c1894192f7c9c3acb96c9,
+    type: 3}
   _defaultDropChancePercent: 15
   _numberOfOrbs: 4
 --- !u!114 &3451656765658296141

@@ -10,7 +10,7 @@ public class SimpleEnemy : BasicCharacter
     [SerializeField] protected float _attackDelay = 0.1f;
     protected float _attackWaitTime;
     protected bool _canAttack = false;
-    private SkeletonAnimation _skeletonAnimation;
+    protected SkeletonAnimation _skeletonAnimation;
 
     public float GetAttackRange { get { return _attackRange; } }
     protected override void Awake()

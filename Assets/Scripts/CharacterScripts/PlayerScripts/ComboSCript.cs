@@ -36,11 +36,10 @@ public class ComboScript : MonoBehaviour
 
     public void EnemyKilled()
     {
+        if (_healthScript == null) return;
         _ComboTimer = _maxComboTimer;
         _comboMultiplier += 0.1f;
         _totalCombo++;
-
-        OnComboChange?.Invoke(_totalCombo, _maxComboTimer, _ComboTimer);
 
         if (_totalCombo >= _maxTotalCombo)
         {
@@ -54,5 +53,7 @@ public class ComboScript : MonoBehaviour
 
             if (_comboVFX) Instantiate(_comboVFX, spawnPosition, Quaternion.identity);
         }
+
+        OnComboChange?.Invoke(_totalCombo, _maxComboTimer, _ComboTimer);
     }
 }

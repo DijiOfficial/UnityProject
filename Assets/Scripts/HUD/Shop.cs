@@ -47,7 +47,10 @@ public class Shop : MonoBehaviour
             HandleShopInput();
         }
         else
+        {
             _isInRange = false;
+            if (_isInShop) CloseShop();
+        }
     }
     private void HandleShopInput()
     {

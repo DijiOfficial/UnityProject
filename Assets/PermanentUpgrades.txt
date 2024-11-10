@@ -1,0 +1,112 @@
+{
+    "Upgrades": [
+        {
+            "Title": "1",
+            "Bonus": "1",
+            "Description": "adds 1",
+            "Acquired": true
+        },
+        {
+            "Title": "2",
+            "Bonus": "2",
+            "Description": "adds 2",
+            "Acquired": true
+        },
+        {
+            "Title": "3",
+            "Bonus": "3",
+            "Description": "adds 3",
+            "Acquired": false
+        },
+        {
+            "Title": "4",
+            "Bonus": "4",
+            "Description": "adds 4",
+            "Acquired": true
+        },
+        {
+            "Title": "5",
+            "Bonus": "5",
+            "Description": "adds 5",
+            "Acquired": true
+        },
+        {
+            "Title": "6",
+            "Bonus": "6",
+            "Description": "adds 6",
+            "Acquired": false
+        },
+        {
+            "Title": "7",
+            "Bonus": "7",
+            "Description": "adds 7",
+            "Acquired": false
+        },
+        {
+            "Title": "8",
+            "Bonus": "8",
+            "Description": "adds 8",
+            "Acquired": false
+        },
+        {
+            "Title": "9",
+            "Bonus": "9",
+            "Description": "adds 9",
+            "Acquired": false
+        },
+        {
+            "Title": "10",
+            "Bonus": "10",
+            "Description": "adds 10",
+            "Acquired": false
+        },
+        {
+            "Title": "11",
+            "Bonus": "11",
+            "Description": "adds 11",
+            "Acquired": true
+        },
+        {
+            "Title": "12",
+            "Bonus": "12",
+            "Description": "adds 12",
+            "Acquired": false
+        },
+        {
+            "Title": "13",
+            "Bonus": "13",
+            "Description": "adds 13",
+            "Acquired": true
+        },
+        {
+            "Title": "14",
+            "Bonus": "14",
+            "Description": "adds 14",
+            "Acquired": true
+        },
+        {
+            "Title": "15",
+            "Bonus": "15",
+            "Description": "adds 15",
+            "Acquired": true
+        },
+        {
+            "Title": "16",
+            "Bonus": "16",
+            "Description": "adds 16",
+            "Acquired": true
+        },
+        {
+            "Title": "17",
+            "Bonus": "17",
+            "Description": "adds 17",
+            "Acquired": true
+        },
+        {
+            "Title": "18",
+            "Bonus": "18",
+            "Description": "adds 18",
+            "Acquired": true
+        }
+    ]
+}
