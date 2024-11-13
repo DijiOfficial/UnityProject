@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     private Collider _collider;
     private GameObject _healthBar;
     public float StartHealth { get { return _startHealth; } }
-    public float CurrentHealth { get { return _currentHealth; } }
+    public int CurrentHealth { get { return _currentHealth; } set { _currentHealth = value; } }
 
     public delegate void HealthChange(float startHealth, float currentHealth);
     public event HealthChange OnHealthChanged;

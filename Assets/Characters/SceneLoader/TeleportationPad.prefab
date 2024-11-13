@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5562fc3859670c4394bc1505c018180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
   sceneToLoad: SandBoxScene
 --- !u!1 &1730561429411795126
 GameObject:

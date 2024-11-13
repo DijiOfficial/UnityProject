@@ -232,6 +232,7 @@ MonoBehaviour:
     type: 3}
   _playerTransform: {fileID: 7569278944301559609}
   _totalRangedAttack: 2
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!114 &5435519264482052261
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerCharacter : BasicCharacter
     [SerializeField] private InputActionReference _movementReferenceZ;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private int _totalRangedAttack;
+    [SerializeField] private TempPlayerInfo _tempPlayerInfo;
 
     public delegate void RangeAttackChange(int current);
     public event RangeAttackChange OnRangedAttackChange;
@@ -44,6 +45,8 @@ public class PlayerCharacter : BasicCharacter
 
         //we bind a callback to it instead of continiously monitoring input
         _jumpAction.performed += HandleJumpInput;
+
+        GetComponent<Health>().CurrentHealth = _tempPlayerInfo._health;
     }
     protected void OnDestroy()
     {
