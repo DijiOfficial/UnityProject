@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248f90e4266375f46a73b01d984abfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 7
-  _sprintSpeed: 12
+  _walkSpeed: 3.5
+  _sprintSpeed: 5
   _groundDrag: 15
   _jumpStrength: 35
   _airMultiplier: 0.55
@@ -267,7 +267,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 7569278944301559609}
   _maxSlideTime: 0.4
   _SlideCooldownTotal: 0.4
-  _slideForce: 1000
+  _slideForce: 300
 --- !u!114 &444660348335098195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +350,7 @@ MonoBehaviour:
     type: 3}
   _soulOrbTemplate: {fileID: 2340746678188905670, guid: 4b261a4f1acc47949812acb22f51b63f,
     type: 3}
+  _damageTextTemplate: {fileID: 0}
   _defaultDropChancePercent: 5
   _numberOfOrbs: 0
 --- !u!114 &7555541653656474734

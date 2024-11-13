@@ -10,6 +10,20 @@ public class SkeletonAnimation : BaseAnimationController
         _animator.SetTrigger("Attack1h1");
     }
 
+    public void HandleArcherAttack()
+    {
+        if (!_animator) return;
+
+        _animator.SetTrigger("BowAttack");
+    }
+
+    public bool IsAttacking()
+    {
+        if (_animator == null) return false;
+
+        return (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1") || _animator.GetCurrentAnimatorStateInfo(0).IsName("BowAttack"));
+    }
+
     public void HandleHit()
     {
         if (_animator == null) return;

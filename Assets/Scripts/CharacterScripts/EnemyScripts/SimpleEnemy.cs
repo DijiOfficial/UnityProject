@@ -13,6 +13,7 @@ public class SimpleEnemy : BasicCharacter
     protected SkeletonAnimation _skeletonAnimation;
 
     public float GetAttackRange { get { return _attackRange; } }
+    public bool IsAttacking { get { return _attackBehaviour.IsAttacking; } }
     protected override void Awake()
     {
         base.Awake();

@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8c033ffb668674bbfc72f016aa930b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensX: 600
-  SensY: 400
+  SensX: 250
+  SensY: 100
   _playerTransform: {fileID: 0}
   _armTranform: {fileID: 0}
   _minimapCameraTransform: {fileID: 0}

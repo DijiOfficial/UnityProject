@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShopUIScript : MonoBehaviour
 {
     private Button _closeButton;
-    private Label _soulCoinsText = null;
-    private VisualElement _upgradePopUp;
-    private Label _titleLabel;
-    private Label _bonusLabel;
-    private Label _descriptionLabel;
-    private List<VisualElement> _cards = new List<VisualElement>();
-    private List<VisualElement> _acquiredTicks = new List<VisualElement>();
-    
+    private TMP_Text _soulCoinsText = null;
+    private GameObject _upgradePopUp;
+    private TMP_Text _titleLabel;
+    private TMP_Text _bonusLabel;
+    private TMP_Text _descriptionLabel;
+    private List<GameObject> _cards = new List<GameObject>();
+    private List<GameObject> _acquiredTicks = new List<GameObject>();
+
     [System.Serializable]
     private class Upgrade
     {
@@ -26,71 +26,6 @@ public class ShopUIScript : MonoBehaviour
     }
     private List<Upgrade> _upgrades;
 
-    //private List<Upgrade> ParseUpgrades(string[] lines)
-    //{
-    //    List<Upgrade> upgrades = new List<Upgrade>();
-    //    Upgrade currentUpgrade = null;
-    //    bool insideUpgradesArray = false;
-
-    //    foreach (string line in lines)
-    //    {
-    //        string trimmedLine = line.Trim();
-
-    //        if (trimmedLine.StartsWith("\"Upgrades\":"))
-    //        {
-    //            insideUpgradesArray = true;
-    //            continue;
-    //        }
-
-    //        if (insideUpgradesArray)
-    //        {
-    //            if (trimmedLine.StartsWith("[") || trimmedLine.StartsWith("]"))
-    //            {
-    //                continue;
-    //            }
-
-    //            if (trimmedLine.StartsWith("{"))
-    //            {
-    //                currentUpgrade = new Upgrade();
-    //            }
-    //            else if (trimmedLine.StartsWith("}"))
-    //            {
-    //                if (currentUpgrade != null)
-    //                {
-    //                    upgrades.Add(currentUpgrade);
-    //                    currentUpgrade = null;
-    //                }
-    //            }
-    //            else if (currentUpgrade != null)
-    //            {
-    //                string[] parts = trimmedLine.Split(new[] { ':' }, 2);
-    //                if (parts.Length == 2)
-    //                {
-    //                    string key = parts[0].Trim().Trim('"');
-    //                    string value = parts[1].Trim().Trim('"', ',');
-
-    //                    switch (key)
-    //                    {
-    //                        case "Title":
-    //                            currentUpgrade.Title = value;
-    //                            break;
-    //                        case "Bonus":
-    //                            currentUpgrade.Bonus = value;
-    //                            break;
-    //                        case "Description":
-    //                            currentUpgrade.Description = value;
-    //                            break;
-    //                        case "Acquired":
-    //                            currentUpgrade.Acquired = bool.Parse(value);
-    //                            break;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-
-    //    return upgrades;
-    //}
     private List<Upgrade> ParseUpgrades(string[] lines)
     {
         string json = string.Join("\n", lines);
@@ -103,22 +38,12 @@ public class ShopUIScript : MonoBehaviour
         BindCloseButton();
         OpenShop();
     }
-    private IEnumerable<Object> BindCloseButton()
+
+    private void BindCloseButton()
     {
-        var _attachedDocument = GetComponent<UIDocument>();
-        if (_attachedDocument)
-        {
-            var _root = _attachedDocument.rootVisualElement;
-            if (_root != null)
-            {
-                _closeButton = _root.Q<Button>("CloseButton");
-                if (_closeButton != null)
-                {
-                    _closeButton.clickable.clicked += FindObjectOfType<Shop>().gameObject.GetComponent<Shop>().CloseShop;
-                }
-            }
-        };
-        return null;
+        _closeButton = GameObject.Find("CloseButton").GetComponent<Button>();
+        if (_closeButton != null)
+            _closeButton.onClick.AddListener(() => FindObjectOfType<Shop>().CloseShop());
     }
 
     private void Awake()
@@ -136,45 +61,45 @@ public class ShopUIScript : MonoBehaviour
         {
             Debug.LogError("PermanentUpgrades.txt file not found at path: " + filePath);
         }
+        _soulCoinsText = GameObject.Find("SoulsText").GetComponent<TMP_Text>();
+        _upgradePopUp = GameObject.Find("QuestPopUp");
 
+        _titleLabel = _upgradePopUp.transform.Find("Title").GetComponent<TMP_Text>();
+        _bonusLabel = _upgradePopUp.transform.Find("Bonus").GetComponent<TMP_Text>();
+        _descriptionLabel = _upgradePopUp.transform.Find("Description").GetComponent<TMP_Text>();
+
+        GameObject upgradesContainer = GameObject.Find("Upgrades");
+        if (upgradesContainer == null) return;
+        
+        // Query all elements with the name "Card" and add them to the list
+        foreach (Transform card in upgradesContainer.transform)
+        {
+            if (card.name == "Card")
+            {
+                _cards.Add(card.gameObject);
+            }
+        }
+
+        for (int i = 0; i < _cards.Count; i++)
+        {
+            var tick = _cards[i].transform.Find("Tick");
+            if (tick != null)
+            {
+                _acquiredTicks.Add(tick.gameObject);
+                if (i < _upgrades.Count)
+                {
+                    tick.gameObject.SetActive(_upgrades[i].Acquired);
+                }
+            }
+        }
     }
 
     private void OpenShop()
     {
-        //UI
-        var attachedDocument = GetComponent<UIDocument>();
-        if (!attachedDocument) return;
-
-        var root = attachedDocument.rootVisualElement;
-
-        if (root == null) return;
-        _soulCoinsText = root.Q<Label>("SoulsText");
-
         UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
-
-        _upgradePopUp = root.Q<VisualElement>("QuestPopUp");
-        _upgradePopUp.style.display = DisplayStyle.None;
-
-        // Initialize text labels
-        _titleLabel = _upgradePopUp.Q<Label>("Title");
-        _bonusLabel = _upgradePopUp.Q<Label>("Bonus");
-        _descriptionLabel = _upgradePopUp.Q<Label>("Description");
-
-        // Query all elements with the name "Card" and add them to the list
-        _cards = root.Query<VisualElement>("Card").ToList();
-
-        // Initialize the _acquiredTicks list and update their display status
-        _acquiredTicks.Clear();
-        for (int i = 0; i < _cards.Count; i++)
-        {
-            var tick = _cards[i].Q<VisualElement>("Tick");
-            _acquiredTicks.Add(tick);
-            if (i < _upgrades.Count)
-            {
-                tick.style.display = _upgrades[i].Acquired ? DisplayStyle.Flex : DisplayStyle.None;
-            }
-        }
+        _upgradePopUp.SetActive(false);
     }
+
     private void Update()
     {
         if (_cards == null || _upgradePopUp == null) return;
@@ -188,10 +113,12 @@ public class ShopUIScript : MonoBehaviour
         foreach (var card in _cards)
         {
             // Convert the mouse position to the local position of the card element
-            Vector2 localMousePosition = card.WorldToLocal(new Vector2(mousePosition.x, Screen.height - mousePosition.y));
+            RectTransform rectTransform = card.GetComponent<RectTransform>();
+            Vector2 localMousePosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, mousePosition, null, out localMousePosition);
 
             // Check if the mouse is over the card element
-            if (card.ContainsPoint(localMousePosition))
+            if (rectTransform.rect.Contains(localMousePosition))
             {
                 isMouseOverCard = true;
                 break;
@@ -200,7 +127,7 @@ public class ShopUIScript : MonoBehaviour
         }
 
         // Update the display style of _upgradePopUp based on whether the mouse is over any card
-        _upgradePopUp.style.display = isMouseOverCard ? DisplayStyle.Flex : DisplayStyle.None;
+        _upgradePopUp.SetActive(isMouseOverCard);
 
         // Update the text labels with the corresponding upgrade details
         if (isMouseOverCard && cardIndex < _upgrades.Count)
@@ -237,7 +164,7 @@ public class ShopUIScript : MonoBehaviour
             upgrade.Acquired = true;
 
             // Update the tick display
-            _acquiredTicks[idx].style.display = DisplayStyle.Flex;
+            _acquiredTicks[idx].SetActive(true);
 
             // Update the soul coins display
             UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
@@ -246,7 +173,9 @@ public class ShopUIScript : MonoBehaviour
             WriteUpgradesToFile();
         }
     }
-    [System.Serializable] private class UpgradeListWrapper
+
+    [System.Serializable]
+    private class UpgradeListWrapper
     {
         public List<Upgrade> Upgrades;
     }
