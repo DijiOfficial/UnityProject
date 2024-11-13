@@ -16,7 +16,7 @@
             "Title": "3",
             "Bonus": "3",
             "Description": "adds 3",
-            "Acquired": false
+            "Acquired": true
         },
         {
             "Title": "4",

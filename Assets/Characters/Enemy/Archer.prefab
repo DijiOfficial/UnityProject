@@ -88,6 +88,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4529740159387675928, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+        type: 3}
+      propertyPath: _hitbox
+      value: 
+      objectReference: {fileID: 2366615535575282168, guid: c763f4192afd1be4f87924608f5fa1a2,
+        type: 3}
     - target: {fileID: 5368169732749619327, guid: efe28f3936d8a2c44b8796d6d54d82d6,
         type: 3}
       propertyPath: _hitbox
@@ -107,6 +113,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8111522504887035910, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
     - {fileID: 3451656765658296141, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
+    - {fileID: 5368169732749619327, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6080511960381823256, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
     - {fileID: 2352194290477227447, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}

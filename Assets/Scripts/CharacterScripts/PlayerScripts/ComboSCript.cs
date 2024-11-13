@@ -52,6 +52,7 @@ public class ComboScript : MonoBehaviour
             _healthScript.SpawnSoulOrb(spawnPosition);
 
             if (_comboVFX) Instantiate(_comboVFX, spawnPosition, Quaternion.identity);
+            //dont instatiate when stopping the game because it clears all the nemy and spawns this vfx
         }
 
         OnComboChange?.Invoke(_totalCombo, _maxComboTimer, _ComboTimer);

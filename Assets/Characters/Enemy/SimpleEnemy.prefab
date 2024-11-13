@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 3837737806019327568}
   - component: {fileID: 5711465222868948046}
   - component: {fileID: 3056954605133882351}
-  - component: {fileID: 4059373313006740757}
   - component: {fileID: 5253853965942950952}
   m_Layer: 7
   m_Name: SimpleEnemy
@@ -157,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackRange: 2
+  _attackDelay: 0.1
 --- !u!195 &3837737806019327568
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -217,27 +217,9 @@ MonoBehaviour:
     type: 3}
   _soulOrbTemplate: {fileID: 2340746678188905670, guid: 4b261a4f1acc47949812acb22f51b63f,
     type: 3}
+  _damageTextTemplate: {fileID: 0}
   _defaultDropChancePercent: 15
   _numberOfOrbs: 4
-  _currentHealth: 0
---- !u!114 &4059373313006740757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626324347068183729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70e52d8a4f010043b9d5d73f5fa64a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hitbox: {fileID: 2785722533571298631, guid: ce4cbb031c63f3c45b6a7e336fa7c864, type: 3}
-  _weaponTemplate: {fileID: 0}
-  _weaponSocket: {fileID: 0}
-  _AttackSockets:
-  - {fileID: 514314188410127193}
-  _fireRate: 1
 --- !u!114 &5253853965942950952
 MonoBehaviour:
   m_ObjectHideFlags: 0

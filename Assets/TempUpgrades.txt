@@ -1,54 +1,54 @@
 {
     "Upgrades": [
         {
-            "Title": "1",
+            "Title": "Vital Essence",
             "Bonus": "1",
-            "Description": "adds 1",
+            "Description": "Increases maximum health by 25 (+25 per stack).",
                 },
         {
-            "Title": "2",
+            "Title": "Secondary Skill",
             "Bonus": "2",
-            "Description": "adds 2",
+            "Description": "Add +1 (+1 per stack) charge of your Secondary skill.",
                 },
         {
-            "Title": "3",
+            "Title": "Adrenaline Rush",
             "Bonus": "3",
-            "Description": "adds 3",
+            "Description": "When below 50% health, receive a damage increase of 20% (+20% per stack)",
                  },
         {
-            "Title": "4",
+            "Title": "Restorative Vitality",
             "Bonus": "4",
-            "Description": "adds 4",
+            "Description": "Increases health orb regeneration by 2% (+2% per stack)",
                  },
         {
-            "Title": "5",
+            "Title": "Berserker’s Fury",
             "Bonus": "5",
-            "Description": "adds 5",
+            "Description": "Increase damage by 20% (+20% per stack)",
                  },
         {
-            "Title": "6",
+            "Title": "Swift Stride",
             "Bonus": "6",
-            "Description": "adds 6",
+            "Description": "Sprint speed is improved by 25% (+25% per stack).",
                  },
         {
-            "Title": "7",
+            "Title": "Keen Edge",
             "Bonus": "7",
-            "Description": "adds 7",
+            "Description": "Your attacks have a 10% (+10% per stack) chance to 'Critically Strike', dealing double damage",
                  },
         {
-            "Title": "8",
+            "Title": "Blazing Agility",
             "Bonus": "8",
-            "Description": "adds 8",
+            "Description": "Increases movement speed by 14% (+14% per stack).",
                  },
         {
-            "Title": "9",
+            "Title": "Fortified Resolve",
             "Bonus": "9",
-            "Description": "adds 9",
+            "Description": "Reduce all incoming damage by 5 (+5 per stack). Cannot be reduced below 1.",
                 },
         {
-            "Title": "10",
+            "Title": "Haste of the Warrior",
             "Bonus": "10",
-            "Description": "adds 10",
+            "Description": "Increases attack speed by 15% (+15% per stack).",
                  },
         {
             "Title": "11",
@@ -60,65 +60,5 @@
             "Bonus": "12",
             "Description": "adds 12",
                  },
-        {
-            "Title": "13",
-            "Bonus": "13",
-            "Description": "adds 13",
-                 },
-        {
-            "Title": "14",
-            "Bonus": "14",
-            "Description": "adds 14",
-                 },
-        {
-            "Title": "15",
-            "Bonus": "15",
-            "Description": "adds 15",
-                 },
-        {
-            "Title": "16",
-            "Bonus": "16",
-            "Description": "adds 16",
-                 },
-        {
-            "Title": "17",
-            "Bonus": "17",
-            "Description": "adds 17",
-                 },
-        {
-            "Title": "18",
-            "Bonus": "18",
-            "Description": "adds 18",
-                 },
-        {
-            "Title": "19",
-            "Bonus": "19",
-            "Description": "adds 19",
-                 },
-        {
-            "Title": "20",
-            "Bonus": "20",
-            "Description": "adds 20",
-                 },
-        {
-            "Title": "21",
-            "Bonus": "21",
-            "Description": "adds 21",
-                 },
-        {
-            "Title": "22",
-            "Bonus": "22",
-            "Description": "adds 22",
-                 },
-        {
-            "Title": "23",
-            "Bonus": "23",
-            "Description": "adds 23",
-                 },
-        {
-            "Title": "24",
-            "Bonus": "24",
-            "Description": "adds 24",
-                 }
     ]
 }
