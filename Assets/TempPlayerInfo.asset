@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb495ea810d8d174c95e98245d1d95a7, type: 3}
   m_Name: TempPlayerInfo
   m_EditorClassIdentifier: 
-  test: 0
+  _vitalEssence: 0
+  _secondarySkill: 0
+  _adrenalineRush: 0
+  _restorativeVitality: 0
+  _berserkerFury: 0
+  _swiftStride: 0
+  _keenEdge: 0
+  _blazingAgility: 0
+  _fortifiedResolve: 0
+  _hasteOfTheWarrior: 0
+  _curseProtection: 0
+  _gravelordChosen: 0
+  _goldCoins: 0
+  _health: 100

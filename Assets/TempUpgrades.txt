@@ -3,62 +3,62 @@
         {
             "Title": "Vital Essence",
             "Bonus": "1",
-            "Description": "Increases maximum health by 25 (+25 per stack).",
-                },
+            "Description": "Increases maximum health by 25 (+25 per stack)."
+        },
         {
             "Title": "Secondary Skill",
             "Bonus": "2",
-            "Description": "Add +1 (+1 per stack) charge of your Secondary skill.",
-                },
+            "Description": "Add +1 (+1 per stack) charge of your Secondary skill."
+        },
         {
             "Title": "Adrenaline Rush",
             "Bonus": "3",
-            "Description": "When below 50% health, receive a damage increase of 20% (+20% per stack)",
-                 },
+            "Description": "When below 50% health, receive a damage increase of 20% (+20% per stack)"
+        },
         {
             "Title": "Restorative Vitality",
             "Bonus": "4",
-            "Description": "Increases health orb regeneration by 2% (+2% per stack)",
-                 },
+            "Description": "Increases health orb regeneration by 2% (+2% per stack)"
+        },
         {
             "Title": "Berserker’s Fury",
             "Bonus": "5",
-            "Description": "Increase damage by 20% (+20% per stack)",
-                 },
+            "Description": "Increase damage by 20% (+20% per stack)"
+        },
         {
             "Title": "Swift Stride",
             "Bonus": "6",
-            "Description": "Sprint speed is improved by 25% (+25% per stack).",
-                 },
+            "Description": "Sprint speed is improved by 25% (+25% per stack)."
+        },
         {
             "Title": "Keen Edge",
             "Bonus": "7",
-            "Description": "Your attacks have a 10% (+10% per stack) chance to 'Critically Strike', dealing double damage",
-                 },
+            "Description": "Your attacks have a 10% (+10% per stack) chance to 'Critically Strike', dealing double damage"
+        },
         {
             "Title": "Blazing Agility",
             "Bonus": "8",
-            "Description": "Increases movement speed by 14% (+14% per stack).",
-                 },
+            "Description": "Increases movement speed by 14% (+14% per stack)."
+        },
         {
             "Title": "Fortified Resolve",
             "Bonus": "9",
-            "Description": "Reduce all incoming damage by 5 (+5 per stack). Cannot be reduced below 1.",
-                },
+            "Description": "Reduce all incoming damage by 5 (+5 per stack). Cannot be reduced below 1."
+        },
         {
             "Title": "Haste of the Warrior",
             "Bonus": "10",
-            "Description": "Increases attack speed by 15% (+15% per stack).",
-                 },
+            "Description": "Increases attack speed by 15% (+15% per stack)."
+        },
         {
-            "Title": "11",
+            "Title": "Curse Protection",
             "Bonus": "11",
-            "Description": "adds 11",
-                 },
+            "Description": "Reduce curse damage by 5% (+5% per stack)"
+        },
         {
-            "Title": "12",
+            "Title": "GraveLord's chosen",
             "Bonus": "12",
-            "Description": "adds 12",
-                 },
+            "Description": "Increase Healing orb factor by 5% (+5% per stack)"
+        }
     ]
 }

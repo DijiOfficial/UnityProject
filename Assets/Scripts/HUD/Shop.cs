@@ -8,19 +8,19 @@ using Unity.VisualScripting;
 public class Shop : MonoBehaviour
 {
     [Header("Interaction Settings")]
-    [SerializeField] private float _interactionRadius = 25.0f;
+    [SerializeField] protected float _interactionRadius = 25.0f;
 
-    [SerializeField] private InputActionAsset _inputAsset;
-    private InputAction _FKeyPress;
-    private InputAction _EscKeyPress;
+    [SerializeField] protected InputActionAsset _inputAsset;
+    protected InputAction _FKeyPress;
+    protected InputAction _EscKeyPress;
     private GameObject _UI;
     private Transform _playerTransform;
 
-    private bool _isInShop = false;
+    protected bool _isInShop = false;
     private bool _isInRange = false;
 
     public bool IsInShopeRange { get { return _isInRange; } }
-    private void Awake()
+    protected virtual void Awake()
     {
         if (_inputAsset == null) return;
 
@@ -52,7 +52,7 @@ public class Shop : MonoBehaviour
             if (_isInShop) CloseShop();
         }
     }
-    private void HandleShopInput()
+    protected virtual void HandleShopInput()
     {
         if(_FKeyPress.IsPressed() && !_isInShop)
         {
@@ -67,7 +67,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void CloseShop()
+    public virtual void CloseShop()
     {
         _isInShop = false;
 
@@ -75,14 +75,14 @@ public class Shop : MonoBehaviour
         DisableCursor();
     }
 
-    private void EnableCursor()
+    protected void EnableCursor()
     {
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
 
     }
 
-    private void DisableCursor()
+    protected void DisableCursor()
     {
         UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;

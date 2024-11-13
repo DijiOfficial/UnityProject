@@ -39,6 +39,11 @@ public class Health : MonoBehaviour
             _healthBar.SetActive(false);
     }
 
+    public void CallHealthChange()
+    {
+        OnHealthChanged?.Invoke(_startHealth, _currentHealth);
+    }
+
     public void Damage(int amount)
     {
         _currentHealth -= amount;

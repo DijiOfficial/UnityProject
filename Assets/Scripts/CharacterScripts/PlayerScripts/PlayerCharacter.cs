@@ -45,8 +45,14 @@ public class PlayerCharacter : BasicCharacter
 
         //we bind a callback to it instead of continiously monitoring input
         _jumpAction.performed += HandleJumpInput;
+    }
 
+    protected void Start()
+    {
+        //this was in awake, turns out the script are loaded in order of hierarchy on which they are attached to the object
         GetComponent<Health>().CurrentHealth = _tempPlayerInfo._health;
+        GetComponent<Health>().CallHealthChange();
+
     }
     protected void OnDestroy()
     {

@@ -12,6 +12,9 @@ public class BonusUIScript : MonoBehaviour
     private TMP_Text _bonusLabel;
     private TMP_Text _descriptionLabel;
     private List<GameObject> _cards = new List<GameObject>();
+    private Button _closeButton;
+
+    [SerializeField] private TempPlayerInfo _tempPlayerInfo;
 
     [System.Serializable]
     private class Upgrade
@@ -21,6 +24,19 @@ public class BonusUIScript : MonoBehaviour
         public string Description;
     }
     private List<Upgrade> _upgrades;
+    private void BindCloseButton()
+    {
+        _closeButton = GameObject.Find("CloseButton").GetComponent<Button>();
+        if (_closeButton != null)
+            _closeButton.onClick.AddListener(CloseBonusUI);
+    }
+    private void CloseBonusUI()
+    {
+        UnityEngine.Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        gameObject.SetActive(false);
+    }
 
     private List<Upgrade> ParseUpgrades(string[] lines)
     {
@@ -32,6 +48,9 @@ public class BonusUIScript : MonoBehaviour
     private void OnEnable()
     {
         OpenShop();
+        BindCloseButton();
+        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Awake()
@@ -71,7 +90,7 @@ public class BonusUIScript : MonoBehaviour
 
     private void OpenShop()
     {
-        UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
+        UpdateSoulCoins(_tempPlayerInfo._goldCoins);
         _upgradePopUp.SetActive(false);
     }
 
@@ -127,43 +146,22 @@ public class BonusUIScript : MonoBehaviour
 
     private void BuyUpgrade(int idx)
     {
-        //var upgrade = _upgrades[idx];
-        //int bonusCost = int.Parse(upgrade.Bonus.Trim());
+        var upgrade = _upgrades[idx];
+        int bonusCost = int.Parse(upgrade.Bonus.Trim());
 
-        //if (StaticVariablesManager.Instance.GetCoinAmount >= bonusCost)
-        //{
-        //    // Deduct the cost from the soul coins
-        //    StaticVariablesManager.Instance.RemoveCoin(bonusCost);
+        if (_tempPlayerInfo._goldCoins >= bonusCost)
+        {
+            // Deduct the cost from the soul coins
+            _tempPlayerInfo._goldCoins -= bonusCost;
 
-        //    // Mark the upgrade as acquired
-        //    upgrade.Acquired = true;
-
-        //    // Update the tick display
-        //    _acquiredTicks[idx].SetActive(true);
-
-        //    // Update the soul coins display
-        //    UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
-
-        //    // Write the updated upgrades to the file
-        //    WriteUpgradesToFile();
-        //}
+            _tempPlayerInfo.AddBonus(idx + 1);
+        }
     }
 
     [System.Serializable]
     private class UpgradeListWrapper
     {
         public List<Upgrade> Upgrades;
-    }
-
-    private void WriteUpgradesToFile()
-    {
-        string filePath = Path.Combine(Application.dataPath, "TempUpgrades.txt");
-        var upgradesWrapper = new UpgradeListWrapper
-        {
-            Upgrades = _upgrades
-        };
-        string json = JsonUtility.ToJson(upgradesWrapper, true);
-        File.WriteAllText(filePath, json);
     }
 }
 
