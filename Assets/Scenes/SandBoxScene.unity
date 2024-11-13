@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _difficultyModifier: 1.5
-  _teleporterTemplate: {fileID: 1664070889091717571, guid: ce984db52acf31c4c9d058b33c3d0869,
+  _teleporterTemplate: {fileID: 1626023357221928661, guid: 6d817069d2ed0b440acd5bc0d8a6a690,
     type: 3}
 --- !u!4 &4674594
 Transform:

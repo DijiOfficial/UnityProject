@@ -32,8 +32,8 @@ public class BonusUIScript : MonoBehaviour
     }
     private void CloseBonusUI()
     {
-        UnityEngine.Cursor.visible = false;
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         gameObject.SetActive(false);
     }
@@ -49,8 +49,8 @@ public class BonusUIScript : MonoBehaviour
     {
         OpenShop();
         BindCloseButton();
-        UnityEngine.Cursor.visible = true;
-        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Awake()
