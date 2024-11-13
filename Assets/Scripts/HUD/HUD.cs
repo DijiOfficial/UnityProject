@@ -12,6 +12,7 @@ public class HUD : MonoBehaviour
 
     private Label _soulCoinsText = null;
     private Label _speedText = null;
+    private Label _rangeAttackCounter = null;
 
     private Label _comboText = null;
     private ProgressBar _comboBar = null;
@@ -42,6 +43,7 @@ public class HUD : MonoBehaviour
         _speedText = _root.Q<Label>("Speed");
         _comboText = _root.Q<Label>("Combo");
         _comboBar = _root.Q<ProgressBar>("ComboBar");
+        _rangeAttackCounter = _root.Q<Label>("RangeAttackCounter");
 
         _FIcon = _root.Q<VisualElement>("FKey");
         _ShopText = _root.Q<Label>("OpenShop");
@@ -80,6 +82,9 @@ public class HUD : MonoBehaviour
 
                 comboScript.OnComboChange += UpdateCombo;
             }
+
+            UpdateRangeAttackCounter(player.TotalRangedAttack);
+            player.OnRangedAttackChange += UpdateRangeAttackCounter;
         }
     }
 
@@ -98,6 +103,19 @@ public class HUD : MonoBehaviour
             _isDisplayOpen = false;
             _FIcon.style.display = DisplayStyle.None;
             _ShopText.style.display = DisplayStyle.None;
+        }
+    }
+
+    public void UpdateRangeAttackCounter(int current)
+    {
+        if (_rangeAttackCounter == null) return;
+
+        if (current == 0)
+            _rangeAttackCounter.style.display = DisplayStyle.None;
+        else
+        {
+            _rangeAttackCounter.style.display = DisplayStyle.Flex;
+            _rangeAttackCounter.text = current.ToString();
         }
     }
 

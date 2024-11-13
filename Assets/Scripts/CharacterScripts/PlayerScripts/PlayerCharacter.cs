@@ -1,6 +1,7 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static MovementBehaviour;
 
 public class PlayerCharacter : BasicCharacter
 {
@@ -8,15 +9,26 @@ public class PlayerCharacter : BasicCharacter
     [SerializeField] private InputActionReference _movementReferenceX;
     [SerializeField] private InputActionReference _movementReferenceZ;
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private int _totalRangedAttack;
 
+    public delegate void RangeAttackChange(int current);
+    public event RangeAttackChange OnRangedAttackChange;
+    public int TotalRangedAttack { get { return _totalRangedAttack; } }
+    private int _availableAttacks = 2;
+    private float _rechargeRate = 2.0f;
+    private float _rechargeTime;
+    private bool _isAttacking = false;
     private InputAction _jumpAction;
     private InputAction _attackAction;
+    private InputAction _secondAttackAction;
     private InputAction _sprintAction;
     private InputAction _crouchAction;
     private bool _canSlide;
     protected SlidingScript _slidingBehaviour;
     protected override void Awake()
     {
+        _availableAttacks = _totalRangedAttack;
+
         base.Awake();
 
         _slidingBehaviour = GetComponent<SlidingScript>();
@@ -26,6 +38,7 @@ public class PlayerCharacter : BasicCharacter
         //example of searching for the bindings in code, alternatively, they can be hooked in the editor using a InputAcctionReference as shown by _movementAction
         _jumpAction = _inputAsset.FindActionMap("Gameplay").FindAction("Jump");
         _attackAction = _inputAsset.FindActionMap("Gameplay").FindAction("Attack");
+        _secondAttackAction = _inputAsset.FindActionMap("Gameplay").FindAction("SecondAttack");
         _sprintAction = _inputAsset.FindActionMap("Gameplay").FindAction("Sprint");
         _crouchAction = _inputAsset.FindActionMap("Gameplay").FindAction("Crouch");
 
@@ -100,11 +113,38 @@ public class PlayerCharacter : BasicCharacter
     private void HandleAttackInput()
     {
         if (_attackBehaviour == null
-            || _attackAction == null)
+            || _attackAction == null
+            || _secondAttackAction == null)
             return;
 
         if (_attackAction.IsPressed())
             _attackBehaviour.Attack();
+
+        if (_secondAttackAction.IsPressed() && _availableAttacks > 0 && !_isAttacking)
+        {
+            _attackBehaviour.SecondAttack();
+            _availableAttacks -= 1;
+            if (_rechargeTime <= 0.0f)
+                _rechargeTime = _rechargeRate;
+
+            OnRangedAttackChange?.Invoke(_availableAttacks);
+            _isAttacking = true;
+        }
+        else if (_isAttacking && !_secondAttackAction.IsPressed())
+            _isAttacking = false;
+
+        if (_availableAttacks < _totalRangedAttack)
+        {
+            if (_rechargeTime > 0.0f)
+                _rechargeTime -= Time.deltaTime;
+
+            if (_rechargeTime <= 0.0f)
+            {
+                _availableAttacks++;
+                _rechargeTime = _rechargeRate;
+                OnRangedAttackChange?.Invoke(_availableAttacks);
+            }
+        }
     }
 }
 

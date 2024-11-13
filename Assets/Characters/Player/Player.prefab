@@ -231,6 +231,7 @@ MonoBehaviour:
   _movementReferenceZ: {fileID: 1750992828205935584, guid: 9e0212d800064c943bdf2d0781a94d24,
     type: 3}
   _playerTransform: {fileID: 7569278944301559609}
+  _totalRangedAttack: 2
 --- !u!114 &5435519264482052261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +288,8 @@ MonoBehaviour:
   _AttackSockets:
   - {fileID: 841900897587222370}
   _fireRate: 1
+  _secondHitbox: {fileID: 2622517547045667865, guid: b7fd45837a25707478e96cb3570ebb34,
+    type: 3}
 --- !u!54 &7043447716243168270
 Rigidbody:
   m_ObjectHideFlags: 0

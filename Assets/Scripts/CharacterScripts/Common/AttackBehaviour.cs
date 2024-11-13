@@ -10,6 +10,9 @@ public class AttackBehaviour : MonoBehaviour
     [SerializeField] private List<Transform> _AttackSockets = new List<Transform>();
     [SerializeField] private float _fireRate = 1.0f;
 
+    [Header("Second Attack")]
+    [SerializeField] private GameObject _secondHitbox = null;
+
 
     private GameObject _weapon = null;
     private bool _isAttacking = false;
@@ -60,11 +63,26 @@ public class AttackBehaviour : MonoBehaviour
 
     }
 
+    private void SpawnSecondAttackHitBox()
+    {
+        //no bullet to fire
+        if (_secondHitbox == null)
+            return;
+
+        for (int i = 0; i < _AttackSockets.Count; i++)
+        {
+            Instantiate(_secondHitbox, _AttackSockets[i].position + new Vector3(0, 0.5f, 0), _AttackSockets[i].rotation);
+        }
+    }
+
     public void Attack()
     {
         _isAttacking = true;
     }
-
+    public void SecondAttack()
+    {
+        SpawnSecondAttackHitBox();
+    }
     IEnumerator SwordSwing()
     {
         _weapon.GetComponent<Animator>().Play("sword slash");
