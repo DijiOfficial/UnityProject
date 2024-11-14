@@ -8,10 +8,14 @@ public class SpecialPowerScript : MonoBehaviour
     [SerializeField] private float _cooldown;
     [SerializeField] private float _duration;
     [SerializeField] private float _specialDamageReduction = 0.5f;
+    [SerializeField] private GameObject _specialPowerVFX;
+
     private float _timer;
     private float _durationTimer;
     private Health _health;
     private bool _isActivated = false;
+
+    public float Duration { get { return _duration; } }
     private void Start()
     {
         _health = GetComponent<Health>();
@@ -43,6 +47,10 @@ public class SpecialPowerScript : MonoBehaviour
         _isActivated = true;
         _durationTimer = _duration;
         _health.SpecialDamageReduction = _specialDamageReduction;
+
+        // Instantiate the special power VFX as a child of the player
+        GameObject vfxInstance = Instantiate(_specialPowerVFX, transform.position, Quaternion.identity);
+        vfxInstance.transform.SetParent(transform);
     }
 }
 

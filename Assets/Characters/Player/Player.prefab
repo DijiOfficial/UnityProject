@@ -526,6 +526,8 @@ MonoBehaviour:
   _cooldown: 15
   _duration: 5
   _specialDamageReduction: 0.5
+  _specialPowerVFX: {fileID: 4075088976703180589, guid: 9aa3212ff649f3c408540253feeef8b7,
+    type: 3}
 --- !u!1001 &6613901485553583622
 PrefabInstance:
   m_ObjectHideFlags: 0

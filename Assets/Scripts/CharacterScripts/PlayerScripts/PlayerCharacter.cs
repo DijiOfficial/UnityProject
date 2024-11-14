@@ -28,9 +28,9 @@ public class PlayerCharacter : BasicCharacter
     private InputAction _dashAction;
     private InputAction _specialPower;
     private bool _canSlide;
-    protected SlidingScript _slidingBehaviour;
-    protected DashScript _dash;
-    protected SpecialPowerScript _powerScript;
+    private SlidingScript _slidingBehaviour;
+    private DashScript _dash;
+    private SpecialPowerScript _powerScript;
     protected override void Awake()
     {
         _totalRangedAttack += _tempPlayerInfo._secondarySkill;
@@ -40,6 +40,7 @@ public class PlayerCharacter : BasicCharacter
 
         _slidingBehaviour = GetComponent<SlidingScript>();
         _dash = GetComponent<DashScript>();
+        _powerScript = GetComponent<SpecialPowerScript>();
 
         if (_inputAsset == null) return;
 
@@ -87,6 +88,7 @@ public class PlayerCharacter : BasicCharacter
         HandleCrouch();
         HandledDash();
         HandleSprint();
+        HandelSpecial();
     }
     void HandleMovementInput()
     {
