@@ -46,8 +46,11 @@ public class MovementBehaviour : MonoBehaviour
 
     [Header("Movement State")]
     private MovementState _movementState;
-    private enum MovementState { Walking, Running, Air, Crouching, Sliding }
+    private enum MovementState { Walking, Running, Air, Crouching, Sliding, Dashing }
 
+    [Header("Dash")]
+    [SerializeField] private float _dashSpeed;
+    private bool _isDashing = false;
 
     [Header("References")]
     [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
@@ -60,6 +63,11 @@ public class MovementBehaviour : MonoBehaviour
     {
         get { return _isSliding; }
         set { _isSliding = value; }
+    }
+    public bool IsDashing
+    {
+        get { return _isDashing; }
+        set { _isDashing = value; }
     }
     public Vector3 DesiredMovementDirection
     {
@@ -155,7 +163,7 @@ public class MovementBehaviour : MonoBehaviour
         SpeedControl();
         StateHandle();
 
-        if (_isGrounded)
+        if (_isGrounded && _movementState != MovementState.Dashing)
         {
             _rigidbody.drag = _groundDrag;
             if (_isJumpingOffSlope && !_isJumping)
@@ -169,8 +177,14 @@ public class MovementBehaviour : MonoBehaviour
     }
     protected virtual void StateHandle()
     {
+
         //replace with StateMachine
-        if (_isSliding)
+        if (_isDashing)
+        {
+            _movementSpeed = _dashSpeed;
+            _movementState = MovementState.Dashing;
+        }
+        else if (_isSliding)
         {
             _movementSpeed = _walkSpeed;
             _movementState = MovementState.Sliding;
@@ -203,6 +217,7 @@ public class MovementBehaviour : MonoBehaviour
     }
     protected virtual void HandleMovement()
     {
+        if (_movementState == MovementState.Dashing) return;
         if (_rigidbody == null) return;
 
         int speedMultiplier = 80;

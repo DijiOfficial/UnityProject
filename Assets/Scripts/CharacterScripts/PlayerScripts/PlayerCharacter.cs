@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,8 +25,10 @@ public class PlayerCharacter : BasicCharacter
     private InputAction _secondAttackAction;
     private InputAction _sprintAction;
     private InputAction _crouchAction;
+    private InputAction _dashAction;
     private bool _canSlide;
     protected SlidingScript _slidingBehaviour;
+    protected DashScript _dash;
     protected override void Awake()
     {
         _totalRangedAttack += _tempPlayerInfo._secondarySkill;
@@ -34,7 +37,8 @@ public class PlayerCharacter : BasicCharacter
         base.Awake();
 
         _slidingBehaviour = GetComponent<SlidingScript>();
-      
+        _dash = GetComponent<DashScript>();
+
         if (_inputAsset == null) return;
 
         //example of searching for the bindings in code, alternatively, they can be hooked in the editor using a InputAcctionReference as shown by _movementAction
@@ -43,6 +47,7 @@ public class PlayerCharacter : BasicCharacter
         _secondAttackAction = _inputAsset.FindActionMap("Gameplay").FindAction("SecondAttack");
         _sprintAction = _inputAsset.FindActionMap("Gameplay").FindAction("Sprint");
         _crouchAction = _inputAsset.FindActionMap("Gameplay").FindAction("Crouch");
+        _dashAction = _inputAsset.FindActionMap("Gameplay").FindAction("Dash");
 
         //we bind a callback to it instead of continiously monitoring input
         _jumpAction.performed += HandleJumpInput;
@@ -77,6 +82,7 @@ public class PlayerCharacter : BasicCharacter
         HandleAttackInput();
         HandleSprint();
         HandleCrouch();
+        HandledDash();
     }
     void HandleMovementInput()
     {
@@ -96,6 +102,13 @@ public class PlayerCharacter : BasicCharacter
     private void HandleJumpInput(InputAction.CallbackContext context)
     {
         _movementBehaviour.Jump();
+    }
+    private void HandledDash()
+    {
+        if (_dashAction == null) return;
+
+        if (_dashAction.triggered)
+            _dash.Dash();
     }
     private void HandleSprint()
     {

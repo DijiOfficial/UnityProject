@@ -1,5 +1,5 @@
 using UnityEngine;
-using Cinemachine;
+using DG.Tweening;
 
 public class RotatePlayer : MonoBehaviour
 {
@@ -12,6 +12,12 @@ public class RotatePlayer : MonoBehaviour
     private float _rotationX = 0;
     private float _rotationY = 0;
 
+    private Camera _camera;
+
+    private void Awake()
+    {
+        _camera = GetComponent<Camera>();
+    }
 
     private void Start()
     {
@@ -37,5 +43,8 @@ public class RotatePlayer : MonoBehaviour
         _minimapCameraTransform.rotation = Quaternion.Euler(90, 0, -_rotationY);
     }
 
-    
+    public void DoFov(float value)
+    {
+        _camera.DOFieldOfView(value, 0.25f);
+    }
 }
