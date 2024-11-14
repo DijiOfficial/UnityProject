@@ -490,7 +490,7 @@ MonoBehaviour:
   _weaponSocket: {fileID: 5962015600276728126}
   _AttackSockets:
   - {fileID: 1592901208935649595}
-  _fireRate: 0.5
+  _fireRate: 0.75
   _secondHitbox: {fileID: 2622517547045667865, guid: b7fd45837a25707478e96cb3570ebb34,
     type: 3}
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}

@@ -21,8 +21,8 @@ MonoBehaviour:
   _keenEdge: 0
   _blazingAgility: 0
   _fortifiedResolve: 0
-  _hasteOfTheWarrior: 0
+  _hasteOfTheWarrior: 12
   _curseProtection: 0
   _gravelordChosen: 0
-  _goldCoins: 0
-  _health: 100
+  _goldCoins: 12
+  _health: 97
