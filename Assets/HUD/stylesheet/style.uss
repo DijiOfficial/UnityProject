@@ -1,0 +1,4 @@
+
+.unity-progress-bar__container {
+	min-height: 5px;	
+}

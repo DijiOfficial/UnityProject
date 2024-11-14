@@ -23,7 +23,8 @@ public class DashScript : MonoBehaviour
     [SerializeField] private float _dashCd;
     private float _dashCdTimer;
 
-
+    public delegate void DashChanfe(float start, float current);
+    public event DashChanfe OnDashChange;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -41,6 +42,8 @@ public class DashScript : MonoBehaviour
     {
         if (_dashCdTimer > 0)
             _dashCdTimer -= Time.deltaTime;
+
+        OnDashChange?.Invoke(_dashCd, _dashCdTimer);
     }
 
     public void Dash()

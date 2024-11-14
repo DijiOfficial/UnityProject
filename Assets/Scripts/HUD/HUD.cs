@@ -16,6 +16,7 @@ public class HUD : MonoBehaviour
 
     private Label _comboText = null;
     private ProgressBar _comboBar = null;
+    private ProgressBar _dashBar = null;
 
     private VisualElement _FIcon = null;
     private Label _ShopText = null;
@@ -44,6 +45,7 @@ public class HUD : MonoBehaviour
         _comboText = _root.Q<Label>("Combo");
         _comboBar = _root.Q<ProgressBar>("ComboBar");
         _rangeAttackCounter = _root.Q<Label>("RangeAttackCounter");
+        _dashBar = _root.Q<ProgressBar>("DashBar");
 
         _FIcon = _root.Q<VisualElement>("FKey");
         _ShopText = _root.Q<Label>("OpenShop");
@@ -85,6 +87,14 @@ public class HUD : MonoBehaviour
 
             UpdateRangeAttackCounter(player.TotalRangedAttack);
             player.OnRangedAttackChange += UpdateRangeAttackCounter;
+
+            DashScript dashScript = player.GetComponent<DashScript>();
+            if (dashScript)
+            {
+                UpdateDash(0, 0);
+
+                dashScript.OnDashChange += UpdateDash;
+            }
         }
     }
 
@@ -131,6 +141,18 @@ public class HUD : MonoBehaviour
 
         // Check if current is less than or equal to 0 and update the display style of _comboBar
         _comboBar.style.display = current <= 0 ? DisplayStyle.None : DisplayStyle.Flex;
+    }
+
+    public void UpdateDash(float start, float current)
+    {
+        if (_dashBar == null) return;
+
+        // Clamp current to a minimum of 0
+        current = Mathf.Max(current, 0);
+        _dashBar.value = (current / start) * 100.0f;
+
+        // Check if current is less than or equal to 0 and update the display style of _dashBar
+        _dashBar.style.display = current <= 0 ? DisplayStyle.None : DisplayStyle.Flex;
     }
 
     public void UpdateSpeed(float speed)
