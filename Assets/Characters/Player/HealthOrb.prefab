@@ -184,7 +184,8 @@ MonoBehaviour:
   _attractionRange: 5
   _moveTowardsPlayerSpeed: 25
   _playerCenterOffset: 0.75
-  _healingPower: 20
+  _healingPower: 5
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!96 &4980849424179952569
 TrailRenderer:
   serializedVersion: 3

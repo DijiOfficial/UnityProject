@@ -13,7 +13,7 @@ public class UpgradeOrbScript : HealthOrbBehaviour
         if (other.name != "Player")
             return;
 
-        StaticVariablesManager.Instance.AddCoin(1);
+        _tempPlayerInfo._goldCoins += 1;
         Destroy(gameObject);
     }
 }

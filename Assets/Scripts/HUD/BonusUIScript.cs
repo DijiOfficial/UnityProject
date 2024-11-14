@@ -149,12 +149,26 @@ public class BonusUIScript : MonoBehaviour
         var upgrade = _upgrades[idx];
         int bonusCost = int.Parse(upgrade.Bonus.Trim());
 
-        if (_tempPlayerInfo._goldCoins >= bonusCost)
-        {
-            // Deduct the cost from the soul coins
-            _tempPlayerInfo._goldCoins -= bonusCost;
+        if (_tempPlayerInfo._goldCoins < bonusCost)
+            return;
 
-            _tempPlayerInfo.AddBonus(idx + 1);
+        _tempPlayerInfo._goldCoins -= bonusCost;
+        UpdateSoulCoins(_tempPlayerInfo._goldCoins);
+
+        _tempPlayerInfo.AddBonus(idx + 1);
+
+        if (idx == 0)
+        {
+            // Find the player and get the health script
+            GameObject player = GameObject.Find("Player");
+            if (player != null)
+            {
+                Health healthScript = player.GetComponent<Health>();
+                if (healthScript != null)
+                    healthScript.IncreaseHealth(25);
+
+                //_tempPlayerInfo._health += 25;
+            }
         }
     }
 

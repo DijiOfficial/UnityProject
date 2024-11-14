@@ -28,6 +28,7 @@ public class PlayerCharacter : BasicCharacter
     protected SlidingScript _slidingBehaviour;
     protected override void Awake()
     {
+        _totalRangedAttack += _tempPlayerInfo._secondarySkill;
         _availableAttacks = _totalRangedAttack;
 
         base.Awake();

@@ -11,8 +11,11 @@ public class HealthOrbBehaviour : MonoBehaviour
     [Header("Player Interaction")]
     [SerializeField] private float _attractionRange = 5f;
     [SerializeField] private float _moveTowardsPlayerSpeed = 15f;
-    [SerializeField] private float _playerCenterOffset = 1.0f; 
-    [SerializeField] private int _healingPower = 20;
+    [SerializeField] private float _playerCenterOffset = 1.0f;
+    [SerializeField] private int _healingPower = 5;
+
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
 
     private bool _isTargetingPlayer = false;
     private Transform _playerTransform;
@@ -24,6 +27,8 @@ public class HealthOrbBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        if (_tempPlayerInfo != null)
+            _healingPower += Mathf.RoundToInt(_tempPlayerInfo._restorativeVitality * (_healingPower * 0.2f));
     }
 
     protected virtual void Start()

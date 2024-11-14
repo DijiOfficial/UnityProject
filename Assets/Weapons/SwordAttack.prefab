@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifeTime: 0.2
   _damage: 12
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!54 &1584470078573277872
 Rigidbody:
   m_ObjectHideFlags: 0

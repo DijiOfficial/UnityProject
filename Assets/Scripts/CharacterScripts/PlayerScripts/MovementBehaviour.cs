@@ -48,6 +48,10 @@ public class MovementBehaviour : MonoBehaviour
     private MovementState _movementState;
     private enum MovementState { Walking, Running, Air, Crouching, Sliding }
 
+
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
+
     #region Setters and Getters
     public bool IsGrounded { get { return _isGrounded; } }
     public float CrouchHeight { get { return _crouchHeight; } }
@@ -106,6 +110,14 @@ public class MovementBehaviour : MonoBehaviour
             _rigidbody.freezeRotation = true;
 
         _startYScale = transform.localScale.y;
+
+        // Check if this is the Player
+        if (gameObject.name == "Player")
+        {
+            // Add to sprint speed based on swiftStride
+            float additionalSprintSpeed = _tempPlayerInfo._swiftStride * _sprintSpeed * 0.05f;
+            _sprintSpeed += additionalSprintSpeed;
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -157,7 +169,7 @@ public class MovementBehaviour : MonoBehaviour
     }
     protected virtual void StateHandle()
     {
-        //this needs a StateMachine
+        //replace with StateMachine
         if (_isSliding)
         {
             _movementSpeed = _walkSpeed;
@@ -186,6 +198,8 @@ public class MovementBehaviour : MonoBehaviour
             else
                 _movementSpeed = _walkSpeed;
         }
+
+        _movementSpeed += _tempPlayerInfo._blazingAgility * _movementSpeed * 0.14f;
     }
     protected virtual void HandleMovement()
     {

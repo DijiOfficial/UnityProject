@@ -10,17 +10,21 @@ public class HealthDrain : MonoBehaviour
     private float _drainRateTracker;
     private Health _health;
     private bool _isDraining = true;
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
 
     private void Awake()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2)
             _isDraining = false;
+
+        _drainRate += _tempPlayerInfo._curseProtection * _drainRate * 0.05f;
+        _drainRateTracker = _drainRate;
     }
 
     private void Start()
     {
         _health = GetComponent<Health>();
-        _drainRateTracker = _drainRate;
     }
 
     private void FixedUpdate()

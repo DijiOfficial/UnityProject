@@ -18,17 +18,17 @@
         {
             "Title": "Restorative Vitality",
             "Bonus": "4",
-            "Description": "Increases health orb regeneration by 2% (+2% per stack)"
+            "Description": "Increases health orb regeneration by 20% (+20% per stack)"
         },
         {
             "Title": "Berserker’s Fury",
             "Bonus": "5",
-            "Description": "Increase damage by 20% (+20% per stack)"
+            "Description": "Increase base damage by 20% (+20% per stack)"
         },
         {
             "Title": "Swift Stride",
             "Bonus": "6",
-            "Description": "Sprint speed is improved by 25% (+25% per stack)."
+            "Description": "Sprint speed is improved by 5% (+5% per stack)."
         },
         {
             "Title": "Keen Edge",
@@ -53,12 +53,12 @@
         {
             "Title": "Curse Protection",
             "Bonus": "11",
-            "Description": "Reduce curse damage by 5% (+5% per stack)"
+            "Description": "Reduce curse damage by 5% (-5% per stack)"
         },
         {
             "Title": "GraveLord's chosen",
             "Bonus": "12",
-            "Description": "Increase Healing orb factor by 5% (+5% per stack)"
+            "Description": "Increase Gold Drop Chance by 2.5% (+2.5% per stack)"
         }
     ]
 }

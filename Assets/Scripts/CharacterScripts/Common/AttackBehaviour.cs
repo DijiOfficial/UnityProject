@@ -13,11 +13,14 @@ public class AttackBehaviour : MonoBehaviour
     [Header("Second Attack")]
     [SerializeField] private GameObject _secondHitbox = null;
 
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
 
     private GameObject _weapon = null;
     private bool _isAttacking = false;
     private float _attackTimer = 0.0f;
     public bool IsAttacking { get { return (_isAttacking || _attackTimer > 0.0f); } }
+    private bool _isPlayer = false;
 
     private void Awake()
     {
@@ -29,7 +32,9 @@ public class AttackBehaviour : MonoBehaviour
             _weapon.transform.localPosition = Vector3.zero;
             _weapon.transform.localRotation = Quaternion.identity;
         }
-
+        _isPlayer = GetComponent<PlayerCharacter>() != null;
+        if (_isPlayer)
+            _fireRate += _fireRate * 0.15f * _tempPlayerInfo._hasteOfTheWarrior;
     }
     private void Update()
     {
@@ -85,10 +90,19 @@ public class AttackBehaviour : MonoBehaviour
     }
     IEnumerator SwordSwing()
     {
-        _weapon.GetComponent<Animator>().Play("sword slash");
-        yield return new WaitForSeconds(0.367f);
-        _weapon.GetComponent<Animator>().Play("New State");
+        Animator animator = _weapon.GetComponent<Animator>();
+        float animationDuration = 1.0f; // The original duration of the animation in seconds
+        float adjustedSpeed = animationDuration * _fireRate; // Adjust the speed based on the fire rate
+
+        animator.speed = adjustedSpeed;
+        animator.Play("sword slash");
+        //there is no animator, only one swing so yield for the duration of the animation - Epsilon so the animation can finish before getting called again
+        float waitTime = Mathf.Max(1 / _fireRate - 0.01f, 0.001f);
+        yield return new WaitForSeconds(waitTime);
+        animator.Play("New State");
     }
+
+
 }
 
 

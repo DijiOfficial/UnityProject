@@ -380,6 +380,7 @@ MonoBehaviour:
   _jumpButtonMaxBuffer: 0.1
   _crouchHeight: 0.5
   _maxSlopeAngle: 40
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
   speed: 0
 --- !u!114 &5173259589440308902
 MonoBehaviour:
@@ -456,12 +457,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startHealth: 100
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
+  _coinOrbTemplate: {fileID: 0}
   _healthOrbTemplate: {fileID: 7210507935850342673, guid: 2fd83207b133d174b81bef13c58fe830,
     type: 3}
   _soulOrbTemplate: {fileID: 2340746678188905670, guid: 4b261a4f1acc47949812acb22f51b63f,
     type: 3}
   _damageTextTemplate: {fileID: 0}
   _defaultDropChancePercent: 5
+  _defaultGoldDropChance: 5
   _numberOfOrbs: 0
 --- !u!114 &7942323806619276376
 MonoBehaviour:
@@ -477,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _drainRate: 1
   _drainingValue: 1
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!114 &7132104373323261342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +537,7 @@ MonoBehaviour:
   _weaponSocket: {fileID: 5962015600276728126}
   _AttackSockets:
   - {fileID: 1592901208935649595}
-  _fireRate: 1
+  _fireRate: 0.5
   _secondHitbox: {fileID: 2622517547045667865, guid: b7fd45837a25707478e96cb3570ebb34,
     type: 3}
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}

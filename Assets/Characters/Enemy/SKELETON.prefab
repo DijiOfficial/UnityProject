@@ -1508,6 +1508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startHealth: 25
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
+  _coinOrbTemplate: {fileID: 6057732072649453102, guid: 720be730371f26249af62ba1ec28e0ec,
+    type: 3}
   _healthOrbTemplate: {fileID: 7210507935850342673, guid: 2fd83207b133d174b81bef13c58fe830,
     type: 3}
   _soulOrbTemplate: {fileID: 2340746678188905670, guid: 4b261a4f1acc47949812acb22f51b63f,
@@ -1515,7 +1518,8 @@ MonoBehaviour:
   _damageTextTemplate: {fileID: 314298053317958107, guid: 2a19f6da5c9c1894192f7c9c3acb96c9,
     type: 3}
   _defaultDropChancePercent: 15
-  _numberOfOrbs: 4
+  _defaultGoldDropChance: 35
+  _numberOfOrbs: 1
 --- !u!114 &3451656765658296141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,6 +1540,7 @@ MonoBehaviour:
   _jumpButtonMaxBuffer: 0
   _crouchHeight: 0
   _maxSlopeAngle: 0
+  _tempPlayerInfo: {fileID: 0}
   speed: 0
 --- !u!114 &8111522504887035910
 MonoBehaviour:
@@ -1603,6 +1608,7 @@ MonoBehaviour:
   - {fileID: 3946251781731493529}
   _fireRate: 1
   _secondHitbox: {fileID: 0}
+  _tempPlayerInfo: {fileID: 0}
 --- !u!1 &8021461258992362723
 GameObject:
   m_ObjectHideFlags: 0

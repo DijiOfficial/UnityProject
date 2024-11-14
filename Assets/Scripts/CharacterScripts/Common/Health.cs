@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    private int _startHealth = 10;
+    [SerializeField] private int _startHealth = 10;
+    [SerializeField] private TempPlayerInfo _tempPlayerInfo;
 
+
+    [SerializeField] private GameObject _coinOrbTemplate = null;
     [SerializeField] private GameObject _healthOrbTemplate = null;
     [SerializeField] private GameObject _soulOrbTemplate = null;
     [SerializeField] protected GameObject _damageTextTemplate = null;
     [SerializeField] private int _defaultDropChancePercent = 5;
+    [SerializeField] private int _defaultGoldDropChance = 5;
     [SerializeField] private int _numberOfOrbs;
+
+    private bool _isPlayer = false;
     private int _currentHealth = 0;
     private ComboScript _comboScript;
     private Collider _collider;
@@ -25,9 +30,16 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+        _isPlayer = GetComponent<PlayerCharacter>() != null;
+
+        if (_isPlayer)
+            _startHealth += _tempPlayerInfo._vitalEssence * 25;
+
         _currentHealth = _startHealth;
         _comboScript = GetComponent<ComboScript>();
         _collider = GetComponent<Collider>();
+        if (_tempPlayerInfo != null)
+            _defaultGoldDropChance = _defaultGoldDropChance + _tempPlayerInfo._gravelordChosen;
     }
     private void Start()
     {
@@ -44,8 +56,14 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
     }
 
-    public void Damage(int amount)
+    public void Damage(int amount, bool isCrit = false)
     {
+        if (_isPlayer)
+            amount -= (int)(_tempPlayerInfo._fortifiedResolve * 5);
+
+        // Cap the damage at a minimum of 1
+        amount = Mathf.Max(amount, 1);
+
         _currentHealth -= amount;
 
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
@@ -58,7 +76,7 @@ public class Health : MonoBehaviour
             _healthBar.SetActive(true);
 
         if (_damageTextTemplate)
-            ShowDamageText(amount);
+            ShowDamageText(amount, isCrit);
     }
 
     public void Heal(int amount)
@@ -73,6 +91,17 @@ public class Health : MonoBehaviour
 
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
     }
+    public void IncreaseHealth(int amount)
+    {
+        _currentHealth += amount;
+        _startHealth += amount;
+
+        if (_currentHealth > _startHealth)
+            _currentHealth = _startHealth;
+
+        OnHealthChanged?.Invoke(_startHealth, _currentHealth);
+    }
+
     void Kill()
     {
         Destroy(gameObject);
@@ -93,6 +122,8 @@ public class Health : MonoBehaviour
             Vector3 spawnPosition = GetComponent<Collider>().bounds.center;
             Instantiate(_soulOrbTemplate, spawnPosition, Quaternion.identity);
         }
+
+        SpawnCoin();
     }
     public void SpawnSoulOrb(Vector3 spawnPosition)
     {
@@ -102,7 +133,17 @@ public class Health : MonoBehaviour
             Instantiate(_soulOrbTemplate, spawnPosition, Quaternion.identity);
         }
     }
-    private void ShowDamageText(int amount)
+
+    private void SpawnCoin()
+    {
+        if (Random.Range(0, 100) < _defaultGoldDropChance && _coinOrbTemplate)
+        {
+            Vector3 spawnPosition = GetComponent<Collider>().bounds.center;
+            Instantiate(_coinOrbTemplate, spawnPosition, Quaternion.identity);
+        }
+    }
+
+    private void ShowDamageText(int amount, bool isCrit = false)
     {
         // Calculate a random x position within the collider's width
         float randomX = Random.Range(-_collider.bounds.extents.x * 2.0f, _collider.bounds.extents.x * 2.0f);
@@ -112,7 +153,12 @@ public class Health : MonoBehaviour
 
         // Instantiate the damage text at the calculated position
         var text = Instantiate(_damageTextTemplate, spawnPosition, Quaternion.identity);
-        text.GetComponent<TextMesh>().text = amount.ToString();
+        var textMesh = text.GetComponent<TextMesh>();
+        textMesh.text = amount.ToString();
+
+        // Change text color to red if it's a critical hit
+        if (isCrit)
+            textMesh.color = Color.red;
     }
 }
 
