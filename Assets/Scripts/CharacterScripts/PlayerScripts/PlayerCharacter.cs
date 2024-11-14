@@ -26,9 +26,11 @@ public class PlayerCharacter : BasicCharacter
     private InputAction _sprintAction;
     private InputAction _crouchAction;
     private InputAction _dashAction;
+    private InputAction _specialPower;
     private bool _canSlide;
     protected SlidingScript _slidingBehaviour;
     protected DashScript _dash;
+    protected SpecialPowerScript _powerScript;
     protected override void Awake()
     {
         _totalRangedAttack += _tempPlayerInfo._secondarySkill;
@@ -48,6 +50,7 @@ public class PlayerCharacter : BasicCharacter
         _sprintAction = _inputAsset.FindActionMap("Gameplay").FindAction("Sprint");
         _crouchAction = _inputAsset.FindActionMap("Gameplay").FindAction("Crouch");
         _dashAction = _inputAsset.FindActionMap("Gameplay").FindAction("Dash");
+        _specialPower = _inputAsset.FindActionMap("Gameplay").FindAction("SpecialPower");
 
         //we bind a callback to it instead of continiously monitoring input
         _jumpAction.performed += HandleJumpInput;
@@ -83,6 +86,7 @@ public class PlayerCharacter : BasicCharacter
         HandleSprint();
         HandleCrouch();
         HandledDash();
+        HandleSprint();
     }
     void HandleMovementInput()
     {
@@ -103,6 +107,15 @@ public class PlayerCharacter : BasicCharacter
     {
         _movementBehaviour.Jump();
     }
+
+    private void HandelSpecial()
+    {
+        if (_specialPower == null) return;
+
+        if (_specialPower.triggered)
+            _powerScript.Activate();
+    }
+
     private void HandledDash()
     {
         if (_dashAction == null) return;

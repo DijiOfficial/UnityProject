@@ -48,7 +48,6 @@ public class DashScript : MonoBehaviour
 
     public void Dash()
     {
-        Debug.Log("Dash");
         if (_dashCdTimer > 0) 
             return;
         else 

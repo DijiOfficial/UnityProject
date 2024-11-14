@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 8109435098595574620}
   - component: {fileID: 2021270361689208101}
   - component: {fileID: 773737093649475967}
+  - component: {fileID: 3597858161158690792}
   m_Layer: 6
   m_Name: Player
   m_TagString: Friendly
@@ -510,6 +511,21 @@ MonoBehaviour:
   _dashUpwardForce: 12
   _dashFov: 120
   _dashCd: 1.5
+--- !u!114 &3597858161158690792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208657950496684847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17679f768bf6f9643a0fb60d3a556742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldown: 15
+  _duration: 5
+  _specialDamageReduction: 0.5
 --- !u!1001 &6613901485553583622
 PrefabInstance:
   m_ObjectHideFlags: 0

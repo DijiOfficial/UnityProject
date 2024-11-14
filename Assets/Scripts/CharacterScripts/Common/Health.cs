@@ -17,12 +17,14 @@ public class Health : MonoBehaviour
     [SerializeField] private int _defaultGoldDropChance = 5;
     [SerializeField] private int _numberOfOrbs;
 
+    private float _specialDamageReduction;
     private bool _isPlayer = false;
     private int _currentHealth = 0;
     private ComboScript _comboScript;
     private Collider _collider;
     private GameObject _healthBar;
     public float StartHealth { get { return _startHealth; } }
+    public float SpecialDamageReduction { set { _specialDamageReduction = value; } }
     public int CurrentHealth { get { return _currentHealth; } set { _currentHealth = value; } }
 
     public delegate void HealthChange(float startHealth, float currentHealth);
@@ -59,7 +61,11 @@ public class Health : MonoBehaviour
     public void Damage(int amount, bool isCrit = false)
     {
         if (_isPlayer)
+        {
             amount -= (int)(_tempPlayerInfo._fortifiedResolve * 5);
+            amount = (int)(amount * (1 - _specialDamageReduction));
+        }
+
 
         // Cap the damage at a minimum of 1
         amount = Mathf.Max(amount, 1);
