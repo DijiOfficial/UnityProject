@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private GameObject _player = null;
+    [SerializeField] private TempPlayerInfo _tempPlayerInfo;
 
     private void Update()
     {
@@ -15,6 +16,7 @@ public class PlayerRespawn : MonoBehaviour
 
     void TriggerRespawn()
     {
+        _tempPlayerInfo.CustomReset();
         StaticVariablesManager.Instance.CurrentLevel = 1;
         SceneManager.LoadScene(0);
     }

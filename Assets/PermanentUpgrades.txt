@@ -1,10 +1,10 @@
 {
     "Upgrades": [
         {
-            "Title": "1",
+            "Title": "Second Wind",
             "Bonus": "1",
             "Description": "adds 1",
-            "Acquired": true
+            "Acquired": false
         },
         {
             "Title": "2",

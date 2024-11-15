@@ -15,7 +15,7 @@ public class HealthDrain : MonoBehaviour
 
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 3)
             _isDraining = false;
 
         _drainRate += _tempPlayerInfo._curseProtection * _drainRate * 0.05f;

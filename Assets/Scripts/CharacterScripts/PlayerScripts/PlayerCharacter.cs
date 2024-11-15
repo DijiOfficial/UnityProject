@@ -31,6 +31,7 @@ public class PlayerCharacter : BasicCharacter
     private SlidingScript _slidingBehaviour;
     private DashScript _dash;
     private SpecialPowerScript _powerScript;
+    private HUD _hud;
     protected override void Awake()
     {
         _totalRangedAttack += _tempPlayerInfo._secondarySkill;
@@ -63,6 +64,10 @@ public class PlayerCharacter : BasicCharacter
         GetComponent<Health>().CurrentHealth = _tempPlayerInfo._health;
         GetComponent<Health>().CallHealthChange();
 
+        // Find the GameObject named "HUD" and get the HUD component
+        GameObject hudGameObject = GameObject.Find("HUD");
+        if (hudGameObject != null)
+            _hud = hudGameObject.GetComponent<HUD>();
     }
     protected void OnDestroy()
     {
@@ -89,6 +94,7 @@ public class PlayerCharacter : BasicCharacter
         HandledDash();
         HandleSprint();
         HandelSpecial();
+        _hud.UpdateGold(_tempPlayerInfo._goldCoins);
     }
     void HandleMovementInput()
     {

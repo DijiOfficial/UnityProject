@@ -14,6 +14,9 @@ public class HUD : MonoBehaviour
     private Label _speedText = null;
     private Label _rangeAttackCounter = null;
 
+    private Label _goldText = null;
+    private Label _wave = null;
+
     private Label _comboText = null;
     private ProgressBar _comboBar = null;
     private ProgressBar _dashBar = null;
@@ -23,6 +26,7 @@ public class HUD : MonoBehaviour
 
     private Shop _shop = null;
     private bool _isDisplayOpen = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +50,8 @@ public class HUD : MonoBehaviour
         _comboBar = _root.Q<ProgressBar>("ComboBar");
         _rangeAttackCounter = _root.Q<Label>("RangeAttackCounter");
         _dashBar = _root.Q<ProgressBar>("DashBar");
+        _goldText = _root.Q<Label>("GoldTracker");
+        _wave = _root.Q<Label>("Wave");
 
         _FIcon = _root.Q<VisualElement>("FKey");
         _ShopText = _root.Q<Label>("OpenShop");
@@ -68,6 +74,9 @@ public class HUD : MonoBehaviour
 
             UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
             StaticVariablesManager.Instance.OnSoulCoinChanged += UpdateSoulCoins;
+
+            UpdateWave(StaticVariablesManager.Instance.CurrentLevel);
+            StaticVariablesManager.Instance.OnLevelChange += UpdateWave;
 
             MovementBehaviour movementBehaviour = player.GetComponent<MovementBehaviour>();
             if (movementBehaviour)
@@ -95,6 +104,8 @@ public class HUD : MonoBehaviour
 
                 dashScript.OnDashChange += UpdateDash;
             }
+
+            UpdateGold(0);
         }
     }
 
@@ -179,6 +190,20 @@ public class HUD : MonoBehaviour
         if (_soulCoinsText == null) return;
 
         _soulCoinsText.text = soulCoins.ToString();
+    }
+
+    public void UpdateGold(int gold)
+    {
+        if (_goldText == null) return;
+
+        _goldText.text = gold.ToString();
+    }
+
+    public void UpdateWave(int wave)
+    {
+        if (_wave == null) return;
+
+        _wave.text = "Room " + (wave - 1);
     }
 }
 

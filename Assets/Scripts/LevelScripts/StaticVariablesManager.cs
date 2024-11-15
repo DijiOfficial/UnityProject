@@ -75,7 +75,11 @@ public class StaticVariablesManager : MonoBehaviour
     public int CurrentLevel
     {
         get { return _currentLevel; }
-        set { _currentLevel = value; }
+        set 
+        { 
+            _currentLevel = value; 
+            OnLevelChange?.Invoke(_currentLevel);
+        }
     }
     public int EnemyCount
     {
@@ -101,6 +105,9 @@ public class StaticVariablesManager : MonoBehaviour
 
     public delegate void SoulCoinChange(int coins);
     public event SoulCoinChange OnSoulCoinChanged;
+
+    public delegate void LevelChange(int coins);
+    public event LevelChange OnLevelChange;
     public void AddCoin(int amount = 1)
     {
         _soulCoins += amount;

@@ -70,6 +70,10 @@ public class TempPlayerInfo : ScriptableObject
 
     void OnEnable()
     {
+        CustomReset();
+    }
+    public void CustomReset()
+    {
         _vitalEssence = 0;
         _secondarySkill = 0;
         _adrenalineRush = 0;
