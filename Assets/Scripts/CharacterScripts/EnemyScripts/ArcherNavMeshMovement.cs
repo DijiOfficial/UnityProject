@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+
 public class ArcherNavMeshMovement : NavMeshMovementBehaviour
 {
     [SerializeField] private float _minDistanceRange;

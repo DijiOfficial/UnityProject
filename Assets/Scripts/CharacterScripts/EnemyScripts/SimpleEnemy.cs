@@ -10,7 +10,8 @@ public class SimpleEnemy : BasicCharacter
     [SerializeField] protected float _attackDelay = 0.1f;
     protected float _attackWaitTime;
     protected bool _canAttack = false;
-    protected SkeletonAnimation _skeletonAnimation;
+    protected BaseAnimationController _enemyAnimation;
+    protected Vector3 _directionLookat;
 
     public float GetAttackRange { get { return _attackRange; } }
     public bool IsAttacking { get { return _attackBehaviour.IsAttacking; } }
@@ -30,7 +31,7 @@ public class SimpleEnemy : BasicCharacter
 
         if (player) _playerTarget = player.gameObject;
 
-        _skeletonAnimation = GetComponent<SkeletonAnimation>();
+        _enemyAnimation = GetComponent<BaseAnimationController>();
     }
 
     protected virtual void Update()
@@ -41,7 +42,7 @@ public class SimpleEnemy : BasicCharacter
         if (_isHit)
         {
             _isHit = false;
-            _skeletonAnimation.HandleHit();
+            _enemyAnimation.HandleHit();
         }
     }
 
@@ -63,7 +64,7 @@ public class SimpleEnemy : BasicCharacter
         {
             _attackWaitTime = _attackDelay;
             _canAttack = true;
-            _skeletonAnimation.HandleAttack();
+            _enemyAnimation.HandleAttack();
             //if (_attackVFXTemplate)
             //    Instantiate(_attackVFXTemplate, transform.position, transform.rotation);
         }
@@ -75,6 +76,14 @@ public class SimpleEnemy : BasicCharacter
         }
         else
             _attackWaitTime -= Time.deltaTime;
+    }
+
+    protected void LookAtPlayer()
+    {
+        // Rotate to look at the player
+        Vector3 directionToPlayer = (_playerTarget.transform.position - transform.position).normalized;
+        _directionLookat = directionToPlayer;
+        transform.LookAt(transform.position + directionToPlayer);
     }
 }
 

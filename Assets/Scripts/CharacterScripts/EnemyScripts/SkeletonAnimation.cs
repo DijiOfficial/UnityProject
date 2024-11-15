@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SkeletonAnimation : BaseAnimationController
 {
-    public void HandleAttack()
+    public override void HandleAttack()
     {
         if (_animator == null) return;
 
@@ -24,7 +24,7 @@ public class SkeletonAnimation : BaseAnimationController
         return (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1") || _animator.GetCurrentAnimatorStateInfo(0).IsName("BowAttack"));
     }
 
-    public void HandleHit()
+    public override void HandleHit()
     {
         if (_animator == null) return;
 

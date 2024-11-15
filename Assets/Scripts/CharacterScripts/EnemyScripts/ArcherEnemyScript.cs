@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ArcherEnemyScript : SimpleEnemy
 {
-    private Vector3 _directionLookat;
+    private SkeletonAnimation _skeletonAnimation;
+    protected override void Awake()
+    {
+        base.Awake();
+        _skeletonAnimation = GetComponent<SkeletonAnimation>();
+    }
+
     protected override void HandleAttacking()
     {
         if (_attackBehaviour == null) return;
@@ -37,13 +43,5 @@ public class ArcherEnemyScript : SimpleEnemy
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + _directionLookat *50.0f);
-    }
-
-    private void LookAtPlayer()
-    {
-        // Rotate to look at the player
-        Vector3 directionToPlayer = (_playerTarget.transform.position - transform.position).normalized;
-        _directionLookat = directionToPlayer;
-        transform.LookAt(transform.position + directionToPlayer);
     }
 }

@@ -9,7 +9,7 @@ public class PunchingBag : SimpleEnemy
         if (_isHit)
         {
             _isHit = false;
-            _skeletonAnimation.HandleHit();
+            _enemyAnimation.HandleHit();
         }
     }
 }

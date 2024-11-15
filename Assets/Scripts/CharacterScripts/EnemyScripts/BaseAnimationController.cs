@@ -33,4 +33,20 @@ public class BaseAnimationController : MonoBehaviour
 
         _previousPosition = transform.root.position;
     }
+
+    public virtual void HandleHit()
+    {
+        if (_animator == null)
+            return;
+
+        _animator.SetTrigger("Hit");
+    }
+
+    public virtual void HandleAttack()
+    {
+        if (_animator == null)
+            return;
+
+        _animator.SetTrigger("Attack");
+    }
 }
