@@ -35,10 +35,14 @@ public class ArcherNavMeshMovement : NavMeshMovementBehaviour
         {
             if (sqrDistanceToTarget < (_minDistanceRangeSquare) && (!_skeletonAnimation.IsAttacking() || !_archerScript.IsAttacking))
             {
-                //todo: fix make sure navigation is valid
-                //todo: make enemy always look at player
+                // Calculate direction away from target
                 Vector3 directionAwayFromTarget = (transform.position - _target.transform.position).normalized;
                 Vector3 newDestination = transform.position + directionAwayFromTarget * (_minDistanceRange - Mathf.Sqrt(sqrDistanceToTarget));
+
+                // Clamp the new destination to be within the bounds of a 100x100 area centered at (0,0)
+                newDestination.x = Mathf.Clamp(newDestination.x, -50, 50);
+                newDestination.z = Mathf.Clamp(newDestination.z, -50, 50);
+
                 _navMeshAgent.SetDestination(newDestination);
                 _navMeshAgent.isStopped = false;
             }

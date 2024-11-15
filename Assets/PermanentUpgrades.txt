@@ -1,148 +1,148 @@
 {
     "Upgrades": [
         {
-            "Title": "Second Wind",
+            "Title": "Phoenix Heart",
             "Bonus": "1",
-            "Description": "adds 1",
+            "Description": "Revive once per run with full health, unleashing a shockwave that annihilates all enemies (except bosses) within a 10-meter radius.",
             "Acquired": false
         },
         {
-            "Title": "2",
+            "Title": "Soul Siphon",
             "Bonus": "2",
-            "Description": "adds 2",
+            "Description": "Your weapon drains more life force from enemies, restoring health with each hit.",
             "Acquired": true
         },
         {
-            "Title": "3",
+            "Title": "Aegis Shield",
             "Bonus": "3",
-            "Description": "adds 3",
+            "Description": "Your shield absorbs 75% of incoming damage, making you much harder to take down.",
             "Acquired": true
         },
         {
-            "Title": "4",
+            "Title": "Iron Wall",
             "Bonus": "4",
-            "Description": "adds 4",
+            "Description": "Shield is now impenetrable, absorbing 100% of all incoming damage.",
             "Acquired": false
         },
         {
-            "Title": "5",
+            "Title": "Thorns of Retribution",
             "Bonus": "5",
-            "Description": "adds 5",
+            "Description": "Reflect 25% of damage taken back to attackers, turning your shield into a weapon.",
             "Acquired": false
         },
         {
-            "Title": "6",
+            "Title": "Vengeance Barrier",
             "Bonus": "6",
-            "Description": "adds 6",
+            "Description": "Reflects 50% of damage taken, doubling your shield's punishing force.",
             "Acquired": false
         },
         {
-            "Title": "7",
+            "Title": "Detonation Guard",
             "Bonus": "7",
-            "Description": "adds 7",
+            "Description": "When shield breaks, it explodes, dealing 4x your current damage within a 15-meter radius.",
             "Acquired": false
         },
         {
-            "Title": "8",
+            "Title": "Keen Edge",
             "Bonus": "8",
-            "Description": "adds 8",
+            "Description": "Gain the ability to critically strike, dealing double damage on critical hits.",
             "Acquired": false
         },
         {
-            "Title": "9",
+            "Title": "Death Blow",
             "Bonus": "9",
-            "Description": "adds 9",
+            "Description": "Critical hits now deal quadruple damage, delivering devastating blows to enemies.",
             "Acquired": true
         },
         {
-            "Title": "10",
+            "Title": "Quick Dash",
             "Bonus": "10",
-            "Description": "adds 10",
+            "Description": "Reduces dash cooldown by 25%, allowing for quicker escapes and positioning.",
             "Acquired": false
         },
         {
-            "Title": "11",
+            "Title": "Blink Step",
             "Bonus": "11",
-            "Description": "adds 11",
+            "Description": "Dash cooldown reduced by 50%, making you almost untouchable.",
             "Acquired": false
         },
         {
-            "Title": "12",
+            "Title": "Bloodthirst",
             "Bonus": "12",
-            "Description": "adds 12",
+            "Description": "Increases life steal by 20%, allowing you to recover more health from attacks.",
             "Acquired": false
         },
         {
-            "Title": "13",
+            "Title": "Guardian’s Respite",
             "Bonus": "13",
-            "Description": "adds 13",
+            "Description": "Reduce shield cooldown by 25%, bringing you back to safety sooner.",
             "Acquired": false
         },
         {
-            "Title": "14",
+            "Title": "Relentless Pursuit",
             "Bonus": "14",
-            "Description": "adds 14",
+            "Description": "Reduces maximum combo chain requirement by 2, making it easier to unleash powerful moves.",
             "Acquired": false
         },
         {
-            "Title": "15",
+            "Title": "Momentum Mastery",
             "Bonus": "15",
-            "Description": "adds 15",
+            "Description": "Increases combo stacking window by 25%, allowing you to keep combos alive longer.",
             "Acquired": false
         },
         {
-            "Title": "16",
+            "Title": "Bone Bastion",
             "Bonus": "16",
-            "Description": "adds 16",
+            "Description": "Gain Bone Armor that absorbs damage before your health is affected, reinforcing your defenses.",
             "Acquired": false
         },
         {
-            "Title": "17",
+            "Title": "Reaper’s Reward",
             "Bonus": "17",
-            "Description": "adds 17",
+            "Description": "Repair Bone Armor by performing finishing moves on skeletal enemies.",
             "Acquired": false
         },
         {
-            "Title": "18",
+            "Title": "Shrapnel Burst",
             "Bonus": "18",
-            "Description": "adds 18",
+            "Description": "When Bone Armor is destroyed, it explodes, sending deadly bone fragments around you.",
             "Acquired": false
         },
         {
-            "Title": "19",
-            "Bonus": "19",
-            "Description": "adds 19",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable",
+            "Acquired": true
         },
         {
-            "Title": "20",
-            "Bonus": "20",
-            "Description": "adds 20",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable",
+            "Acquired": true
         },
         {
-            "Title": "21",
-            "Bonus": "21",
-            "Description": "adds 21",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable",
+            "Acquired": true
         },
         {
-            "Title": "22",
-            "Bonus": "22",
-            "Description": "adds 22",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable",
+            "Acquired": true
         },
         {
-            "Title": "23",
-            "Bonus": "23",
-            "Description": "adds 23",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable",
+            "Acquired": true
         },
         {
-            "Title": "24",
-            "Bonus": "24",
-            "Description": "adds 24",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable",
+            "Acquired": true
         }
     ]
 }

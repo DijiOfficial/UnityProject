@@ -1540,6 +1540,7 @@ MonoBehaviour:
   _jumpButtonMaxBuffer: 0
   _crouchHeight: 0
   _maxSlopeAngle: 0
+  _dashSpeed: 0
   _tempPlayerInfo: {fileID: 0}
   speed: 0
 --- !u!114 &8111522504887035910
@@ -1555,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackRange: 2
-  _attackDelay: 0.5
+  _attackDelay: 0.2
 --- !u!114 &5287233726588404201
 MonoBehaviour:
   m_ObjectHideFlags: 0

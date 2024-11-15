@@ -13,10 +13,7 @@ public class ArcherEnemyScript : SimpleEnemy
 
         if ((transform.position - _playerTarget.transform.position).sqrMagnitude < _attackRange * _attackRange && !_canAttack)
         {
-            // Rotate to look at the player
-            Vector3 directionToPlayer = (_playerTarget.transform.position - transform.position).normalized;
-            _directionLookat = directionToPlayer;
-            transform.LookAt(transform.position + directionToPlayer);
+            LookAtPlayer();
 
             _attackWaitTime = _attackDelay;
             _canAttack = true;
@@ -25,6 +22,7 @@ public class ArcherEnemyScript : SimpleEnemy
 
         if (_attackWaitTime < 0.0f && _canAttack)
         {
+            LookAtPlayer();
             _attackBehaviour.Attack();
             _canAttack = false;
         }
@@ -39,5 +37,13 @@ public class ArcherEnemyScript : SimpleEnemy
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + _directionLookat *50.0f);
+    }
+
+    private void LookAtPlayer()
+    {
+        // Rotate to look at the player
+        Vector3 directionToPlayer = (_playerTarget.transform.position - transform.position).normalized;
+        _directionLookat = directionToPlayer;
+        transform.LookAt(transform.position + directionToPlayer);
     }
 }

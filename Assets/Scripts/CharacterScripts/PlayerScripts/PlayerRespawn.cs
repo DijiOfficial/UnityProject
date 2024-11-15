@@ -18,7 +18,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         _tempPlayerInfo.CustomReset();
         StaticVariablesManager.Instance.CurrentLevel = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
 

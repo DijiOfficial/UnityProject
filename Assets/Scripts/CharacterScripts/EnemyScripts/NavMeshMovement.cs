@@ -50,6 +50,18 @@ public class NavMeshMovementBehaviour : MovementBehaviour
             _navMeshAgent.isStopped = false;
             _previousTargetPosition = _target.transform.position;
         }
+
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("Attack1h1"))
+            {
+                _navMeshAgent.isStopped = true;
+                _navMeshAgent.velocity = Vector3.zero; // Stop the agent's velocity
+            }
+        }
+
     }
     protected override void Update() { }
     
