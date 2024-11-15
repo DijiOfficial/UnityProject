@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049228948068618495}
   m_Layer: 7
-  m_Name: HealthBarScaler
+  m_Name: HealthBarScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3038,8 +3038,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackRange: 30
   _attackDelay: 0.35
-  _summonPrefab: {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6,
-    type: 3}
+  _summonPrefabs:
+  - {fileID: 5543091247513349582, guid: f99b1268eece0bc42940fc8d366f862d, type: 3}
+  - {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
+  - {fileID: 7861449409261495836, guid: 8b161c40896d52e4798bc1a55cdd55e7, type: 3}
   _summonCooldown: 5
 --- !u!114 &5526638285180029597
 MonoBehaviour:
@@ -3061,6 +3063,9 @@ MonoBehaviour:
   _fireRate: 1
   _secondHitbox: {fileID: 0}
   _tempPlayerInfo: {fileID: 0}
+  _onAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4903081990569731488
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -48,6 +48,13 @@ public class Health : MonoBehaviour
         var gameObject = transform.Find("HealthBarDisplay");
         if (gameObject)
             _healthBar = gameObject.gameObject;
+        else
+        {
+            gameObject = transform.Find("HealthBarScale");
+            var child = gameObject.Find("HealthBarDisplay");
+            if (child)
+                _healthBar = child.gameObject;
+        }
 
         if (_healthBar != null)
             _healthBar.SetActive(false);

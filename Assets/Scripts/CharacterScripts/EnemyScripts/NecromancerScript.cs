@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class NecromancerScript : SimpleEnemy
 {
-    [SerializeField] private GameObject _summonPrefab;
+    [SerializeField] private List<GameObject> _summonPrefabs = new List<GameObject>();
+
     [SerializeField] private float _summonCooldown;
     private float _summonCooldownTimer;
     private NecromancerMovement _movementRef;
@@ -97,7 +98,10 @@ public class NecromancerScript : SimpleEnemy
         }
         while (distanceToSummonerSqr > maxDistanceSqr);
 
-        Instantiate(_summonPrefab, randomSpawnPosition, Quaternion.identity);
+        // Select a random prefab from the list
+        int randomIndex = Random.Range(0, _summonPrefabs.Count);
+
+        Instantiate(_summonPrefabs[randomIndex], randomSpawnPosition, Quaternion.identity);
         _summonCooldownTimer = _summonCooldown;
     }
 
