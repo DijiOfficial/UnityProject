@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AttackBehaviour : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class AttackBehaviour : MonoBehaviour
     private float _attackTimer = 0.0f;
     public bool IsAttacking { get { return (_isAttacking || _attackTimer > 0.0f); } }
     private bool _isPlayer = false;
+
+    [SerializeField] private UnityEvent _onAttackEvent;
 
     private void Awake()
     {
@@ -62,7 +65,6 @@ public class AttackBehaviour : MonoBehaviour
         //set the time so we respect the firerate
         _attackTimer += 1.0f / _fireRate;
 
-        //_onFireEvent?.Invoke();
         if (_weapon != null)
             StartCoroutine(SwordSwing());
 
@@ -90,6 +92,8 @@ public class AttackBehaviour : MonoBehaviour
     }
     IEnumerator SwordSwing()
     {
+        _onAttackEvent?.Invoke();
+
         Animator animator = _weapon.GetComponent<Animator>();
         float animationDuration = 1.0f; // The original duration of the animation in seconds
         float adjustedSpeed = animationDuration * _fireRate; // Adjust the speed based on the fire rate
