@@ -143,6 +143,12 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 6548933261695160864, guid: ce4cbb031c63f3c45b6a7e336fa7c864,
+        type: 3}
+      propertyPath: _tempPlayerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c,
+        type: 2}
     - target: {fileID: 8877871592967064042, guid: ce4cbb031c63f3c45b6a7e336fa7c864,
         type: 3}
       propertyPath: m_LocalScale.x

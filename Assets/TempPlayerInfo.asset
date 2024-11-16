@@ -21,8 +21,27 @@ MonoBehaviour:
   _keenEdge: 0
   _blazingAgility: 0
   _fortifiedResolve: 0
-  _hasteOfTheWarrior: 12
+  _hasteOfTheWarrior: 0
   _curseProtection: 0
   _gravelordChosen: 0
-  _goldCoins: 12
-  _health: 97
+  _goldCoins: 0
+  _health: 100
+  _phoenixHeart: 0
+  _soulSiphon: 0
+  _aegisShield: 0
+  _ironWall: 0
+  _thornOfRetribution: 0
+  _vengeanceBarrier: 0
+  _detonationGuard: 0
+  _keenEdgeUnlock: 0
+  _deathBlow: 0
+  _quickDash: 0
+  _blinkStep: 0
+  _bloodThirst: 0
+  _guardianRespite: 0
+  _relentlessPursuit: 0
+  _momentumMystery: 0
+  _boneBastion: 0
+  _reaperReward: 0
+  _shrapnelBurst: 0
+  _hasRevived: 0

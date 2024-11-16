@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BasicAttack : MonoBehaviour
 {
@@ -7,11 +8,22 @@ public class BasicAttack : MonoBehaviour
     [SerializeField] protected int _damage = 5;
     [Header("References")]
     [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
-
+    private Health _parentHealth;
     private bool _isCrit = false;
     protected virtual void Awake()
     {
         Invoke(KILL_METHOD, _lifeTime);
+
+        // Find the Health component on the parent GameObject
+        // I'm running short on time forgive me
+        Transform parentTransform = transform.parent;
+        while (parentTransform != null)
+        {
+            _parentHealth = parentTransform.GetComponent<Health>();
+            if (_parentHealth != null)
+                break;
+            parentTransform = parentTransform.parent;
+        }
 
         // Check if the script is on the SwordAttack GameObject
         if (gameObject.name != "SwordAttack(Clone)" && gameObject.name != "PlayerProjectile Variant(Clone)")
@@ -68,6 +80,15 @@ public class BasicAttack : MonoBehaviour
         Health otherHealth = other.GetComponent<Health>();
         if (otherHealth != null)
         {
+            if (other.tag == FRIENDLY_TAG)
+            {
+                SpecialPowerScript specialPowerScript = other.GetComponent<SpecialPowerScript>();
+                if (_tempPlayerInfo._thornOfRetribution && specialPowerScript != null && specialPowerScript.IsActivated)
+                {
+                    _parentHealth.Damage((int)(_damage * 1.25f), false);
+                }
+            }
+
             otherHealth.Damage(_damage, _isCrit);
             Kill();
         }

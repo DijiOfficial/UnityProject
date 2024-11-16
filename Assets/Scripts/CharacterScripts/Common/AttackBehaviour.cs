@@ -59,7 +59,7 @@ public class AttackBehaviour : MonoBehaviour
 
         for (int i = 0; i < _AttackSockets.Count; i++)
         {
-            Instantiate(_hitbox, _AttackSockets[i].position, _AttackSockets[i].rotation);
+            Instantiate(_hitbox, _AttackSockets[i].position, _AttackSockets[i].rotation, transform);
         }
 
         //set the time so we respect the firerate

@@ -10,12 +10,27 @@ public class SpecialPowerScript : MonoBehaviour
     [SerializeField] private float _specialDamageReduction = 0.5f;
     [SerializeField] private GameObject _specialPowerVFX;
 
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
+
     private float _timer;
     private float _durationTimer;
     private Health _health;
     private bool _isActivated = false;
 
     public float Duration { get { return _duration; } }
+    public bool IsActivated { get { return _isActivated; } }
+
+    private void Awake()
+    {
+        if (_tempPlayerInfo != null)
+        {
+            if (_tempPlayerInfo._aegisShield)
+                _specialDamageReduction += 0.25f;
+            if (_tempPlayerInfo._ironWall)
+                _specialDamageReduction += 0.25f;
+        }
+    }
     private void Start()
     {
         _health = GetComponent<Health>();

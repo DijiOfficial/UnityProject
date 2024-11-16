@@ -54,6 +54,8 @@ public class TempPlayerInfo : ScriptableObject
     public bool _boneBastion;
     public bool _reaperReward;
     public bool _shrapnelBurst;
+
+    public bool _hasRevived;
     public void AddBonus(int idx)
     {
         switch (idx)
@@ -206,5 +208,7 @@ public class TempPlayerInfo : ScriptableObject
         _gravelordChosen = 0;
         _goldCoins = 0;
         _health = 100;
+
+        _hasRevived = false;
     }
 }

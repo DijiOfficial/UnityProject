@@ -8,7 +8,7 @@ public class ComplexAttackBehaviour : MonoBehaviour
 {
     [Header("Attack Variables")]
     [SerializeField] private List<GameObject> _attack = new List<GameObject>();
-    [SerializeField] private GameObject _grabSocket = null;
+    //[SerializeField] private GameObject _grabSocket = null;
     [SerializeField] private Transform _AttackSocket = null;
     const string ATTACK_METHOD = "SpawnAttackHitBox";
     //may add multile attack oscket for ranged later

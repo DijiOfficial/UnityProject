@@ -10,18 +10,18 @@
             "Title": "Soul Siphon",
             "Bonus": "2",
             "Description": "Your weapon drains more life force from enemies, restoring health with each hit.",
-            "Acquired": true
+            "Acquired": false
         },
         {
             "Title": "Aegis Shield",
             "Bonus": "3",
-            "Description": "Your shield absorbs 75% of incoming damage, making you much harder to take down.",
-            "Acquired": true
+            "Description": "Your shield absorbs 25% more damage, making you much harder to take down.",
+            "Acquired": false
         },
         {
             "Title": "Iron Wall",
             "Bonus": "4",
-            "Description": "Shield is now impenetrable, absorbing 100% of all incoming damage.",
+            "Description": "Your shield absorbs 25% more damage, absorbing 100% of all incoming damage with Aegis Shield",
             "Acquired": false
         },
         {
@@ -52,7 +52,7 @@
             "Title": "Death Blow",
             "Bonus": "9",
             "Description": "Critical hits now deal quadruple damage, delivering devastating blows to enemies.",
-            "Acquired": true
+            "Acquired": false
         },
         {
             "Title": "Quick Dash",

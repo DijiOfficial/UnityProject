@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class RandomSpawn : MonoBehaviour
 {
     [SerializeField]
@@ -41,15 +42,20 @@ public class RandomSpawn : MonoBehaviour
         Vector3 randomSpawnPosition;
         float distanceToPlayerSqr;
         float minDistanceSqr = 100f;
+        NavMeshHit hit;
+        bool validPosition = false;
 
         do
         {
             randomSpawnPosition = new Vector3(Random.Range(-49, 50), 0, Random.Range(-49, 50));
             distanceToPlayerSqr = (_playerTransform.position - randomSpawnPosition).sqrMagnitude;
-        }
-        while (distanceToPlayerSqr <= minDistanceSqr);
 
-        return Instantiate(_spawnTemplate, randomSpawnPosition, Quaternion.identity);
+            // Check if the position is on a valid NavMesh
+            validPosition = NavMesh.SamplePosition(randomSpawnPosition, out hit, 1.0f, NavMesh.AllAreas);
+        }
+        while (distanceToPlayerSqr <= minDistanceSqr || !validPosition);
+
+        return Instantiate(_spawnTemplate, hit.position, Quaternion.identity);
     }
 }
 

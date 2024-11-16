@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _startHealth = 10;
     [SerializeField] private TempPlayerInfo _tempPlayerInfo;
-
+    [SerializeField] private GameObject _explosion;
 
     [SerializeField] private GameObject _coinOrbTemplate = null;
     [SerializeField] private GameObject _healthOrbTemplate = null;
@@ -16,6 +17,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int _defaultDropChancePercent = 5;
     [SerializeField] private int _defaultGoldDropChance = 5;
     [SerializeField] private int _numberOfOrbs;
+    [SerializeField] private UnityEvent _onExplosion;
 
     private float _specialDamageReduction;
     private bool _isPlayer = false;
@@ -41,7 +43,11 @@ public class Health : MonoBehaviour
         _comboScript = GetComponent<ComboScript>();
         _collider = GetComponent<Collider>();
         if (_tempPlayerInfo != null)
+        {
             _defaultGoldDropChance = _defaultGoldDropChance + _tempPlayerInfo._gravelordChosen;
+            if (_tempPlayerInfo._soulSiphon)
+                _numberOfOrbs *= 2;
+        }
     }
     private void Start()
     {
@@ -81,8 +87,19 @@ public class Health : MonoBehaviour
 
         // Cap the damage at a minimum of 1
         amount = Mathf.Max(amount, 1);
+        if (_isPlayer && _specialDamageReduction == 1.0f)
+            amount = 0;
 
         _currentHealth -= amount;
+
+        if (_isPlayer && _currentHealth < 0 && !_tempPlayerInfo._hasRevived && _tempPlayerInfo._phoenixHeart)
+        {
+            _currentHealth = _startHealth;
+            _tempPlayerInfo._hasRevived = true;
+
+            Instantiate(_explosion, transform.position, Quaternion.identity);
+            _onExplosion?.Invoke();
+        }
 
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
         if (_currentHealth <= 0)
