@@ -59,7 +59,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
         //_currentFrequency = Mathf.Clamp(_currentFrequency - _waveFrequencyIncrement, _waveEndFrequency, _waveStartFrequency);
-        Debug.Log("waves to spawn: " + _wavesToSpawn);
 
         Invoke(STARTNEWWAVE_METHOD, _currentFrequency);
     }

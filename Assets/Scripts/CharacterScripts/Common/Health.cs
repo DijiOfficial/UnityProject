@@ -45,15 +45,20 @@ public class Health : MonoBehaviour
     }
     private void Start()
     {
+        if (_isPlayer) return;
+
         var gameObject = transform.Find("HealthBarDisplay");
-        if (gameObject)
+        if (gameObject!=null)
             _healthBar = gameObject.gameObject;
         else
         {
             gameObject = transform.Find("HealthBarScale");
-            var child = gameObject.Find("HealthBarDisplay");
-            if (child)
-                _healthBar = child.gameObject;
+            if (gameObject != null)
+            {
+                var child = gameObject.Find("HealthBarDisplay");
+                if (child != null)
+                    _healthBar = child.gameObject;
+            }
         }
 
         if (_healthBar != null)
