@@ -73,7 +73,7 @@
             "Acquired": false
         },
         {
-            "Title": "Guardian’s Respite",
+            "Title": "Guardian's Respite",
             "Bonus": "13",
             "Description": "Reduce shield cooldown by 25%, bringing you back to safety sooner.",
             "Acquired": false
@@ -97,7 +97,7 @@
             "Acquired": false
         },
         {
-            "Title": "Reaper’s Reward",
+            "Title": "Reaper's Reward",
             "Bonus": "17",
             "Description": "Repair Bone Armor by performing finishing moves on skeletal enemies.",
             "Acquired": false

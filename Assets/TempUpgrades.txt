@@ -21,7 +21,7 @@
             "Description": "Increases health orb regeneration by 20% (+20% per stack)"
         },
         {
-            "Title": "Berserker’s Fury",
+            "Title": "Berserker's Fury",
             "Bonus": "5",
             "Description": "Increase base damage by 20% (+20% per stack)"
         },

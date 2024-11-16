@@ -1,6 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+
+[System.Serializable]
+public class UpgradeData
+{
+    public string Title;
+    public string Bonus;
+    public string Description;
+    public bool Acquired;
+}
+
+[System.Serializable]
+public class UpgradeList
+{
+    public UpgradeData[] Upgrades;
+}
 
 [CreateAssetMenu(fileName = "TempPlayerInfo", menuName = "Persistence")]
 public class TempPlayerInfo : ScriptableObject
@@ -22,6 +36,24 @@ public class TempPlayerInfo : ScriptableObject
     public int _goldCoins;
     public int _health;
 
+    public bool _phoenixHeart;
+    public bool _soulSiphon;
+    public bool _aegisShield;
+    public bool _ironWall;
+    public bool _thornOfRetribution;
+    public bool _vengeanceBarrier;
+    public bool _detonationGuard;
+    public bool _keenEdgeUnlock;
+    public bool _deathBlow;
+    public bool _quickDash;
+    public bool _blinkStep;
+    public bool _bloodThirst;
+    public bool _guardianRespite;
+    public bool _relentlessPursuit;
+    public bool _momentumMystery;
+    public bool _boneBastion;
+    public bool _reaperReward;
+    public bool _shrapnelBurst;
     public void AddBonus(int idx)
     {
         switch (idx)
@@ -71,7 +103,93 @@ public class TempPlayerInfo : ScriptableObject
     void OnEnable()
     {
         CustomReset();
+        LoadPermanentUpgrades();
     }
+    private void LoadPermanentUpgrades()
+    {
+        string filePath = Path.Combine(Application.dataPath, "PermanentUpgrades.txt");
+        if (!File.Exists(filePath))
+        {
+            Debug.LogWarning("PermanentUpgrades.txt not found at: " + filePath);
+            return;
+        }
+
+        string json = File.ReadAllText(filePath);
+        UpgradeList upgradeList = JsonUtility.FromJson<UpgradeList>(json);
+
+        foreach (UpgradeData upgrade in upgradeList.Upgrades)
+        {
+            SetUpgrade(upgrade.Title, upgrade.Acquired);
+        }
+    }
+
+    private void SetUpgrade(string title, bool acquired)
+    {
+        switch (title)
+        {
+            case "Phoenix Heart":
+                _phoenixHeart = acquired;
+                break;
+            case "Soul Siphon":
+                _soulSiphon = acquired;
+                break;
+            case "Aegis Shield":
+                _aegisShield = acquired;
+                break;
+            case "Iron Wall":
+                _ironWall = acquired;
+                break;
+            case "Thorns of Retribution":
+                _thornOfRetribution = acquired;
+                break;
+            case "Vengeance Barrier":
+                _vengeanceBarrier = acquired;
+                break;
+            case "Detonation Guard":
+                _detonationGuard = acquired;
+                break;
+            case "Keen Edge":
+                _keenEdgeUnlock = acquired;
+                break;
+            case "Death Blow":
+                _deathBlow = acquired;
+                break;
+            case "Quick Dash":
+                _quickDash = acquired;
+                break;
+            case "Blink Step":
+                _blinkStep = acquired;
+                break;
+            case "Bloodthirst":
+                _bloodThirst = acquired;
+                break;
+            case "Guardian's Respite":
+                _guardianRespite = acquired;
+                break;
+            case "Relentless Pursuit":
+                _relentlessPursuit = acquired;
+                break;
+            case "Momentum Mastery":
+                _momentumMystery = acquired;
+                break;
+            case "Bone Bastion":
+                _boneBastion = acquired;
+                break;
+            case "Reaper's Reward":
+                _reaperReward = acquired;
+                break;
+            case "Shrapnel Burst":
+                _shrapnelBurst = acquired;
+                break;
+            case "Unavailable":
+                // Do nothing, this is a placeholder for "locked" upgrades
+                break;
+            default:
+                Debug.LogWarning("Unknown upgrade title: " + title);
+                break;
+        }
+    }
+
     public void CustomReset()
     {
         _vitalEssence = 0;
