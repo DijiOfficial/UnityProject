@@ -2941,8 +2941,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebaeb128dc4211545a94e2bca54f94c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 25
+  _startHealth: 12
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
+  _explosion: {fileID: 0}
   _coinOrbTemplate: {fileID: 6057732072649453102, guid: 720be730371f26249af62ba1ec28e0ec,
     type: 3}
   _healthOrbTemplate: {fileID: 7210507935850342673, guid: 2fd83207b133d174b81bef13c58fe830,
@@ -2954,6 +2955,9 @@ MonoBehaviour:
   _defaultDropChancePercent: 15
   _defaultGoldDropChance: 35
   _numberOfOrbs: 1
+  _onExplosion:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &8239552453695989197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3042,7 +3046,7 @@ MonoBehaviour:
   - {fileID: 5543091247513349582, guid: f99b1268eece0bc42940fc8d366f862d, type: 3}
   - {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
   - {fileID: 7861449409261495836, guid: 8b161c40896d52e4798bc1a55cdd55e7, type: 3}
-  _summonCooldown: 5
+  _summonCooldown: 30
 --- !u!114 &5526638285180029597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,7 +3064,7 @@ MonoBehaviour:
   _weaponSocket: {fileID: 0}
   _AttackSockets:
   - {fileID: 1234822355756817040}
-  _fireRate: 1
+  _fireRate: 0.4
   _secondHitbox: {fileID: 0}
   _tempPlayerInfo: {fileID: 0}
   _onAttackEvent:

@@ -2216,6 +2216,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8254199846302181936, guid: 394d7a76a191e0144842b200f44d3a7a,
         type: 3}
+    - target: {fileID: 4529740159387675928, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+        type: 3}
+      propertyPath: _fireRate
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6276422344232045789, guid: efe28f3936d8a2c44b8796d6d54d82d6,
         type: 3}
       propertyPath: m_Size.x
@@ -2244,7 +2249,7 @@ PrefabInstance:
     - target: {fileID: 6316720845215626855, guid: efe28f3936d8a2c44b8796d6d54d82d6,
         type: 3}
       propertyPath: _startHealth
-      value: 75
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6,
         type: 3}

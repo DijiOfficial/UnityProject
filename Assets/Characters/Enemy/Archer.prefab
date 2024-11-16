@@ -94,6 +94,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2366615535575282168, guid: c763f4192afd1be4f87924608f5fa1a2,
         type: 3}
+    - target: {fileID: 4529740159387675928, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+        type: 3}
+      propertyPath: _fireRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5368169732749619327, guid: efe28f3936d8a2c44b8796d6d54d82d6,
         type: 3}
       propertyPath: _hitbox
@@ -104,6 +109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _fireRate
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316720845215626855, guid: efe28f3936d8a2c44b8796d6d54d82d6,
+        type: 3}
+      propertyPath: _startHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6,
         type: 3}
@@ -178,6 +188,8 @@ MonoBehaviour:
   _jumpButtonMaxBuffer: 0
   _crouchHeight: 0
   _maxSlopeAngle: 0
+  _dashSpeed: 0
+  _tempPlayerInfo: {fileID: 0}
   speed: 0
   _minDistanceRange: 12
 --- !u!1001 &7524801279471983320

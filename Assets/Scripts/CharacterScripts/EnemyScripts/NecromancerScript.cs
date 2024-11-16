@@ -78,6 +78,8 @@ public class NecromancerScript : SimpleEnemy
         float groundCheckDistance = 1f;
         LayerMask groundLayer = LayerMask.GetMask("Ground");
         LayerMask staticLevelLayer = LayerMask.GetMask("StaticLevel");
+        NavMeshHit hit;
+        bool validPosition = false;
 
         do
         {
@@ -91,7 +93,10 @@ public class NecromancerScript : SimpleEnemy
             // Check if there is ground under the position
             bool hasGround = Physics.Raycast(randomSpawnPosition, Vector3.down, groundCheckDistance, groundLayer);
 
-            if (!isColliding && hasGround)
+            // Check if the position is on a valid NavMesh
+            validPosition = NavMesh.SamplePosition(randomSpawnPosition, out hit, 1.0f, NavMesh.AllAreas);
+
+            if (!isColliding && hasGround && validPosition)
             {
                 break;
             }
@@ -101,7 +106,7 @@ public class NecromancerScript : SimpleEnemy
         // Select a random prefab from the list
         int randomIndex = Random.Range(0, _summonPrefabs.Count);
 
-        Instantiate(_summonPrefabs[randomIndex], randomSpawnPosition, Quaternion.identity);
+        Instantiate(_summonPrefabs[randomIndex], hit.position, Quaternion.identity);
         _summonCooldownTimer = _summonCooldown;
     }
 
