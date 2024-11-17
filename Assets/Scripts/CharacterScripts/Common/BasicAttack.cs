@@ -44,10 +44,14 @@ public class BasicAttack : MonoBehaviour
             _damage += Mathf.RoundToInt(additionalDamage);
         }
 
+        if (!_tempPlayerInfo._keenEdgeUnlock) return;
+        int damageMultiplier = 2;
+        if (!_tempPlayerInfo._deathBlow)
+            damageMultiplier = 4;
         // Add a random calculation for crit chance
         if (_tempPlayerInfo._keenEdge >= 10)
         {
-            _damage *= 2;
+            _damage *= damageMultiplier;
             _isCrit = true;
             return;
         }
@@ -55,7 +59,7 @@ public class BasicAttack : MonoBehaviour
         float critChance = 0.1f * _tempPlayerInfo._keenEdge;
         if (Random.value < critChance)
         {
-            _damage *= 2;
+            _damage *= damageMultiplier;
             _isCrit = true;
         }
     }

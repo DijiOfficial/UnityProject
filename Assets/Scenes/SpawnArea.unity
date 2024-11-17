@@ -1672,7 +1672,7 @@ PrefabInstance:
     - target: {fileID: 969186249497542554, guid: 8cd639e5feebeb44897c01f7173ded44,
         type: 3}
       propertyPath: m_text
-      value: TELEPORTER
+      value: LEVEL
       objectReference: {fileID: 0}
     - target: {fileID: 4091674772102766882, guid: 8cd639e5feebeb44897c01f7173ded44,
         type: 3}
@@ -6401,7 +6401,7 @@ PrefabInstance:
     - target: {fileID: 969186249497542554, guid: 8cd639e5feebeb44897c01f7173ded44,
         type: 3}
       propertyPath: m_text
-      value: REACH LEVEL 20 AND END THE CURSE!
+      value: REACH LEVEL 5 AND END THE CURSE!
       objectReference: {fileID: 0}
     - target: {fileID: 4091674772102766882, guid: 8cd639e5feebeb44897c01f7173ded44,
         type: 3}

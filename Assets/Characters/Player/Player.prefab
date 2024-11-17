@@ -469,6 +469,7 @@ MonoBehaviour:
   _maxTotalCombo: 10
   _comboVFX: {fileID: 2143099738324784569, guid: cdd36ead0525c6446927612a1d126ffe,
     type: 3}
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!114 &8109435098595574620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,6 +544,7 @@ MonoBehaviour:
   _dashUpwardForce: 12
   _dashFov: 120
   _dashCd: 1.5
+  _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!114 &3597858161158690792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +561,8 @@ MonoBehaviour:
   _duration: 15
   _specialDamageReduction: 0.5
   _specialPowerVFX: {fileID: 4075088976703180589, guid: 9aa3212ff649f3c408540253feeef8b7,
+    type: 3}
+  _explosion: {fileID: 2472094489214488910, guid: 77c5a326abf0c4148a3f355c0a7d4e95,
     type: 3}
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
 --- !u!82 &3061505058410106669

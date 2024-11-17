@@ -119,6 +119,9 @@ public class Health : MonoBehaviour
         if (_comboScript != null)
              amount = (int)(amount * _comboScript.ComboMultiplier);
 
+        if(_isPlayer && _tempPlayerInfo._bloodThirst)
+            amount = (int)(amount * 1.2f);
+
         _currentHealth += amount;
 
         if (_currentHealth > _startHealth)

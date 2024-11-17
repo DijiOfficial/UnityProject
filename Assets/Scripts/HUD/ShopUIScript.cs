@@ -55,7 +55,6 @@ public class ShopUIScript : MonoBehaviour
             _upgrades = ParseUpgrades(lines);
 
             // Debugging: Log the number of upgrades found
-            Debug.Log("Number of upgrades found: " + _upgrades.Count);
         }
         else
         {

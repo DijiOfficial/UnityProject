@@ -16,10 +16,16 @@ public class ComboScript : MonoBehaviour
     public delegate void ComboChanged(int combo, float start, float current);
     public event ComboChanged OnComboChange;
 
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
     private void Start()
     {
         StaticVariablesManager.Instance.OnEnemyKilled += EnemyKilled;
         _healthScript = GetComponent<Health>();
+        if(_tempPlayerInfo._relentlessPursuit)
+            _maxTotalCombo = 8;
+        if (_tempPlayerInfo._momentumMystery)
+            _maxComboTimer *= 0.25f;
     }
     private void Update()
     {

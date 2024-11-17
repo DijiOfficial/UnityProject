@@ -86,6 +86,8 @@ public class SpawnManager : MonoBehaviour
     }
     public void SpawnWave(int difficulty)
     {
+        int level = StaticVariablesManager.Instance.CurrentLevel;
+
         //change this to spawn harder/different enemies as the difficulty increases 
         //and not an equal amount of different enemies (could manage adding more spawn points of an enemy type instead?)
         //int spawnCount = 1;
@@ -94,7 +96,7 @@ public class SpawnManager : MonoBehaviour
         {
             for (int i = 0; i < spawnCount; i++)
             {
-                point.Spawn();
+                point.Spawn(level);
             }
         }
     }

@@ -9,6 +9,7 @@ public class SpecialPowerScript : MonoBehaviour
     [SerializeField] private float _duration;
     [SerializeField] private float _specialDamageReduction = 0.5f;
     [SerializeField] private GameObject _specialPowerVFX;
+    [SerializeField] private GameObject _explosion;
 
     [Header("References")]
     [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
@@ -29,6 +30,9 @@ public class SpecialPowerScript : MonoBehaviour
                 _specialDamageReduction += 0.25f;
             if (_tempPlayerInfo._ironWall)
                 _specialDamageReduction += 0.25f;
+
+            if(_tempPlayerInfo._guardianRespite)
+                _cooldown *= 0.75f;
         }
     }
     private void Start()
@@ -49,6 +53,8 @@ public class SpecialPowerScript : MonoBehaviour
         {
             _isActivated = false;
             _health.SpecialDamageReduction = 0.0f;
+            if(_tempPlayerInfo._detonationGuard)
+                Instantiate(_explosion, transform.position, Quaternion.identity);
         }
     }
 

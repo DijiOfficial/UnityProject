@@ -63,13 +63,13 @@
         {
             "Title": "Blink Step",
             "Bonus": "11",
-            "Description": "Dash cooldown reduced by 50%, making you almost untouchable.",
+            "Description": "Dash cooldown reduced by another 25%, making you almost untouchable.",
             "Acquired": false
         },
         {
             "Title": "Bloodthirst",
             "Bonus": "12",
-            "Description": "Increases life steal by 20%, allowing you to recover more health from attacks.",
+            "Description": "Increases life steal by 20%, allowing you to recover more health from killing enemies.",
             "Acquired": false
         },
         {
@@ -91,22 +91,22 @@
             "Acquired": false
         },
         {
-            "Title": "Bone Bastion",
-            "Bonus": "16",
-            "Description": "Gain Bone Armor that absorbs damage before your health is affected, reinforcing your defenses.",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable.",
+            "Acquired": true
         },
         {
-            "Title": "Reaper's Reward",
-            "Bonus": "17",
-            "Description": "Repair Bone Armor by performing finishing moves on skeletal enemies.",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable.",
+            "Acquired": true
         },
         {
-            "Title": "Shrapnel Burst",
-            "Bonus": "18",
-            "Description": "When Bone Armor is destroyed, it explodes, sending deadly bone fragments around you.",
-            "Acquired": false
+            "Title": "Unavailable",
+            "Bonus": "10000",
+            "Description": "Unavailable.",
+            "Acquired": true
         },
         {
             "Title": "Unavailable",

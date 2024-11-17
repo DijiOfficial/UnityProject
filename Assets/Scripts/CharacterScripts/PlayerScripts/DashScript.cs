@@ -23,6 +23,9 @@ public class DashScript : MonoBehaviour
     [SerializeField] private float _dashCd;
     private float _dashCdTimer;
 
+    [Header("References")]
+    [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
+
     public delegate void DashChanfe(float start, float current);
     public event DashChanfe OnDashChange;
     private void Start()
@@ -35,6 +38,9 @@ public class DashScript : MonoBehaviour
         GameObject cameraGameObject = Camera.main.gameObject;
         _cam = cameraGameObject.GetComponent<RotatePlayer>();
         _cam.DoFov(70f);
+
+        if (_tempPlayerInfo._quickDash || _tempPlayerInfo._blinkStep)
+            _dashCd *= (_tempPlayerInfo._quickDash && _tempPlayerInfo._blinkStep) ? 0.5f : 0.75f;
     }
 
 
