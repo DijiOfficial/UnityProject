@@ -102,6 +102,55 @@ public class TempPlayerInfo : ScriptableObject
         }
     }
 
+    public int GetTotalBonus(int idx)
+    {
+        int total = 0;
+        switch (idx)
+        {
+            case 1:
+                total = _vitalEssence;
+                break;
+            case 2:
+                total = _secondarySkill;
+                break;
+            case 3:
+                total = _adrenalineRush;
+                break;
+            case 4:
+                total = _restorativeVitality;
+                break;
+            case 5:
+                total = _berserkerFury;
+                break;
+            case 6:
+                total = _swiftStride;
+                break;
+            case 7:
+                total = _keenEdge;
+                break;
+            case 8:
+                total = _blazingAgility;
+                break;
+            case 9:
+                total = _fortifiedResolve;
+                break;
+            case 10:
+                total = _hasteOfTheWarrior;
+                break;
+            case 11:
+                total = _curseProtection;
+                break;
+            case 12:
+                total = _gravelordChosen;
+                break;
+            default:
+                Debug.LogWarning("Invalid index: " + idx);
+                break;
+        }
+
+        return total;
+    }
+
     void OnEnable()
     {
         CustomReset();

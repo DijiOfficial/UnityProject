@@ -128,7 +128,7 @@ public class BonusUIScript : MonoBehaviour
         {
             var upgrade = _upgrades[cardIndex];
             _titleLabel.text = upgrade.Title;
-            _bonusLabel.text = "COSTS: \n" + upgrade.Bonus;
+            _bonusLabel.text = "COSTS: \n" + upgrade.Bonus + _tempPlayerInfo.GetTotalBonus(cardIndex);
             _descriptionLabel.text = upgrade.Description;
 
             // Check for mouse click to buy the upgrade
@@ -147,7 +147,7 @@ public class BonusUIScript : MonoBehaviour
     private void BuyUpgrade(int idx)
     {
         var upgrade = _upgrades[idx];
-        int bonusCost = int.Parse(upgrade.Bonus.Trim());
+        int bonusCost = int.Parse(upgrade.Bonus.Trim()) + _tempPlayerInfo.GetTotalBonus(idx);
 
         if (_tempPlayerInfo._goldCoins < bonusCost)
             return;

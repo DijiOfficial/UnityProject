@@ -203,7 +203,7 @@ public class HUD : MonoBehaviour
     {
         if (_wave == null) return;
 
-        _wave.text = "Room " + (wave - 1);
+        _wave.text = "Room " + wave;
     }
 }
 

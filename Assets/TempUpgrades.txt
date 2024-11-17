@@ -7,57 +7,57 @@
         },
         {
             "Title": "Secondary Skill",
-            "Bonus": "2",
+            "Bonus": "1",
             "Description": "Add +1 (+1 per stack) charge of your Secondary skill."
         },
         {
             "Title": "Adrenaline Rush",
-            "Bonus": "3",
+            "Bonus": "1",
             "Description": "When below 50% health, receive a damage increase of 20% (+20% per stack)"
         },
         {
             "Title": "Restorative Vitality",
-            "Bonus": "4",
+            "Bonus": "1",
             "Description": "Increases health orb regeneration by 20% (+20% per stack)"
         },
         {
             "Title": "Berserker's Fury",
-            "Bonus": "5",
+            "Bonus": "1",
             "Description": "Increase base damage by 20% (+20% per stack)"
         },
         {
             "Title": "Swift Stride",
-            "Bonus": "6",
+            "Bonus": "1",
             "Description": "Sprint speed is improved by 5% (+5% per stack)."
         },
         {
             "Title": "Keen Edge",
-            "Bonus": "7",
+            "Bonus": "1",
             "Description": "Your attacks have a 10% (+10% per stack) chance to 'Critically Strike', dealing double damage"
         },
         {
             "Title": "Blazing Agility",
-            "Bonus": "8",
+            "Bonus": "1",
             "Description": "Increases movement speed by 14% (+14% per stack)."
         },
         {
             "Title": "Fortified Resolve",
-            "Bonus": "9",
+            "Bonus": "1",
             "Description": "Reduce all incoming damage by 5 (+5 per stack). Cannot be reduced below 1."
         },
         {
             "Title": "Haste of the Warrior",
-            "Bonus": "10",
+            "Bonus": "1",
             "Description": "Increases attack speed by 15% (+15% per stack)."
         },
         {
             "Title": "Curse Protection",
-            "Bonus": "11",
+            "Bonus": "1",
             "Description": "Reduce curse damage by 5% (-5% per stack)"
         },
         {
             "Title": "GraveLord's chosen",
-            "Bonus": "12",
+            "Bonus": "1",
             "Description": "Increase Gold Drop Chance by 2.5% (+2.5% per stack)"
         }
     ]
