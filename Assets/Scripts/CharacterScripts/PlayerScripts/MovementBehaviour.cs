@@ -81,33 +81,9 @@ public class MovementBehaviour : MonoBehaviour
     }
     #endregion
 
-    #region Debug
-    public float Speed
-    {
-        get { return speed; }
-        //set { speed = value; }
-    }
-    public float speed;
     protected virtual void Start()
     {
-        StartCoroutine(CalcSpeed());
     }
-    public delegate void SpeedChange(float speed);
-    public event SpeedChange OnSpeedChange;
-    IEnumerator CalcSpeed()
-    {
-        while (true)
-        {
-            Vector3 lastPosition = transform.position;
-            yield return new WaitForFixedUpdate();
-            Vector3 flatVelocity = new(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
-            speed = flatVelocity.magnitude;
-            OnSpeedChange?.Invoke(speed);
-        }
-    }
-    #endregion
-
-
 
     protected virtual void Awake()
     {

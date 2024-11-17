@@ -60,9 +60,6 @@ public class BonusUIScript : MonoBehaviour
         {
             string[] lines = File.ReadAllLines(filePath);
             _upgrades = ParseUpgrades(lines);
-
-            // Debugging: Log the number of upgrades found
-            Debug.Log("Number of upgrades found: " + _upgrades.Count);
         }
         else
         {
@@ -128,7 +125,8 @@ public class BonusUIScript : MonoBehaviour
         {
             var upgrade = _upgrades[cardIndex];
             _titleLabel.text = upgrade.Title;
-            _bonusLabel.text = "COSTS: \n" + upgrade.Bonus + _tempPlayerInfo.GetTotalBonus(cardIndex);
+            int totalBonus = int.Parse(upgrade.Bonus.Trim()) + _tempPlayerInfo.GetTotalBonus(cardIndex+1);
+            _bonusLabel.text = "COSTS: \n" + totalBonus;
             _descriptionLabel.text = upgrade.Description;
 
             // Check for mouse click to buy the upgrade
@@ -147,7 +145,7 @@ public class BonusUIScript : MonoBehaviour
     private void BuyUpgrade(int idx)
     {
         var upgrade = _upgrades[idx];
-        int bonusCost = int.Parse(upgrade.Bonus.Trim()) + _tempPlayerInfo.GetTotalBonus(idx);
+        int bonusCost = int.Parse(upgrade.Bonus.Trim()) + _tempPlayerInfo.GetTotalBonus(idx+1);
 
         if (_tempPlayerInfo._goldCoins < bonusCost)
             return;

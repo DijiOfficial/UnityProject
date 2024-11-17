@@ -93,10 +93,12 @@ public class StaticVariablesManager : MonoBehaviour
     {
         _enemyCount--;
         OnEnemyKilled?.Invoke();
+        OnEnemyChange?.Invoke(_enemyCount);
     }
     public void IncreaseEnemyCount()
     {
         _enemyCount++;
+        OnEnemyChange?.Invoke(_enemyCount);
     }
     public void ResetEnemyCount()
     {
@@ -108,6 +110,9 @@ public class StaticVariablesManager : MonoBehaviour
 
     public delegate void LevelChange(int coins);
     public event LevelChange OnLevelChange;
+
+    public delegate void EnemyChange(int enemies);
+    public event EnemyChange OnEnemyChange;
     public void AddCoin(int amount = 1)
     {
         _soulCoins += amount;

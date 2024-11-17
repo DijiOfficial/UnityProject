@@ -45,8 +45,18 @@ public class ArcherNavMeshMovement : NavMeshMovementBehaviour
                 newDestination.x = Mathf.Clamp(newDestination.x, -50, 50);
                 newDestination.z = Mathf.Clamp(newDestination.z, -50, 50);
 
-                _navMeshAgent.SetDestination(newDestination);
-                _navMeshAgent.isStopped = false;
+                try
+                {
+                    _navMeshAgent.SetDestination(newDestination);
+                    _navMeshAgent.isStopped = false;
+                }
+                catch (System.Exception ex)
+                {
+                    if (ex.Message.Contains("Invalid AABB"))
+                        Debug.LogWarning("Invalid AABB error caught and ignored. Because enemy spawned under the map");
+                    else
+                        throw;
+                }
             }
             else
             {

@@ -78,13 +78,9 @@ public class HUD : MonoBehaviour
             UpdateWave(StaticVariablesManager.Instance.CurrentLevel);
             StaticVariablesManager.Instance.OnLevelChange += UpdateWave;
 
-            MovementBehaviour movementBehaviour = player.GetComponent<MovementBehaviour>();
-            if (movementBehaviour)
-            {
-                UpdateSpeed(movementBehaviour.Speed);
+            UpdateEnemies(StaticVariablesManager.Instance.EnemyCount);
+            StaticVariablesManager.Instance.OnEnemyChange += UpdateEnemies;
 
-                movementBehaviour.OnSpeedChange += UpdateSpeed;
-            }
 
             ComboScript comboScript = player.GetComponent<ComboScript>();
             if (comboScript)
@@ -166,11 +162,13 @@ public class HUD : MonoBehaviour
         _dashBar.style.display = current <= 0 ? DisplayStyle.None : DisplayStyle.Flex;
     }
 
-    public void UpdateSpeed(float speed)
+    public void UpdateEnemies(int enemies)
     {
         if (_speedText == null) return;
 
-        _speedText.text = "Speed: " + speed.ToString();
+        _speedText.text = enemies > 0 ? "Enemies: " + enemies.ToString() : string.Empty;
+        _speedText.style.display = enemies > 0 ? DisplayStyle.Flex : DisplayStyle.None;
+
     }
 
     public void UpdateHealth(float startHealth, float currentHealth)
