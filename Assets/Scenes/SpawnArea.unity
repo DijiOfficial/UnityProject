@@ -32310,6 +32310,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 773737093649475967, guid: 60b9207d56e61244c95a676a6ac88a23,
+        type: 3}
+      propertyPath: _dashCd
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 798058284517831510, guid: 60b9207d56e61244c95a676a6ac88a23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32359,6 +32364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021270361689208101, guid: 60b9207d56e61244c95a676a6ac88a23,
+        type: 3}
+      propertyPath: _fireRate
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 8208657950496684847, guid: 60b9207d56e61244c95a676a6ac88a23,
         type: 3}

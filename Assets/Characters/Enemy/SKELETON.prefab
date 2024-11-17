@@ -1509,6 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startHealth: 25
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
+  _explosion: {fileID: 0}
   _coinOrbTemplate: {fileID: 6057732072649453102, guid: 720be730371f26249af62ba1ec28e0ec,
     type: 3}
   _healthOrbTemplate: {fileID: 7210507935850342673, guid: 2fd83207b133d174b81bef13c58fe830,
@@ -1520,6 +1521,9 @@ MonoBehaviour:
   _defaultDropChancePercent: 15
   _defaultGoldDropChance: 35
   _numberOfOrbs: 1
+  _onExplosion:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3451656765658296141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,8 +1536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab88323c8a2d0054ca93e70d79ffd89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 7
-  _sprintSpeed: 7
+  _walkSpeed: 6
+  _sprintSpeed: 6
   _groundDrag: 0
   _jumpStrength: 10
   _airMultiplier: 0
@@ -1542,7 +1546,6 @@ MonoBehaviour:
   _maxSlopeAngle: 0
   _dashSpeed: 0
   _tempPlayerInfo: {fileID: 0}
-  speed: 0
 --- !u!114 &8111522504887035910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,6 +1613,9 @@ MonoBehaviour:
   _fireRate: 1
   _secondHitbox: {fileID: 0}
   _tempPlayerInfo: {fileID: 0}
+  _onAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8021461258992362723
 GameObject:
   m_ObjectHideFlags: 0

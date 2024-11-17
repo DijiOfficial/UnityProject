@@ -51,7 +51,7 @@ public class TempPlayerInfo : ScriptableObject
     public bool _guardianRespite;
     public bool _relentlessPursuit;
     public bool _momentumMystery;
-    public bool _boneBastion;
+    public bool _rangedKiller;
     public bool _reaperReward;
     public bool _shrapnelBurst;
 
@@ -223,8 +223,8 @@ public class TempPlayerInfo : ScriptableObject
             case "Momentum Mastery":
                 _momentumMystery = acquired;
                 break;
-            case "Bone Bastion":
-                _boneBastion = acquired;
+            case "Ranged Killer":
+                _rangedKiller = acquired;
                 break;
             case "Reaper's Reward":
                 _reaperReward = acquired;

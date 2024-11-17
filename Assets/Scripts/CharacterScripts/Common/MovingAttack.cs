@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingAttack : BasicAttack
 {
-    [SerializeField] private float _speed = 30.0f;
+    [SerializeField] protected float _speed = 30.0f;
     void FixedUpdate()
     {
         if (!WallDetection())

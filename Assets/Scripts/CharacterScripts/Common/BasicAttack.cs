@@ -8,8 +8,8 @@ public class BasicAttack : MonoBehaviour
     [SerializeField] protected int _damage = 5;
     [Header("References")]
     [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
-    private Health _parentHealth;
-    private bool _isCrit = false;
+    protected Health _parentHealth;
+    protected bool _isCrit = false;
     protected virtual void Awake()
     {
         Invoke(KILL_METHOD, _lifeTime);

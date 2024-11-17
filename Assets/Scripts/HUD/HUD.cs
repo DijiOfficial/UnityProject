@@ -20,6 +20,7 @@ public class HUD : MonoBehaviour
     private Label _comboText = null;
     private ProgressBar _comboBar = null;
     private ProgressBar _dashBar = null;
+    private ProgressBar _shield = null;
 
     private VisualElement _FIcon = null;
     private Label _ShopText = null;
@@ -50,10 +51,11 @@ public class HUD : MonoBehaviour
         _comboBar = _root.Q<ProgressBar>("ComboBar");
         _rangeAttackCounter = _root.Q<Label>("RangeAttackCounter");
         _dashBar = _root.Q<ProgressBar>("DashBar");
+        _shield = _root.Q<ProgressBar>("ShieldBar");
         _goldText = _root.Q<Label>("GoldTracker");
         _wave = _root.Q<Label>("Wave");
 
-        _FIcon = _root.Q<VisualElement>("FKey");
+    _FIcon = _root.Q<VisualElement>("FKey");
         _ShopText = _root.Q<Label>("OpenShop");
         _FIcon.style.display = DisplayStyle.None;
         _ShopText.style.display = DisplayStyle.None;
@@ -70,6 +72,15 @@ public class HUD : MonoBehaviour
                 UpdateHealth(playerHealth.StartHealth, playerHealth.CurrentHealth);
                 // hook to monitor changes
                 playerHealth.OnHealthChanged += UpdateHealth;
+            }
+
+            SpecialPowerScript shield = player.GetComponent<SpecialPowerScript>();
+            if (shield)
+            {
+                // initialize
+                UpdateShield(shield.Duration, shield.Duration, 0, shield.Cooldown);
+                // hook to monitor changes
+                shield.OnShieldChange += UpdateShield;
             }
 
             UpdateSoulCoins(StaticVariablesManager.Instance.GetCoinAmount);
@@ -182,7 +193,29 @@ public class HUD : MonoBehaviour
         _healthbar.value = (currentHealth / startHealth) * 100.0f;
         _healthbar.title = string.Format("{0}/{1}", currentHealth, startHealth);
     }
-    
+
+    public void UpdateShield(float start, float current, float timer, float cooldown)
+    {
+        if (_shield == null) return;
+
+        // Clamp current to a minimum of 0
+        current = Mathf.Max(current, 0);
+
+        // Update the health bar value and title
+        _shield.value = (current / start) * 100.0f;
+        _shield.title = string.Format("{0}/{1}", current, start);
+
+        // Handle the timer logic for shield recharge
+        if (current == 0)
+        {
+            float restoredShield = (1 - (timer / cooldown)) * start;
+            restoredShield = Mathf.Min(restoredShield, start); // Clamp restored shield to a maximum of start
+            _shield.value = (restoredShield / start) * 100.0f;
+            _shield.title = string.Format("{0}/{1}", restoredShield, start);
+        }
+    }
+
+
     public void UpdateSoulCoins(int soulCoins)
     {
         if (_soulCoinsText == null) return;

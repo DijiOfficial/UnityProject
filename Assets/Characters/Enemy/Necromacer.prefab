@@ -2941,7 +2941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebaeb128dc4211545a94e2bca54f94c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 12
+  _startHealth: 20
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
   _explosion: {fileID: 0}
   _coinOrbTemplate: {fileID: 6057732072649453102, guid: 720be730371f26249af62ba1ec28e0ec,
@@ -3023,7 +3023,6 @@ MonoBehaviour:
   _maxSlopeAngle: 0
   _dashSpeed: 0
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
-  speed: 0
   _summonPrefab: {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6,
     type: 3}
   _meleeRange: 2
@@ -3046,7 +3045,7 @@ MonoBehaviour:
   - {fileID: 5543091247513349582, guid: f99b1268eece0bc42940fc8d366f862d, type: 3}
   - {fileID: 8019210724197383668, guid: efe28f3936d8a2c44b8796d6d54d82d6, type: 3}
   - {fileID: 7861449409261495836, guid: 8b161c40896d52e4798bc1a55cdd55e7, type: 3}
-  _summonCooldown: 30
+  _summonCooldown: 22
 --- !u!114 &5526638285180029597
 MonoBehaviour:
   m_ObjectHideFlags: 0

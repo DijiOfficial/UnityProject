@@ -337,7 +337,6 @@ MonoBehaviour:
   _maxSlopeAngle: 40
   _dashSpeed: 0
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
-  speed: 0
 --- !u!114 &5173259589440308902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cooldown: 15
-  _duration: 15
+  _duration: 10
   _specialDamageReduction: 0.5
   _specialPowerVFX: {fileID: 4075088976703180589, guid: 9aa3212ff649f3c408540253feeef8b7,
     type: 3}

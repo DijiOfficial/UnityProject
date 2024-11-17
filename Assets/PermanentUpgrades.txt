@@ -91,10 +91,10 @@
             "Acquired": false
         },
         {
-            "Title": "Unavailable",
-            "Bonus": "70000",
-            "Description": "Unavailable.",
-            "Acquired": true
+            "Title": "Ranged Killer",
+            "Bonus": "7",
+            "Description": "Your ranged attack now pierces your enemies dealing damage to everything in its path.",
+            "Acquired": false
         },
         {
             "Title": "Unavailable",

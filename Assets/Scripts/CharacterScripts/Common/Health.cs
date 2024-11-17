@@ -53,8 +53,13 @@ public class Health : MonoBehaviour
     {
         if (_isPlayer) return;
 
+        // Double the health for every level
+        int level = StaticVariablesManager.Instance.CurrentLevel - 1;
+        _startHealth *= (int)Mathf.Pow(2, level);
+        _currentHealth = _startHealth;
+
         var gameObject = transform.Find("HealthBarDisplay");
-        if (gameObject!=null)
+        if (gameObject != null)
             _healthBar = gameObject.gameObject;
         else
         {
@@ -71,6 +76,7 @@ public class Health : MonoBehaviour
             _healthBar.SetActive(false);
     }
 
+
     public void CallHealthChange()
     {
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
@@ -80,6 +86,10 @@ public class Health : MonoBehaviour
     {
         if (_isPlayer)
         {
+            int level = StaticVariablesManager.Instance.CurrentLevel - 1;
+            float damageMultiplier = Mathf.Pow(1.75f, level);
+            amount = (int)(amount * damageMultiplier);
+
             amount -= (int)(_tempPlayerInfo._fortifiedResolve * 5);
             amount = (int)(amount * (1 - _specialDamageReduction));
         }

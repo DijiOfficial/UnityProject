@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpecialPowerScript : MonoBehaviour
@@ -14,6 +15,10 @@ public class SpecialPowerScript : MonoBehaviour
     [Header("References")]
     [SerializeField] protected TempPlayerInfo _tempPlayerInfo;
 
+
+    public delegate void ShieldChange(float start, float current, float timer, float cooldown);
+    public event ShieldChange OnShieldChange;
+
     private float _timer;
     private float _durationTimer;
     private Health _health;
@@ -22,6 +27,10 @@ public class SpecialPowerScript : MonoBehaviour
     public float Duration { get { return _duration; } }
     public bool IsActivated { get { return _isActivated; } }
 
+    public float Cooldown
+    {
+        get { return _cooldown; }
+    } 
     private void Awake()
     {
         if (_tempPlayerInfo != null)
@@ -45,6 +54,7 @@ public class SpecialPowerScript : MonoBehaviour
         if (_timer > 0.0f)
             _timer -= Time.deltaTime;
 
+        OnShieldChange?.Invoke(_duration, _durationTimer, _timer, _cooldown); // yeah yeah it should be at the end
         if (!_isActivated) return;
      
         if (_durationTimer > 0.0f)

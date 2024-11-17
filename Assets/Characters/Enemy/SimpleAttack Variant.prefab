@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleAttack Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6548933261695160864, guid: ce4cbb031c63f3c45b6a7e336fa7c864,
+        type: 3}
+      propertyPath: _damage
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8877871592967064042, guid: ce4cbb031c63f3c45b6a7e336fa7c864,
         type: 3}
       propertyPath: m_LocalScale.x
