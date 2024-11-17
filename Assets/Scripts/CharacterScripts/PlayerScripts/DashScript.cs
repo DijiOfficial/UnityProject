@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DashScript : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onDash;
+
+
     [Header("References")]
     private Transform _orientation;
     //public Transform _playerCam;
@@ -73,6 +77,8 @@ public class DashScript : MonoBehaviour
         Invoke(nameof(DelayedDashForce), 0.025f);
 
         Invoke(nameof(ResetDash), _dashDuration);
+
+        _onDash?.Invoke();
     }
 
     private Vector3 _delayedForceToApply;

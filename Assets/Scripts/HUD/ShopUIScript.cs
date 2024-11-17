@@ -4,9 +4,12 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class ShopUIScript : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onBuy;
+
     private Button _closeButton;
     private TMP_Text _soulCoinsText = null;
     private GameObject _upgradePopUp;
@@ -170,6 +173,8 @@ public class ShopUIScript : MonoBehaviour
 
             // Write the updated upgrades to the file
             WriteUpgradesToFile();
+
+            _onBuy?.Invoke();
         }
     }
 

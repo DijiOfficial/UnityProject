@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class SlidingScript : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onSlide;
+
+
     [Header("References")]
     [SerializeField] private Transform _playerTransform;
     private Rigidbody _rigidbody;
@@ -46,6 +50,7 @@ public class SlidingScript : MonoBehaviour
         _slideTimer = _maxSlideTime;
         _canSlide = false;
         _slideCooldown = _SlideCooldownTotal + _maxSlideTime;
+        _onSlide?.Invoke();
     }
 
     private void SlidingMovement()

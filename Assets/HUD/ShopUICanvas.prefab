@@ -620,7 +620,6 @@ GameObject:
   - component: {fileID: 8663642959803062096}
   - component: {fileID: 4936009187193212973}
   - component: {fileID: 118611621643336023}
-  - component: {fileID: 8348675560547968094}
   m_Layer: 5
   m_Name: ShopUICanvas
   m_TagString: Untagged
@@ -716,18 +715,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8348675560547968094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155512371452566900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94021955f386ecb4ba40262dd85a949f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1234840715223706650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,9 +1040,8 @@ MonoBehaviour:
     and more recently with desktop publishing software like Aldus PageMaker including
     versions of Lorem Ipsum.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 398db2aa7937c5e43b0a01980bfbbb29, type: 2}
-  m_sharedMaterial: {fileID: 4339121338252066465, guid: 398db2aa7937c5e43b0a01980bfbbb29,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4125,9 +4111,8 @@ MonoBehaviour:
 
     test'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 398db2aa7937c5e43b0a01980bfbbb29, type: 2}
-  m_sharedMaterial: {fileID: 4339121338252066465, guid: 398db2aa7937c5e43b0a01980bfbbb29,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5301,9 +5286,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SHOP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 398db2aa7937c5e43b0a01980bfbbb29, type: 2}
-  m_sharedMaterial: {fileID: 4339121338252066465, guid: 398db2aa7937c5e43b0a01980bfbbb29,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5436,9 +5420,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loren Ipsu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 398db2aa7937c5e43b0a01980bfbbb29, type: 2}
-  m_sharedMaterial: {fileID: 4339121338252066465, guid: 398db2aa7937c5e43b0a01980bfbbb29,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5950,9 +5933,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 325
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 398db2aa7937c5e43b0a01980bfbbb29, type: 2}
-  m_sharedMaterial: {fileID: 4339121338252066465, guid: 398db2aa7937c5e43b0a01980bfbbb29,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

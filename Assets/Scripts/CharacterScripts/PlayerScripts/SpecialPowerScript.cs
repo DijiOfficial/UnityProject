@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpecialPowerScript : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onShieldStart;
+    [SerializeField] private UnityEvent _onShieldEnd;
+
+
     [Header("Cooldown")]
     [SerializeField] private float _cooldown;
     [SerializeField] private float _duration;
@@ -65,6 +70,8 @@ public class SpecialPowerScript : MonoBehaviour
             _health.SpecialDamageReduction = 0.0f;
             if(_tempPlayerInfo._detonationGuard)
                 Instantiate(_explosion, transform.position, Quaternion.identity);
+
+            _onShieldEnd?.Invoke();
         }
     }
 
@@ -82,6 +89,7 @@ public class SpecialPowerScript : MonoBehaviour
         // Instantiate the special power VFX as a child of the player
         GameObject vfxInstance = Instantiate(_specialPowerVFX, transform.position, Quaternion.identity);
         vfxInstance.transform.SetParent(transform);
+        _onShieldStart?.Invoke();
     }
 }
 

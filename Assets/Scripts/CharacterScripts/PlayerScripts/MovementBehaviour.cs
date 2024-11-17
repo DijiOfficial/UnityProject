@@ -4,9 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 //using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 public class MovementBehaviour : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onJump;
+    [SerializeField] private UnityEvent _onLanding;
+
+
     [Header("Movement")]
     [SerializeField] protected float _walkSpeed;
     [SerializeField] protected float _sprintSpeed;
@@ -113,7 +118,10 @@ public class MovementBehaviour : MonoBehaviour
 
         //just landed
         if (isInAir && _isGrounded)
+        {
             _rigidbody.velocity = new Vector3(0, 0, 0);
+            _onLanding?.Invoke();
+        }
 
         if (_isJumping)
         {
@@ -252,6 +260,8 @@ public class MovementBehaviour : MonoBehaviour
                 _rigidbody.AddForce(Vector3.up * _jumpStrength, ForceMode.Impulse);
 
             _jumpButtonBuffer = 0;
+
+            _onJump?.Invoke();
         }
         else
             _jumpButtonBuffer = _jumpButtonMaxBuffer;

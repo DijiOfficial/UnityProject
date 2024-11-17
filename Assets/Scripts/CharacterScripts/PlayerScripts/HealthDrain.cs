@@ -37,7 +37,7 @@ public class HealthDrain : MonoBehaviour
             return;
         }
 
-        _health.Damage(_drainingValue);
+        _health.Damage(_drainingValue, false, true);
         _drainRateTracker = _drainRate;
 
 

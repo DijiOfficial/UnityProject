@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthOrbBehaviour : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onCollide;
+    [SerializeField] protected AudioSource _audioSource;
+    [SerializeField] protected Renderer _renderer;
+    [SerializeField] protected Collider _collider;
+    [SerializeField] protected TrailRenderer _trailRenderer;
+
+
     [Header("Spawn Force")]
     [SerializeField] protected float _upwardStrength;
     [SerializeField] private float _hoverHeight = 100f;
@@ -88,13 +96,32 @@ public class HealthOrbBehaviour : MonoBehaviour
 
         if (other.name != "Player")
             return;
-
+        _onCollide?.Invoke();
         // Get the player’s health component and heal
         Health playerHealth = other.GetComponent<Health>();
         if (playerHealth != null)
         {
             playerHealth.Heal(_healingPower);
-            Destroy(gameObject); // Destroy the health orb after healing
+            // Disable the visual components and play the sound
+            if (_renderer != null) _renderer.enabled = false;
+            if (_collider != null) _collider.enabled = false;
+            if (_trailRenderer != null) _trailRenderer.enabled = false;
+
+            if (_audioSource != null)
+            {
+                StartCoroutine(DestroyAfterSound(_audioSource.clip.length));
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
+
+
+    }
+    private IEnumerator DestroyAfterSound(float clipLength)
+    {
+        yield return new WaitForSeconds(clipLength);
+        Destroy(gameObject);
     }
 }

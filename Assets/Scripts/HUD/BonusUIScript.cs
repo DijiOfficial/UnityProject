@@ -4,8 +4,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 public class BonusUIScript : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onBuy;
+
     private TMP_Text _soulCoinsText = null;
     private GameObject _upgradePopUp;
     private TMP_Text _titleLabel;
@@ -149,6 +152,8 @@ public class BonusUIScript : MonoBehaviour
 
         if (_tempPlayerInfo._goldCoins < bonusCost)
             return;
+
+        _onBuy?.Invoke();
 
         _tempPlayerInfo._goldCoins -= bonusCost;
         UpdateSoulCoins(_tempPlayerInfo._goldCoins);

@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int _defaultGoldDropChance = 5;
     [SerializeField] private int _numberOfOrbs;
     [SerializeField] private UnityEvent _onExplosion;
+    [SerializeField] private UnityEvent _onHit;
 
     private float _specialDamageReduction;
     private bool _isPlayer = false;
@@ -82,7 +83,7 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
     }
 
-    public void Damage(int amount, bool isCrit = false)
+    public void Damage(int amount, bool isCrit = false, bool isHealthDrain = false)
     {
         if (_isPlayer)
         {
@@ -111,6 +112,9 @@ public class Health : MonoBehaviour
             _onExplosion?.Invoke();
         }
 
+        if (!isHealthDrain)
+            _onHit?.Invoke();
+
         OnHealthChanged?.Invoke(_startHealth, _currentHealth);
         if (_currentHealth <= 0)
             Kill();
@@ -122,6 +126,7 @@ public class Health : MonoBehaviour
 
         if (_damageTextTemplate)
             ShowDamageText(amount, isCrit);
+
     }
 
     public void Heal(int amount)
