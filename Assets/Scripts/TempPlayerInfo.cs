@@ -54,7 +54,7 @@ public class TempPlayerInfo : ScriptableObject
     public bool _rangedKiller;
     public bool _reaperReward;
     public bool _shrapnelBurst;
-
+    public bool _isTutorialCompleted;
     public bool _hasRevived;
     public void AddBonus(int idx)
     {
@@ -156,7 +156,7 @@ public class TempPlayerInfo : ScriptableObject
         CustomReset();
         LoadPermanentUpgrades();
     }
-    private void LoadPermanentUpgrades()
+    public void LoadPermanentUpgrades()
     {
         string filePath = Path.Combine(Application.dataPath, "PermanentUpgrades.txt");
         if (!File.Exists(filePath))

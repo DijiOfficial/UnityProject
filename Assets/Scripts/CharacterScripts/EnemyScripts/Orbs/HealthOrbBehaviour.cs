@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class HealthOrbBehaviour : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _onCollide;
+    [SerializeField] private UnityEvent _onCollideEvent;
     [SerializeField] protected AudioSource _audioSource;
     [SerializeField] protected Renderer _renderer;
     [SerializeField] protected Collider _collider;
@@ -96,7 +96,7 @@ public class HealthOrbBehaviour : MonoBehaviour
 
         if (other.name != "Player")
             return;
-        _onCollide?.Invoke();
+        _onCollideEvent?.Invoke();
         // Get the player’s health component and heal
         Health playerHealth = other.GetComponent<Health>();
         if (playerHealth != null)

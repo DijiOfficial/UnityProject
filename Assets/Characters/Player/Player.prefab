@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 6575163799278213996}
   - component: {fileID: 949175582716289665}
   - component: {fileID: 4967102730618499638}
+  - component: {fileID: 6984077164429402932}
   m_Layer: 6
   m_Name: Player
   m_TagString: Friendly
@@ -574,7 +575,7 @@ MonoBehaviour:
   _weaponSocket: {fileID: 5962015600276728126}
   _AttackSockets:
   - {fileID: 1592901208935649595}
-  _fireRate: 0.85
+  _fireRate: 0.95
   _secondHitbox: {fileID: 2622517547045667865, guid: b7fd45837a25707478e96cb3570ebb34,
     type: 3}
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
@@ -1443,6 +1444,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6984077164429402932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208657950496684847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aaf0e6fe7bc1994692749a8292e1fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arrowPrefab: {fileID: 215260203278765314, guid: 55176b2c913f8ff4b83b5b946927957c,
+    type: 3}
 --- !u!1001 &6613901485553583622
 PrefabInstance:
   m_ObjectHideFlags: 0

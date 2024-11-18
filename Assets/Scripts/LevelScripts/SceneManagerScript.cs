@@ -15,11 +15,15 @@ public class SceneManagerScript : MonoBehaviour
             _onTeleportEvent?.Invoke();
 
             _tempPlayerInfo._health = other.GetComponent<Health>().CurrentHealth;
+
+            // Check if the current scene index is 0
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+                _tempPlayerInfo._isTutorialCompleted = true;
+
             if (StaticVariablesManager.Instance.CurrentLevel == 5 && sceneToLoad == "SandBoxScene")
                 SceneManager.LoadScene("BossRoom");
             else
                 SceneManager.LoadScene(sceneToLoad);
-
         }
     }
 }

@@ -13,7 +13,7 @@ public class ShopTempUpgrades : Shop
         _EscKeyPress = _inputAsset.FindActionMap("KeyBinds").FindAction("ESC");
 
         _upgradeShop = GameObject.Find("ShopUICanvas");
-        _isInShop = true;
+        CloseShop();
     }
 
     public override void CloseShop()

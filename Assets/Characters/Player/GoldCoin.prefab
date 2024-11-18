@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20424b99715f484d8ef0e28c84a0fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onCollide:
+  _onCollideEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2860747516494788170}
@@ -266,7 +266,7 @@ MonoBehaviour:
   _playerCenterOffset: 0.75
   _healingPower: 0
   _tempPlayerInfo: {fileID: 11400000, guid: bb5a62ffa4804e24fbfcc2998d25821c, type: 2}
-  _onCollide:
+  _onCollideAudioEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2860747516494788170}

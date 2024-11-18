@@ -4,7 +4,7 @@
             "Title": "Phoenix Heart",
             "Bonus": "7",
             "Description": "Revive once per run with full health, unleashing a shockwave that annihilates all enemies (except bosses) within a 10-meter radius.",
-            "Acquired": false
+            "Acquired": true
         },
         {
             "Title": "Soul Siphon",

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
+
 public class HUD : MonoBehaviour
 {
     private UIDocument _attachedDocument = null;
@@ -10,11 +12,11 @@ public class HUD : MonoBehaviour
     private ProgressBar _healthbar = null;
     private VisualElement __healthbarContainer = null;
 
-    private Label _soulCoinsText = null;
+    private TextMeshProUGUI _soulCoinsText = null;
+    private TextMeshProUGUI _coinText = null;
     private Label _speedText = null;
     private Label _rangeAttackCounter = null;
 
-    private Label _goldText = null;
     private Label _wave = null;
 
     private Label _comboText = null;
@@ -31,7 +33,7 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //UI
+        // UI
         _attachedDocument = GetComponent<UIDocument>();
         if (_attachedDocument)
         {
@@ -39,32 +41,33 @@ public class HUD : MonoBehaviour
         }
 
         if (_root == null) return;
-        _healthbar = _root.Q<ProgressBar>("PlayerHealthBar"); //this will find the first progressbar in the hud, for now as there is only one, that is fine, if we need to be more specific we could pass along a string parameter to define the name of the element.
+        _healthbar = _root.Q<ProgressBar>("PlayerHealthBar"); // this will find the first progressbar in the hud, for now as there is only one, that is fine, if we need to be more specific we could pass along a string parameter to define the name of the element.
         var healthbarContainer = _healthbar.Q(className: "unity-progress-bar__background");
         healthbarContainer.style.backgroundColor = Color.black;
         __healthbarContainer = _healthbar.Q(className: "unity-progress-bar__progress");
         __healthbarContainer.style.backgroundColor = Color.green;
 
-        _soulCoinsText = _root.Q<Label>("CoinTrackerText");
         _speedText = _root.Q<Label>("Speed");
         _comboText = _root.Q<Label>("Combo");
         _comboBar = _root.Q<ProgressBar>("ComboBar");
         _rangeAttackCounter = _root.Q<Label>("RangeAttackCounter");
         _dashBar = _root.Q<ProgressBar>("DashBar");
         _shield = _root.Q<ProgressBar>("ShieldBar");
-        _goldText = _root.Q<Label>("GoldTracker");
         _wave = _root.Q<Label>("Wave");
 
-    _FIcon = _root.Q<VisualElement>("FKey");
+        _FIcon = _root.Q<VisualElement>("FKey");
         _ShopText = _root.Q<Label>("OpenShop");
         _FIcon.style.display = DisplayStyle.None;
         _ShopText.style.display = DisplayStyle.None;
         _shop = FindObjectOfType<Shop>();
 
+        // Find the Canvas elements
+        _soulCoinsText = GameObject.Find("SoulText").GetComponent<TextMeshProUGUI>();
+        _coinText = GameObject.Find("CoinText").GetComponent<TextMeshProUGUI>();
+
         PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
         if (player != null)
         {
-
             Health playerHealth = player.GetComponent<Health>();
             if (playerHealth)
             {
@@ -92,12 +95,10 @@ public class HUD : MonoBehaviour
             UpdateEnemies(StaticVariablesManager.Instance.EnemyCount);
             StaticVariablesManager.Instance.OnEnemyChange += UpdateEnemies;
 
-
             ComboScript comboScript = player.GetComponent<ComboScript>();
             if (comboScript)
             {
-                UpdateCombo(0,0,0);
-
+                UpdateCombo(0, 0, 0);
                 comboScript.OnComboChange += UpdateCombo;
             }
 
@@ -108,7 +109,6 @@ public class HUD : MonoBehaviour
             if (dashScript)
             {
                 UpdateDash(0, 0);
-
                 dashScript.OnDashChange += UpdateDash;
             }
 
@@ -179,7 +179,6 @@ public class HUD : MonoBehaviour
 
         _speedText.text = enemies > 0 ? "Enemies: " + enemies.ToString() : string.Empty;
         _speedText.style.display = enemies > 0 ? DisplayStyle.Flex : DisplayStyle.None;
-
     }
 
     public void UpdateHealth(float startHealth, float currentHealth)
@@ -215,7 +214,6 @@ public class HUD : MonoBehaviour
         }
     }
 
-
     public void UpdateSoulCoins(int soulCoins)
     {
         if (_soulCoinsText == null) return;
@@ -225,9 +223,9 @@ public class HUD : MonoBehaviour
 
     public void UpdateGold(int gold)
     {
-        if (_goldText == null) return;
+        if (_coinText == null) return;
 
-        _goldText.text = gold.ToString();
+        _coinText.text = gold.ToString();
     }
 
     public void UpdateWave(int wave)
@@ -237,5 +235,3 @@ public class HUD : MonoBehaviour
         _wave.text = "Room " + wave;
     }
 }
-
-

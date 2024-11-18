@@ -7,7 +7,7 @@ public class AudioSourceEvent : UnityEvent<AudioSource> { }
 
 public class UpgradeOrbScript : HealthOrbBehaviour
 {
-    [SerializeField] private AudioSourceEvent _onCollide;
+    [SerializeField] private AudioSourceEvent _onCollideAudioEvent;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -18,7 +18,7 @@ public class UpgradeOrbScript : HealthOrbBehaviour
         if (other.name != "Player")
             return;
 
-        _onCollide?.Invoke(_audioSource);
+        _onCollideAudioEvent?.Invoke(_audioSource);
         _tempPlayerInfo._goldCoins += 1;
 
         /// Disable the visual components and play the sound

@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class ShopUIScript : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onBuy;
+    [SerializeField] private TempPlayerInfo _tempplayerInfo;
 
     private Button _closeButton;
     private TMP_Text _soulCoinsText = null;
@@ -173,6 +174,9 @@ public class ShopUIScript : MonoBehaviour
 
             // Write the updated upgrades to the file
             WriteUpgradesToFile();
+
+            // Reload the TempPlayerInfo persistent file
+            _tempplayerInfo.LoadPermanentUpgrades();
 
             _onBuy?.Invoke();
         }
