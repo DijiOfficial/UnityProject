@@ -23,97 +23,116 @@ The Camera is First Person with no exceptions.
 
 #### Character
 
-You play as a once-powerful warrior, resurrected from the grave and cursed by the undead powers of the [Grave King](#final-boss). Trapped in an endless cycle of death, your goal is to defeat the Grave King and reclaim your soul.
+You play as a once-powerful warrior, resurrected from the grave and cursed by the undead powers of the [Grave King](#grave-king). Trapped in an endless cycle of death, your goal is to defeat the [Grave King](#grave-king) and reclaim your soul.
 
-However, the Grave King continuously leeches your life force from the moment you set foot in his crypt, creating a fast-paced and deadly race for survival. Armed with your most trusted weapon, you set out to break his curse once and for all.
+However, the [Grave King](#grave-king) continuously leeches your life force from the moment you set foot in his crypt, creating a fast-paced and deadly race for survival. Armed with your most trusted weapon, you set out to break his curse once and for all.
 
 #### Controls
 
-WASD to move / SPACEBAR (C) to jump/crouch-slide / MOUSE to look around / LEFT/RIGHT CLICK for attack and special (attack/power)/ E for special action and Q for special power
+| Key/Control       | Action                       |  
+|-------------------|------------------------------|  
+| **W, A, S, D**    | Move                         |  
+| **SPACEBAR (C)**  | Jump / Crouch-Slide          |  
+| **Mouse**         | Look Around                  |  
+| **Left Click**    | Attack                       |  
+| **Right Click**   | Special Attack / Power       |  
+| **E**             | Special Action               |  
+| **Q**             | Special Power                |  
 
 ### <ins>Objectives</ins>
 
 #### Goal
 
-1. A roguelike experience
-    - The player travels from room to room beating waves of enemies and bosses to reach the [Grave King]() and end the curse.
-    - Three types of upgrades are available to the player.
-        1. Permanent, bought with the souls of your enemies.
-        2. Temporary, bought with coins. Resets after each run.
-        3. Temporary, acquired through levels. Resets after each run.
-    - Random aspect of the roguelike present through the temporary upgrades, room generation and enemy spawns.
-2. Fast Paced Action
-    - Life drain mechanic in combination with the healing system forces the player to constantly fight to keep up its health.
-    - Combo system to heal faster and deal more damage to keep engagement in fights.
-    - Some ranged enemies will run away from the player to create the illusion of being the predator.
-    - Upgrades will also include movement upgrades.
-    - Momentum can be used as a weapon allowing the player to rush into waves of enemies dealing AOE or concentrated damage
+1. A Roguelike Experience
+    - Players travel from room to room, defeating waves of enemies and bosses to ultimately face the [Grave King](#grave-king) and lift the curse.
+    - Three Types of [Upgrades](#upgrades):
+        - Permanent: Purchased using the souls of your enemies, these [upgrades](#upgrades) carry over between runs.
+        - Temporary (Coin-Based): Bought with coins and reset after each run.
+        - Temporary (Level-Based): Acquired during gameplay and reset after each run.
+    - The roguelike randomness is evident in the procedurally generated room layouts, [enemy](#enemies) spawns, and temporary [upgrades](#upgrades).
+2. Fast-Paced Action
+    - The life drain mechanic, combined with the healing system, forces players to stay engaged in combat to maintain their health.
+    - A combo system rewards players with faster healing and increased damage, encouraging aggressive gameplay.
+    - Ranged enemies will strategically retreat, creating a dynamic where the player feels like the predator.
+    - [Upgrades](#upgrades) include movement enhancements, allowing for faster and more fluid traversal.
+    - Momentum as a Weapon: Players can harness their movement to deliver area-of-effect (AOE) or concentrated damage by rushing into waves of enemies.
 
 #### Failure
 
-Failure is part of the Roguelike experience, fighting through the levels will allow the player to unlock Permanent upgrades, discovering new collectibles and items to render the player stronger each time. 
-The player dies or loses the current run when its health reaches zero and no resurection powers are available.
+Failure is an integral part of the roguelike experience. Progressing through [levels](#levels) enables the player to unlock permanent [upgrades](#upgrades), discover new [collectibles](#collectibles), and acquire items that make them stronger with each run.
+
+A run ends when the player's health reaches zero, and no resurrection powers are available.
 
 ### <ins>Features</ins>
 
 #### Safe Heaven
 
-The hub, one of my favorite area in any game. The accumulation of your progression can be found here. Connecting the player to everything the game as to offer it is the interactive menu of the game.
-NPC, collectibles, weapons, tutorials, customization. This area serves as a transition before starting to the game allowing for fast, efficient and interacive, for the player to upgrades and get back straight into action!
+The hub is one of my favorite areas in any game. It serves as the central point where the accumulation of your progression is showcased. Connecting the player to everything the game has to offer, it functions as an interactive menu, blending immersion with utility.
 
-This HUB will contain:
-1. Shop
-2. Arena
-3. NPC
-4. Collection
-5. Access to the level
+From NPC's and collectibles to weapons, tutorials, and customization, this area provides a seamless transition before diving into the action. It's designed for fast, efficient, and interactive access, enabling players to upgrade and jump straight back into the fray.
+
+The Hub Will Include:
+1. [Shop](#shop): Purchase upgrades.
+2. [Arena](#arena): Practice combat skills and test new upgrades as well enter the endless fight mode.
+3. [NPC's](#npc's): Interact with characters for story progression, lore, side quests and rewards.
+4. [Collection](#collectibles): View collectibles and track achievements.
+5. [Access to Level](#level-access): Begin your journey.
 
 ##### Shop
 
-The shop contains permanent upgrades, permanent upgrades are kept once bought. These upgrades make the player stronger. they are bought using the souls of your enemies, theses souls are randomly dropped by enemies and bosses.
+The shop offers permanent [upgrades](#upgrades), which remain unlocked once purchased. These [upgrades](#upgrades) enhance the player's abilities, making them stronger over time.
+
+[Upgrades](#upgrades) are purchased using the souls of your enemies. These souls are dropped randomly by enemies and bosses.
 
 ##### Arena
 
-The arena serves two purposes, first as a simple enemy to test combos and damage on a punching bag for the player. 
-As well as the ability to enter an endless mode where enemies constantly spawn there is no other goal than to survive as long as possible. 
-Allows the player to practice combos, equipment and overall mechanics.
+The arena serves two main purposes:
+
+1. Combat Practice: It acts as a simple space where players can test combos, damage output, and experiment with new moves on a "punching bag" enemy.
+2. Endless Mode: Players can enter an endless mode where enemies spawn continuously. The goal is simply to survive for as long as possible.
+
+The arena provides a space for the player to practice combos, test different equipment, and refine their overall gameplay mechanics.
 
 ##### NPC's 
 
-npc's are discovered by playing through the game, saving them will relocate them to the hub where they will provide additional lore information as well as permanent upgrades and help for the following runs.
-They can provide sidequest/ side Objectives. completing them may further the npc's story and provide the player with rewards
+NPC's are discovered as the player progresses through the game. By saving them, they are relocated to the hub, where they offer additional lore, permanent upgrades, and assistance for future runs.
+
+NPC's can also provide side quests or side objectives. Completing these tasks may advance the NPC's story and reward the player with valuable items or upgrades.
 
 ##### Collectibles
 
-Collectibles for the player to collect, they can provide lore descriptions and/or bonuses. They can be collected in some areas or by doing different challenges.
+Collectibles are scattered throughout the game, offering players the chance to uncover lore descriptions and gain bonuses. They can be found in various areas or obtained by completing specific challenges.
+
+Additionally, some collectibles can be acquired through the completion of achievements, which can also be tracked in the Collection.
 
 ##### Level Access
 
-Simple and efficient way to get into the game, Interactive way to get to play and select the difficulty.
+A simple and efficient way to dive into the game, with an interactive method for selecting the difficulty and starting your adventure.
 
 #### Levels
 
-Levels will be Square-ish Rooms with Random Obstacles.
-- Static Room Layouts with Dynamic Obstacles: While the room shapes themselves are fixed, obstacles, traps, and enemy placements are randomized with each level.
-- Environmental Hazards: Some rooms feature traps or cursed zones that accelerate health drain, forcing players to either avoid them or move quickly to stay alive. 
-- Shrines can slow the curse temporarily but may be hard to reach or in difficult to navigate/ dangerous zones, requiring strategic choices.
-- Randomized Enemy Encounters: Each room features randomly generated enemies that become progressively stronger the deeper you go into the crypt. Enemies may also steal your life force, further complicating combat as the health drain accelerates.
-- Clearing a level will spawn a summoning circle in the center of the room allowing the player to move to the next room
-- Every X room will contain a random boss with special ability/characteristics, defeating them will offer the player a new ability like double jump, dash, temporary flight etc...
-- After X room you find the Grave King and can end him there to win
-- Different obstacles to provide cover. some can be destroyed.
+**Levels** will consist of square-ish rooms with random obstacles and features:
+- **Static Room Layouts with Dynamic Obstacles**: The room shapes themselves remain fixed, but the obstacles, traps, and enemy placements are randomized each time you enter.
+- **Environmental Hazards**: Certain rooms contain traps or cursed zones that accelerate health drain. Players must either avoid these areas or act quickly to survive.
+- **Shrines**: Some shrines can temporarily slow the curse, but they may be hard to reach or located in dangerous areas, requiring strategic decision-making.
+- **Randomized Enemy Encounters**: Each room contains randomly generated enemies that grow stronger as you progress deeper into the crypt. Some enemies may even steal your life force, complicating combat as the health drain intensifies.
+- **Level Completion**: Upon clearing a level, a summoning circle will appear in the center of the room, allowing you to move on to the next.
+- **Boss Battles**: Every few rooms, you will face a random boss with special abilities and characteristics. Defeating them rewards you with new temporary ability.
+- **Final Encounter**: After a set number of rooms, you will encounter the [Grave King](#grave-king) and can defeat him to win the game.
+- **Obstacles for Cover**: Various obstacles can provide cover, and some can be destroyed to create new tactical opportunities.
+
 
 #### Obstacles and Hazards
 
-- Tombstones/Pillars to provide cover from ranged attacks (may be destructible)
-- Spiked Ground/Wall traps to deal damage and knocback the player
-- Coffins to provide cover, may also serve a spawners
-- Cursed Shrines that accelerate the life drain of the player 
-- Holy Lantern shining lights/ or throwing balls of light damaging anyone it touches
-- Decomposing enemies serving as Red Barrels
-- Life shrines healing everyone in the area
-- Teleporation circles allowing the player to quickly teleport within the room to avoid being overwhelmed
-- Shrines to provide temporary bonuses at the cost of difficult challenges
+- **Tombstones/Pillars**: Provide cover from ranged attacks; may be destructible.
+- **Spiked Ground/Wall Traps**: Deal damage and knock back the player.
+- **Coffins**: Serve as cover, and may also act as spawners for enemies.
+- **Cursed Shrines**: Accelerate the player's life drain, adding additional risk.
+- **Holy Lanterns**: Emit damaging light beams or throw balls of light that harm anyone they touch.
+- **Decomposing Enemies**: Function like red barrels, exploding when hit or triggered.
+- **Life Shrines**: Heal everyone within their vicinity, aiding both enemies and the player.
+- **Teleportation Circles**: Allow the player to quickly teleport within the room, helping avoid being overwhelmed.
+- **Shrines of Temporary Bonuses**: Grant powerful, temporary bonuses at the cost of difficult challenges.
 
 #### Enemies
 
@@ -129,85 +148,156 @@ Levels will be Square-ish Rooms with Random Obstacles.
 Possibilty of adding Elite Enemies?
 
 #### Bosses
-- Bone Golem is Massive with large health pool but slow, can slam the ground to stun the Player (JUMP to avoid). Can't be stunned or knocked back. Can summon bone spike from summoning circles to immobilize player and deal low damage. Every 1/8th of health will become 1/8th smaller and take 1/8th more damage but will also spawn Skeletons with 1/8th original boss health health and 1/8th total resistance (can respawn after X seconds)
 
-- Unknown warrior -> Has all the same abilities attacks and afflictions of the player (without Temporary upgrades included)
+- **Bone Golem**:  
+  A massive, high-health enemy that moves slowly. It can slam the ground to stun the player (jump to avoid). The Bone Golem cannot be stunned or knocked back. It can summon bone spikes from summoning circles to immobilize the player and deal low damage.  
+  - As it loses health (every 1/8th of its total health), the Bone Golem shrinks in size and takes 1/8th more damage. It also spawns skeletons with 1/8th of the boss's original health and resistance.
 
-- The Leech -> Can cast ranged attack spells and summon enemies. Cooldown ability to teleport, High health and medium speed. Can cast Very high damage Spells but incantation is very slow. On 1/3rd health will enter rage mode becoming faster and more dangerous also creating decoys, spawning a last wave of enemies and inspiring them giving them faster/higher damage.
+- **Unknown Warrior**:  
+  This enemy mirrors the player's abilities, attacks, and afflictions (excluding temporary upgrades).
 
-- Grave King has 3 phases <a id="final-boss"></a>
-    1. Summons, The more summons the lower the health drain power, will attack player from range but can also try a grab attack on melee to steal players health and curse the player making it impossible to recover the lost health.
-    2. 50% health: Switches to Life stealing spells, summoning but can now also teleport. (Minions are important for healing player)
-    3. 25% health: Stops moving and Concentrates on life stealing aura, life Steal is now at maximum, keep summoning but now cast hold/freezing/slowing spells
+- **The Leech**:  
+  A ranged spellcaster with the ability to summon enemies. The Leech has a cooldown-based teleportation ability, high health, and medium speed. It can cast very high-damage spells, though the incantation takes time to cast.  
+  - When it reaches 1/3rd of its health, it enters a rage mode, becoming faster and more dangerous. It also creates decoys, spawns a final wave of enemies, and inspires them, increasing their speed and damage output.
+
+- **Grave King** (<a id="grave-king"></a>):  
+  The Grave King has three distinct phases:  
+  1. **Phase 1 (100% Health)**: The Grave King summons enemies. The more summons he creates, the lower the health drain power. He attacks from range but can also attempt a grab attack to steal the player's health and curse them, making it impossible to recover the lost health.  
+  2. **Phase 2 (50% Health)**: The Grave King switches to life-stealing spells and summoning, gaining the ability to teleport. Minions become essential for the player's healing.  
+  3. **Phase 3 (25% Health)**: The Grave King stops moving and focuses on a life-stealing aura, which reaches its maximum power. He continues summoning enemies while now casting hold, freezing, and slowing spells to hinder the player.
 
 ### <ins>Mechanics</ins>
 
-- Clearing a level will spawn a summoning circle in the center of the room allowing the player to move to the next room
-    - Levels are cleared by killing all enemies spawned
-- Enemy will scale with how many rooms you have cleared. New enemies and stronger enemies appear at later stages.
-- Bosses will give special abilities upon defeat (Depending on which Mini Boss is Fought), Bone Golem will give player the ability to summon minions with 1/8th player health
-- Grave King Endlessly life steals the player through the whole game, the more you progress the faster the life leeching becomes
-- Health Recovery Through Combat
-    - Life-Stealing Combat: Killing enemies restores health through their life essence. The amount of health recovered scales with enemy type, smaller enemies provide smaller health
-    - Kill-Chaining Bonus: The faster you kill enemies in succession, the more health you recover. Killing enemies in rapid sequence grants a health recovery multiplier, encouraging fast and efficient combat. The succession kills can have a Doom like GLORY KILL, upon reaching the maximum succession kill you perform a glory kill and leech the complete life form of your enemy giving you back full health.
-- Enemies will randomly drop Soul Fragments and/or can be obtained by completing a Chain kill, upon performing the Glory kill you'll receive a Soul Shard.
-- Enemies will randomly drop coins to allow the player to buy temporary upgrades. 
-- Player will gain xp whilst fighting allowing special temporary upgrades during each run
-- Potential for different kinds of gameplay Melee/Ranged/ Mixed
-- Permanent Upgrades can be bought at the Shop
-- Temporary upgrades can be chosen between each level during the teleportation sequence, those can be abilities or simple upgrades making your character stronger for the current run
-- Player starts with Sword and Dash (any direction and cooldown), fast, medium damage. Can buy Axe, Medium Speed, high damage, can hit more enemies. Can also Buy Hammer, Slow, high damage, can knockback enemies and stop spell casting.
-- On every 3-4 hits, Sword deals double damage. Axe Deals bigger AOE, Hammer Slam temporary stun nearby enemies.
-- Special Attacks (cooldown):
-    - Sword Dash -> Dash forward and deal damage
-    - Axe Throw -> throw your axe like boomerang to deal damage
-    - Hammer Rage -> Swing your hammer frantically dealing massive damage around you but you when over stunned for X seconds.
-- Special power 
-    - Shield that temporarily blocks damage
-- Momentum can be used to deal AOE damage or focused damaged with the addition of knocback
-- Killing enemies will offers 1 combo, stacking combo up to 10 will allow for a glory kill refilling the player's health. the higher the combo the higher the damage and health received
+- **Clearing a Level**:  
+  - Clearing a level will spawn a summoning circle in the center of the room, allowing the player to move to the next room.  
+  - Levels are cleared by killing all enemies that spawn.
+
+- **Enemy Scaling**:  
+  - Enemies scale with how many rooms the player has cleared. New and stronger enemies will appear at later stages.
+
+- **Boss Rewards**:  
+  - Defeating bosses grants the player special abilities based on which mini-boss was fought. For example, the Bone Golem will give the player the ability to summon minions with 1/8th of the player’s health.
+
+- **Grave King Life Steal**:  
+  - The Grave King endlessly life steals from the player throughout the game. The more the player progresses, the faster the life leeching becomes.
+
+- **Health Recovery Through Combat**:  
+  - **Life-Stealing Combat**: Killing enemies restores health through their life essence. The amount of health recovered scales with enemy type—smaller enemies provide less health.  
+  - **Kill-Chaining Bonus**: Killing enemies in rapid succession grants a health recovery multiplier, encouraging fast and efficient combat.  
+  - **Glory Kill**: Upon reaching the maximum kill chain, the player performs a glory kill and leeches the complete life essence of the enemy, restoring full health.
+
+- **Soul Fragments and Soul Shards**:  
+  - Enemies drop Soul Fragments randomly, which can be used for upgrades.  
+  - Performing a Glory Kill grants a Soul Shard.
+
+- **Coins**:  
+  - Enemies will randomly drop coins, allowing the player to buy temporary upgrades.
+
+- **XP and Temporary Upgrades**:  
+  - The player gains XP while fighting, unlocking temporary upgrades that can be used during each run.
+
+- **Gameplay Variability**:  
+  - The game offers different kinds of gameplay styles: Melee, Ranged, or Mixed.
+
+- **Upgrades**:  
+  - **Permanent Upgrades**: These can be bought at the Shop using Soul Fragments.  
+  - **Temporary Upgrades**: Chosen between each level during the teleportation sequence. These can be abilities or simple upgrades that make the character stronger for the current run.
+
+- **Weapons and Abilities**:  
+  - The player starts with a Sword and Dash (medium speed, medium damage, cooldown).  
+  - Additional weapons can be bought:  
+    - **Axe**: Medium speed, high damage, hits multiple enemies.  
+    - **Hammer**: Slow speed, high damage, knocks back enemies and stops spell casting.
+
+- **Weapon Special Effects**:  
+  - **Sword**: Deals double damage every 3-4 hits.  
+  - **Axe**: Deals a bigger AOE attack.  
+  - **Hammer**: Slam attack temporarily stuns nearby enemies.
+
+- **Special Attacks** (Cooldown):  
+  - **Sword Dash**: Dash forward and deal damage.  
+  - **Axe Throw**: Throw the axe like a boomerang to deal damage.  
+  - **Hammer Rage**: Swing the hammer frantically to deal massive damage around the player, but leaves them stunned for a short time.
+
+- **Special Power**:  
+  - **Shield**: Temporarily blocks incoming damage.
+
+- **Momentum**:  
+  - Momentum can be used to deal AOE damage or focused damage, adding knockback effects.
+
+- **Combo System**:  
+  - Killing enemies adds 1 combo point.  
+  - A combo can stack up to 10.  
+  - At maximum combo, the player can perform a Glory Kill to refill health. The higher the combo, the more damage and health the player receives.
 
 ### Upgrades
 (upgrades will be listed soon)
 
 ## Cut Content
 
-As said previously we only had about a month to complete this assignment as well as learn Unity and C#, not forgetting the other classes. Due to this time constraint and the the project being a solo project, some of the ideas and content didn't make it in the final product.
+As mentioned previously, we only had about a month to complete this assignment, learn [Unity](https://assetstore.unity.com) and C#. Due to this time constraint and the project being a solo effort, some of the ideas and content didn't make it into the final product.
+
 This includes:
 - Leveling up and their upgrades
-- Random Room generation, as we were not allowed any form of random generation.
-    - regardless of the random generation constraint, most obstacles were cut as well:
+- Random room generation, as we were not allowed any form of random generation.
+    - Despite the random generation constraint, most obstacles were also cut:
         - Pillars are not destructible
-        - Spiked Ground/Wall traps
+        - Spiked ground/wall traps
         - Coffins
-        - Cursed Shrines  
-        - Holy Lanterns
+        - Cursed shrines
+        - Holy lanterns
         - Decomposing enemies
         - Life shrines
-        - Teleporation circles
+        - Teleportation circles
         - Shrines
-- Bosses:
+
+- **Bosses**:
     - Bone Golem
-    - Unknown warrior 
+    - Unknown Warrior
     - The Leech
-    - Grave King can be reached. However it's currently a glorified Skeleton
-- The Arena, Only the punching bag was added
-- NPC's were all cut with their sidequests and rewards
-- Collectibles
-- The Wraith and Elite enemies
-- Only the Necromancer's ability was implemented
-- Life leeching does not get stronger the further the level
-- The glory kill was implemented, but does not have teh desired visuals with it
-- Ranged/Mixed gameplay
-- Axe and Hammer
-- Weapon bonus, sword slash, axe slash and hammer slam
-- Special Attack
-- Momentum was not implemented as a weapon
+    - Grave King can be reached, but it's currently just a glorified skeleton.
+
+- **The Arena**:
+    - Only the punching bag was added.
+
+- **NPCs**:
+    - All NPCs were cut along with their side quests and rewards.
+
+- **Collectibles**:
+    - These were removed from the final product.
+
+- **The Wraith and Elite Enemies**:
+    - These enemies were also removed.
+
+- **Only the Necromancer's ability**:
+    - Was implemented.
+
+- **Life Leeching**:
+    - Does not get stronger the further you progress in the level.
+
+- **Glory Kill**:
+    - Implemented, but does not have the desired visuals.
+
+- **Ranged/Mixed Gameplay**:
+    - Not implemented.
+
+- **Axe and Hammer**:
+    - Were not added to the game.
+
+- **Weapon Bonuses**:
+    - Sword slash, axe slash, and hammer slam were not implemented.
+
+- **Special Attack**:
+    - Not implemented.
+
+- **Momentum as a Weapon**:
+    - Not implemented.
+
 
 ### Future Updates
 
 I will not work on this project any more than I currently have. However, given a proper production I would like to revisit this game with more and improved content. Not limited to the cut content either.
-I enjoyed working on this project, but the unity engine and more specifically its physics system is not what I want for the game. This prototype serves as such, a prototype for if I wish to make a complete game out of this.
+I enjoyed working on this project, but the Unity engine and more specifically its physics system is not what I want for the game. This prototype serves as such, a prototype for if I wish to make a complete game out of this.
 
 ## Sources
 
