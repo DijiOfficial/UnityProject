@@ -1,6 +1,6 @@
 # Unity Roguelike Game
 
-## Introduction
+## <ins>Introdcution</ins>
 
 This game made with Unity is a school project made entirely by myself as part of a course to learn the Unity engine. All the free assets used are linked at the bottom in the [Sources](#sources) section. 
 Given two random words we were tasked to complete a prototype of a game as well as learn the Unity Engine within a month.
@@ -47,7 +47,7 @@ WASD to move / SPACEBAR (C) to jump/crouch-slide / MOUSE to look around / LEFT/R
 Failure is part of the Roguelike experience, fighting through the levels will allow the player to unlock Permanent upgrades, discovering new collectibles and items to render the player stronger each time. 
 The player dies or loses the current run when its health reaches zero and no resurection powers are available.
 
-### Mechanics and Features
+### Features
 
 #### Safe Heaven
 
@@ -133,8 +133,21 @@ Possibilty of adding Elite Enemies?
     2. 50% health: Switches to Life stealing spells, summoning but can now also teleport. (Minions are important for healing player)
     3. 25% health: Stops moving and Concentrates on life stealing aura, life Steal is now at maximum, keep summoning but now cast hold/freezing/slowing spells
 
-### Motivations
-Roguelike is one of my favorite genre of games...
+### Mechanics
+- Clearing a level will spawn a summoning circle in the center of the room allowing the player
+to move to the next room
+- Enemy will scale with how many rooms you have cleared(new enemies appear at later stages)
+- Mini Boss will give special abilities upon defeat (Depending on which Mini Boss is Fought),
+Bone Golem will give player the ability to summon minions with 1/8th player health
+- Grave King Endlessly life steals the player through the whole game
+- Health Recovery Through Combat
+- Life-Stealing Combat: Killing enemies restores health through their life essence. The
+amount of health recovered scales with enemy type, smaller enemies provide smaller health
+- Kill-Chaining Bonus: The faster you kill enemies in succession, the more health you
+recover. Killing enemies in rapid sequence grants a health recovery multiplier, encouraging fast
+and efficient combat. The succession kills can have a Doom like GLORY KILL, upon reaching the
+maximum succession kill you perform a glory kill and leech the complete life form of your
+enemy giving you back full health.
 
 ### Final result
 ![quick gif of the project in effect](https://github.com/DijiOfficial/WaveFunctionCollapse/blob/master/WaveFunctionCollapse/Assets/Project1Demo.gif)
