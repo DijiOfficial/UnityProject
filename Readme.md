@@ -4,7 +4,7 @@ You can play the latest playable version [here](https://github.com/DijiOfficial/
 
 Watch A Gameplay Demo here: 
 
-[https://github.com/DijiOfficial/UnityProject/blob/main/Media/2DAE10_Burgisser_Dylan_Unity_GameplayRecording.mp4](https://github.com/DijiOfficial/UnityProject/blob/main/Media/GameplayVideo.mp4)
+https://github.com/DijiOfficial/UnityProject/blob/main/Media/GameplayVideo.mp4
 
 ## <ins>Introduction</ins>
 
