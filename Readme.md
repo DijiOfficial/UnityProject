@@ -2,6 +2,8 @@
 
 You can play the latest playable version [here](https://github.com/DijiOfficial/UnityProject/releases/tag/v1.8)
 
+Watch A Gameplay Demo here: https://github.com/DijiOfficial/UnityProject/blob/main/Media/2DAE10_Burgisser_Dylan_Unity_GameplayRecording.mp4
+
 ## <ins>Introduction</ins>
 
 This game, created using [Unity](https://assetstore.unity.com), is a school project I developed entirely by myself as part of a course to learn the [Unity engine](https://assetstore.unity.com). All the free assets used are credited and linked at the bottom in the [Sources](#sources) section.
