@@ -98,15 +98,15 @@ Levels will be Square-ish Rooms with Random Obstacles.
 
 #### Obstacles and Hazards
 
-1. Tombstones/Pillars to provide cover from ranged attacks (may be destructible)
-2. Spiked Ground/Wall traps to deal damage and knocback the player
-3. Coffins to provide cover, may also serve a spawners
-4. Cursed Shrines that accelerate the life drain of the player 
-5. Holy Lantern shining lights/ or throwing balls of light damaging anyone it touches
-6. Decomposing enemies serving as Red Barrels
-7. Life shrines healing everyone in the area
-8. Teleporation circles allowing the player to quickly teleport within the room to avoid being overwhelmed
-9. Shrines to provide temporary bonuses at the cost of difficult challenges
+- Tombstones/Pillars to provide cover from ranged attacks (may be destructible)
+- Spiked Ground/Wall traps to deal damage and knocback the player
+- Coffins to provide cover, may also serve a spawners
+- Cursed Shrines that accelerate the life drain of the player 
+- Holy Lantern shining lights/ or throwing balls of light damaging anyone it touches
+- Decomposing enemies serving as Red Barrels
+- Life shrines healing everyone in the area
+- Teleporation circles allowing the player to quickly teleport within the room to avoid being overwhelmed
+- Shrines to provide temporary bonuses at the cost of difficult challenges
 
 #### Enemies
 
@@ -120,6 +120,18 @@ Levels will be Square-ish Rooms with Random Obstacles.
 | Others? | ... | ... | ... | ... | ... | ... |
 
 Possibilty of adding Elite Enemies?
+
+#### Bosses
+- Bone Golem is Massive with large health pool but slow, can slam the ground to stun the Player (JUMP to avoid). Can't be stunned or knocked back. Can summon bone spike from summoning circles to immobilize player and deal low damage. Every 1/8th of health will become 1/8th smaller and take 1/8th more damage but will also spawn Skeletons with 1/8th original boss health health and 1/8th total resistance (can respawn after X seconds)
+
+- Unknown warrior -> Has all the same abilities attacks and afflictions of the player (without Temporary upgrades included)
+
+- The Leech -> Can cast ranged attack spells and summon enemies. Cooldown ability to teleport, High health and medium speed. Can cast Very high damage Spells but incantation is very slow. On 1/3rd health will enter rage mode becoming faster and more dangerous also creating decoys, spawning a last wave of enemies and inspiring them giving them faster/higher damage.
+
+- Grave King has 3 phases
+    1. Summons, The more summons the lower the health drain power, will attack player from range but can also try a grab attack on melee to steal players health and curse the player making it impossible to recover the lost health.
+    2. 50% health: Switches to Life stealing spells, summoning but can now also teleport. (Minions are important for healing player)
+    3. 25% health: Stops moving and Concentrates on life stealing aura, life Steal is now at maximum, keep summoning but now cast hold/freezing/slowing spells
 
 ### Motivations
 Roguelike is one of my favorite genre of games...
