@@ -4,7 +4,7 @@ You can play the latest playable version [here](https://github.com/DijiOfficial/
 
 Watch A Gameplay Demo here: 
 
-https://github.com/DijiOfficial/UnityProject/blob/main/Media/GameplayVideo.mp4
+https://github.com/user-attachments/assets/3b7a5002-d367-4467-99d2-f5e2e1c7c936
 
 ## <ins>Introduction</ins>
 
