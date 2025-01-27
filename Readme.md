@@ -162,7 +162,7 @@ Possibilty of adding Elite Enemies?
   A ranged spellcaster with the ability to summon enemies. The Leech has a cooldown-based teleportation ability, high health, and medium speed. It can cast very high-damage spells, though the incantation takes time to cast.  
   - When it reaches 1/3rd of its health, it enters a rage mode, becoming faster and more dangerous. It also creates decoys, spawns a final wave of enemies, and inspires them, increasing their speed and damage output.
 
-- **Grave King** (<a id="grave-king"></a>):  
+- **Grave King** <a id="grave-king"></a>:  
   The Grave King has three distinct phases:  
   1. **Phase 1 (100% Health)**: The Grave King summons enemies. The more summons he creates, the lower the health drain power. He attacks from range but can also attempt a grab attack to steal the player's health and curse them, making it impossible to recover the lost health.  
   2. **Phase 2 (50% Health)**: The Grave King switches to life-stealing spells and summoning, gaining the ability to teleport. Minions become essential for the player's healing.  
