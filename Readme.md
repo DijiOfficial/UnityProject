@@ -2,12 +2,16 @@
 
 ## <ins>Introduction</ins>
 
-This game made with Unity is a school project made entirely by myself as part of a course to learn the Unity engine. All the free assets used are linked at the bottom in the [Sources](#sources) section. 
-Given two random words we were tasked to complete a prototype of a game as well as learn the Unity Engine within a month.
-My words being "Endless" and "Grave", I decided to make a First Person Roguelike, Fast Paced Action, Shooter if the time allowed it. 
-The use of the Endless key word was used for a constant life draining mechanic. The life drain would be Endless and part of the story with some exceptions that will be talked about later. This mechanic would allow me to force the action to be fast and constant as the life drain would inevitably kill the player if left unchecked.
-As for the Grave key word, I decided to use it as a story directive. Plunging the character into Crypt like rooms with Grave like [Enemies](#enemies).
-Below will provide more details of the game, all the info is the initial draft for the prototype. Read about the content that didn't make it in the [Cut Content](section)
+This game, created using [Unity](https://assetstore.unity.com), is a school project I developed entirely by myself as part of a course to learn the [Unity engine](https://assetstore.unity.com). All the free assets used are credited and linked at the bottom in the [Sources](#sources) section.
+
+As part of the project, we were given two random words and tasked with completing a game prototype while learning the Unity Engine within a month.
+My assigned words were "**Endless**" and "**Grave**", which inspired me to design a First-Person Roguelike, Fast-Paced Action Shooter, time permitting.
+
+The "**Endless**" keyword is represented by a constant life-draining mechanic. This mechanic is integral to both the gameplay and story, with a few exceptions. The endless life drain forces the gameplay to be fast-paced and relentless, as the player will inevitably die if they remain idle or passive.
+
+The "**Grave**" keyword serves as a narrative and environmental theme, placing the player in crypt-like rooms filled with grave-inspired enemies.
+
+The following [section](#game-draft) provide more details about the game. Note that all information is part of the initial draft for the prototype. For details on features that didn't make it into the final version, see the [Cut Content](#cut-content) section.
 
 ## <ins>Game Draft</ins>
 
@@ -19,8 +23,9 @@ The Camera is First Person with no exceptions.
 
 #### Character
 
-You play as a once-powerful warrior who has risen from the grave, cursed by the undead powers of the [Grave King](). You are trapped in an endless cycle of death, striving to defeat the Grave King and reclaim your soul. 
-However, the Grave King leeches your life force from the moment you set foot in his crypt, creating a fast-paced and deadly race to survive. Armed with your best weapon you set out to end his curse.
+You play as a once-powerful warrior, resurrected from the grave and cursed by the undead powers of the [Grave King](#final-boss). Trapped in an endless cycle of death, your goal is to defeat the Grave King and reclaim your soul.
+
+However, the Grave King continuously leeches your life force from the moment you set foot in his crypt, creating a fast-paced and deadly race for survival. Armed with your most trusted weapon, you set out to break his curse once and for all.
 
 #### Controls
 
@@ -130,7 +135,7 @@ Possibilty of adding Elite Enemies?
 
 - The Leech -> Can cast ranged attack spells and summon enemies. Cooldown ability to teleport, High health and medium speed. Can cast Very high damage Spells but incantation is very slow. On 1/3rd health will enter rage mode becoming faster and more dangerous also creating decoys, spawning a last wave of enemies and inspiring them giving them faster/higher damage.
 
-- Grave King has 3 phases
+- Grave King has 3 phases <a id="final-boss"></a>
     1. Summons, The more summons the lower the health drain power, will attack player from range but can also try a grab attack on melee to steal players health and curse the player making it impossible to recover the lost health.
     2. 50% health: Switches to Life stealing spells, summoning but can now also teleport. (Minions are important for healing player)
     3. 25% health: Stops moving and Concentrates on life stealing aura, life Steal is now at maximum, keep summoning but now cast hold/freezing/slowing spells
@@ -206,9 +211,27 @@ I enjoyed working on this project, but the unity engine and more specifically it
 
 ## Sources
 
-- [https://github.com/CodingQuest2023/Algorithms](https://github.com/CodingQuest2023/Algorithms)
-- [https://www.youtube.com/watch?v=qRtrj6Pua2A&](https://www.youtube.com/watch?v=qRtrj6Pua2A&)
-- [https://www.youtube.com/watch?v=2SuvO4Gi7uY&](https://www.youtube.com/watch?v=2SuvO4Gi7uY&)
-- [https://gamedev.stackexchange.com/questions/201794/how-fast-or-scalable-is-wave-function-collapse](https://gamedev.stackexchange.com/questions/201794/how-fast-or-scalable-is-wave-function-collapse)
-- [https://github.com/mxgmn/WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse)
-- [https://www.youtube.com/watch?v=AdCgi9E90jw&t](https://www.youtube.com/watch?v=AdCgi9E90jw&t)
+These are the free assets I used from the [Unity](https://assetstore.unity.com) [Asset Store](https://assetstore.unity.com).
+They are not sorted in any particular order, duplicate tags are different links.
+
+- [Physics lerping](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+- [Dungeon](https://assetstore.unity.com/packages/3d/environments/dungeons/ultimate-low-poly-dungeon-143535)
+- [Dungeon](https://assetstore.unity.com/packages/3d/environments/dungeons/low-poly-dungeons-lite-177937)
+- [Dungeon](https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692)
+- [Dungeon](https://assetstore.unity.com/packages/3d/environments/low-poly-medieval-market-262473)
+- [Gold Assets](https://assetstore.unity.com/packages/3d/props/coin-treasure-bundle-with-animation-3d-250070)
+- [Player](https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/modular-fantasy-knight-character-276754)
+- [Zombie](https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232)
+- [Necromancer](https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/necromancer-army-ghoul-283690)
+- [Vampire](https://assetstore.unity.com/packages/3d/characters/vampire-1-236808)
+- [Skeleton](https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-skeleton-35463)
+- [Weapons](https://assetstore.unity.com/packages/3d/props/weapons/free-low-poly-fantasy-rpg-weapons-248405)
+- [Weapons](https://assetstore.unity.com/packages/3d/props/weapons/low-poly-rpg-fantasy-weapons-lite-226554)
+- [Effects](https://assetstore.unity.com/packages/vfx/particles/spells/magic-effects-free-247933)
+- [Effects](https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-remaster-free-109565)
+- [HUD](https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811)
+- [Icons](https://assetstore.unity.com/packages/2d/gui/icons/game-input-controller-icons-free-285953)
+- [Icons](https://assetstore.unity.com/packages/2d/gui/dark-brown-gui-kit-201086)
+
+
+Should I have missed some reference, feel free to let me know.
