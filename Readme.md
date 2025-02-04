@@ -237,7 +237,8 @@ Possibilty of adding Elite Enemies?
   - At maximum combo, the player can perform a Glory Kill to refill health. The higher the combo, the more damage and health the player receives.
 
 ### Upgrades
-(upgrades will be listed soon)
+
+The list of temporary and permanent upgrades is rather large and out of scope for this Readme. You can find a more detailed explanation on the implemented permanent upgrades [here](https://github.com/DijiOfficial/UnityProject/blob/main/Assets/PermanentUpgrades.txt)
 
 ## Cut Content
 
